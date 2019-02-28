@@ -312,8 +312,8 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME c/COMPANY_NAME</code><br>
-e.g. <code>add n/Paracetamol c/3M Pharmaceuticals</code></p>
+<p><strong>Add</strong> <code>add n/NAME c/COMPANY_NAME [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>add n/Paracetamol c/3M Pharmaceuticals t/Popular</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
@@ -323,8 +323,8 @@ e.g. <code>add n/Paracetamol c/3M Pharmaceuticals</code></p>
 e.g. <code>delete 3</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [c/COMPANY_NAME]</code><br>
-e.g. <code>edit 2 n/James Lee [c/GlaxoSmithKline]</code></p>
+<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [c/COMPANY_NAME] [t/TAG]&#8230;&#8203;</code><br>
+e.g. `edit 2 n/Amoxicillin c/GlaxoSmithKline t/SlowMoving'</p>
 </li>
 <li>
 <p><strong>Exit</strong> : <code>exit</code></p>
@@ -334,12 +334,8 @@ e.g. <code>edit 2 n/James Lee [c/GlaxoSmithKline]</code></p>
 e.g. export Records</p>
 </li>
 <li>
-<p><strong>Filter</strong> : <code>filter CRITERIA</code><br>
-e.g. <code>filter expiring</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find paracetamol ibuprofen</code></p>
+<p><strong>Find</strong> : <code>find CRITERIA [MORE_CRITERIA]&#8230;&#8203;</code><br>
+e.g. <code>find n/paracetamol c/3M</code></p>
 </li>
 <li>
 <p><strong>Help</strong> : <code>help</code></p>
@@ -373,7 +369,7 @@ e.g.<code>sort c/quantity o/ascending</code></p>
 </li>
 <li>
 <p><strong>Update</strong> : <code>update INDEX b/BATCH_NUMBER q/QUANTITY [e/EXPIRY_DATE]</code><br>
-e.g.<code>update 2 b/s9c4x9532 q/1000 e/11/2/2020</code></p>
+e.g.<code>update 2 b/A030F21 q/1000 e/25/1/2020</code></p>
 </li>
 <li>
 <p><strong>Warning</strong> : <code>warning [e/EXPIRY_THRESHOLD] [s/LOWSTOCK_THRESHOLD]</code><br>
@@ -384,13 +380,13 @@ e.g. <code>warning e/20 s/10</code></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="address-book-mode-commands-summary-code-coming-in-v2-0-code"><a class="link" href="#address-book-mode-commands-summary-code-coming-in-v2-0-code">Address book Mode Commands Summary <code>[coming in v2.0]</code></a></h2>
+<h2 id="address-book-mode-commands-summary-code-coming-in-v2-0-code"><a class="link" href="#address-book-mode-commands-summary-code-coming-in-v2-0-code">Address Book Mode Commands Summary <code>[coming in v2.0]</code></a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS</code><br>
-e.g. <code>add n/GlaxoSmithKline p/22224444 e/jamesho@gsk.com a/123, Clementi Rd, 1234665</code></p>
+<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>add n/GlaxoSmithKline p/22224444 e/jamesho@gsk.com a/123, Clementi Rd, 1234665 + t/3weeksLeadTime</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
@@ -400,14 +396,14 @@ e.g. <code>add n/GlaxoSmithKline p/22224444 e/jamesho@gsk.com a/123, Clementi Rd
 e.g. <code>delete 3</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS]</code><br>
-e.g. <code>edit 2 n/Pfizer [e/jameslee@pfizer.com]</code></p>
+<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>edit 2 n/Pfizer e/jameslee@pfizer.com</code></p>
 </li>
 <li>
 <p><strong>Exit</strong> : <code>exit</code></p>
 </li>
 <li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
+<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code><br>
 e.g. <code>find Pfizer 3M</code></p>
 </li>
 <li>
@@ -761,4 +757,4 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-02-27 12:04:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-02-28 08:57:27 UTC</div></div></div></body></html>
