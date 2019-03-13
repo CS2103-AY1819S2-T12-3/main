@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>MediTabs v2.0 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>MediTabs - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>MediTabs v2.0 - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>MediTabs - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team T12-3</code>      Since: <code>Feb 2019</code>      Licence: <code>MIT</code></p>
@@ -11,55 +11,32 @@
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
 <li><a href="#quick-start">2. Quick Start</a></li>
-<li><a href="#Features">3. Features</a></li>
-<li><a href="#medicine-inventory-mode-features">4. Medicine Inventory Mode Features</a>
+<li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-new-medicine-code-add-code">4.2. Adding a new medicine : <code>add</code></a></li>
-<li><a href="#listing-all-medicines-code-list-code">4.3. Listing all medicines : <code>list</code></a></li>
-<li><a href="#sorting-the-list-code-sort-code">4.4. Sorting the list : <code>sort</code></a></li>
-<li><a href="#locating-medicines-code-find-code">4.5. Locating medicines : <code>find</code></a></li>
-<li><a href="#editing-a-medicine-code-edit-code">4.6. Editing a medicine : <code>edit</code></a></li>
-<li><a href="#deleting-a-medicine-code-delete-code">4.7. Deleting a medicine : <code>delete</code></a></li>
-<li><a href="#viewing-medicine-information-page-code-select-code">4.8. Viewing medicine information page : <code>select</code></a></li>
-<li><a href="#updating-batch-records-code-update-code">4.9. Updating batch records : <code>update</code></a></li>
-<li><a href="#managing-warnings-panel-code-warning-code">4.10. Managing warnings panel : <code>warning</code></a></li>
-<li><a href="#exporting-as-csv-file-format-code-export-code">4.11. Exporting as CSV file format : <code>export</code></a></li>
-<li><a href="#printing-labels-code-label-code">4.12. Printing labels : <code>label</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">4.13. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">4.14. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">4.15. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">4.16. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#changing-to-address-book-mode-code-mode-code-code-coming-in-v2-0-code">4.17. Changing to Address Book Mode : <code>mode</code> <code>[coming in v2.0]</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">4.18. Exiting the program : <code>exit</code></a></li>
-<li><a href="#suggested-medicine-names-code-coming-in-v2-0-code">4.19. Suggested medicine names <code>[coming in v2.0]</code></a></li>
-<li><a href="#saving-the-data">4.20. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.21. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
+<li><a href="#adding-a-new-medicine-code-add-code">3.2. Adding a new medicine : <code>add</code></a></li>
+<li><a href="#listing-all-medicines-code-list-code">3.3. Listing all medicines : <code>list</code></a></li>
+<li><a href="#locating-medicines-code-find-code">3.4. Locating medicines : <code>find</code></a></li>
+<li><a href="#editing-a-medicine-code-edit-code">3.5. Editing a medicine : <code>edit</code></a></li>
+<li><a href="#deleting-a-medicine-code-delete-code">3.6. Deleting a medicine : <code>delete</code></a></li>
+<li><a href="#viewing-medicine-information-page-code-select-code">3.7. Viewing medicine information page : <code>select</code></a></li>
+<li><a href="#updating-batch-records-code-update-code">3.8. Updating batch records : <code>update</code></a></li>
+<li><a href="#managing-warnings-panel-code-warning-code">3.9. Managing warnings panel : <code>warning</code></a></li>
+<li><a href="#exporting-as-csv-file-format-code-export-code">3.10. Exporting as CSV file format : <code>export</code></a></li>
+<li><a href="#printing-labels-code-label-code">3.11. Printing labels : <code>label</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.12. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.13. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.14. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.15. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></li>
+<li><a href="#suggested-medicine-names-code-coming-in-v2-0-code">3.17. Suggested medicine names <code>[coming in v2.0]</code></a></li>
+<li><a href="#saving-the-data">3.18. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.19. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
-<li><a href="#address-book-mode-features-code-coming-in-v2-0-code">5. Address Book Mode Features <code>[coming in v2.0]</code></a>
-<ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code-2">5.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-company-code-add-code">5.2. Adding a company : <code>add</code></a></li>
-<li><a href="#listing-all-companies-code-list-code">5.3. Listing all companies : <code>list</code></a></li>
-<li><a href="#editing-a-company-code-edit-code">5.4. Editing a company : <code>edit</code></a></li>
-<li><a href="#locating-companies-by-name-code-find-code">5.5. Locating companies by name : <code>find</code></a></li>
-<li><a href="#deleting-a-company-code-delete-code">5.6. Deleting a company : <code>delete</code></a></li>
-<li><a href="#viewing-company-google-search-page-code-select-code">5.7. Viewing company Google search page : <code>select</code></a></li>
-<li><a href="#mailing-a-company-code-mailto-code">5.8. Mailing a company : <code>mailto</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code-2">5.9. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code-2">5.10. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code-2">5.11. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code-2">5.12. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code-2">5.13. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data-2">5.14. Saving the data</a></li>
-<li><a href="#encrypting-data-files">5.15. Encrypting data files</a></li>
-</ul>
-</li>
-<li><a href="#faq">6. FAQ</a></li>
-<li><a href="#medicine-inventory-mode-commands-summary">7. Medicine Inventory Mode Commands Summary</a></li>
-<li><a href="#address-book-mode-commands-summary-code-coming-in-v2-0-code">8. Address Book Mode Commands Summary <code>[coming in v2.0]</code></a></li>
-<li><a href="#keyboard-shortcuts-code-coming-in-v2-0-code">9. Keyboard Shortcuts <code>[coming in v2.0]</code></a></li>
+<li><a href="#faq">4. FAQ</a></li>
+<li><a href="#commands-summary">5. Commands Summary</a></li>
+<li><a href="#keyboard-shortcuts-code-coming-in-v2-0-code">6. Keyboard Shortcuts <code>[coming in v2.0]</code></a></li>
 </ul>
 </div>
 </div>
@@ -127,30 +104,6 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Operating Mode</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>MediTabs v2.0 has 2 operating modes: Medicine Inventory Mode and Address Book Mode.</p>
-</li>
-<li>
-<p>Medicine Inventory Mode is used to view and manage medicine stock. Refer to <a href="#medicine-inventory-mode-features">Section 4, &#8220;Medicine Inventory Mode Features&#8221;</a> for features in this mode.</p>
-</li>
-<li>
-<p>Address Book Mode is used to view and manage company contacts. Refer to <a href="#address-book-mode-features-code-coming-in-v2-0-code">Section 5, &#8220;Address Book Mode Features <code>[coming in v2.0]</code>&#8221;</a> for features in this mode.</p>
-</li>
-<li>
-<p>The mode you are currently on is displayed at the bottom of the application window.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UserGuide_OperatingMode.png" alt="UserGuide OperatingMode" width="790">
-</div>
-</div>
-<div class="paragraph">
 <p><strong>Warnings Panel</strong></p>
 </div>
 <div class="ulist">
@@ -177,10 +130,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong>List:</strong> This refers to the currently displayed list (possibly filtered).</p>
 </li>
 <li>
-<p><strong>Inventory:</strong> This refers to the storage containing all medicines that have been added. Display all medicines in the inventory by using the <code>list</code> command in Medicine Inventory Mode.</p>
+<p><strong>Inventory:</strong> This refers to the storage containing all medicines that have been added. Display all medicines in the inventory by using the <code>list</code> command.</p>
 </li>
 <li>
-<p><strong>Batch:</strong> This refers to medicine with the same name, medical properties and manufacturing date. There may be more than one batch of medicine with the same name, but they will have different batch numbers and manufacturing dates. View all batches of a medicine by using the <code>select</code> command in Medicine Inventory Mode.</p>
+<p><strong>Batch:</strong> This refers to medicine with the same name, medical properties and manufacturing date. There may be more than one batch of medicine with the same name, but they will have different batch numbers and manufacturing dates. View all batches of a medicine by using the <code>select</code> command.</p>
 </li>
 </ul>
 </div>
@@ -207,19 +160,14 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="medicine-inventory-mode-features"><a class="link" href="#medicine-inventory-mode-features">4. Medicine Inventory Mode Features</a></h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></h3>
+<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
 <p>Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-new-medicine-code-add-code"><a class="link" href="#adding-a-new-medicine-code-add-code">4.2. Adding a new medicine : <code>add</code></a></h3>
+<h3 id="adding-a-new-medicine-code-add-code"><a class="link" href="#adding-a-new-medicine-code-add-code">3.2. Adding a new medicine : <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds a new medicine to the inventory.<br>
 Format: <code>add n/NAME c/COMPANY_NAME [t/TAG]…​</code></p>
@@ -239,7 +187,7 @@ Format: <code>add n/NAME c/COMPANY_NAME [t/TAG]…​</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-medicines-code-list-code"><a class="link" href="#listing-all-medicines-code-list-code">4.3. Listing all medicines : <code>list</code></a></h3>
+<h3 id="listing-all-medicines-code-list-code"><a class="link" href="#listing-all-medicines-code-list-code">3.3. Listing all medicines : <code>list</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all medicine in the inventory.<br>
 Format: <code>list</code></p>
@@ -257,92 +205,26 @@ Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-the-list-code-sort-code"><a class="link" href="#sorting-the-list-code-sort-code">4.4. Sorting the list : <code>sort</code></a></h3>
+<h3 id="locating-medicines-code-find-code"><a class="link" href="#locating-medicines-code-find-code">3.4. Locating medicines : <code>find</code></a></h3>
 <div class="paragraph">
-<p>Sort the list based on certain criteria.<br>
-Format: <code>sort c/CRITERIA o/ORDER</code></p>
-</div>
-<div class="paragraph">
-<p>List of possible CRITERIA:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Quantity : <code>quantity</code><br></p>
-</li>
-<li>
-<p>Expiry Date : <code>expiry</code><br></p>
-</li>
-<li>
-<p>Name : <code>name</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>List of possible ORDER:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Ascending : <code>ascending</code><br></p>
-</li>
-<li>
-<p>Descending : <code>descending</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>sort c/quantity o/ascending</code><br>
-Displays list of all medicine in ascending order of quantity.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="locating-medicines-code-find-code"><a class="link" href="#locating-medicines-code-find-code">4.5. Locating medicines : <code>find</code></a></h3>
-<div class="paragraph">
-<p>Finds all medicines that match the given criteria and displays them in the list.<br>
-Format: <code>find CRITERIA [MORE_CRITERIA]&#8230;&#8203;</code></p>
-</div>
-<div class="paragraph">
-<p>List of possible criteria:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Low stock: <code>low</code></p>
-</li>
-<li>
-<p>Expiring: <code>expiring</code></p>
-</li>
-<li>
-<p>Name: <code>n/NAME_KEYWORD</code></p>
-</li>
-<li>
-<p>Company: <code>c/COMPANY_KEYWORD</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>&#160;</p>
+<p>Finds medicine whose names contain any of the given keywords and displays them in the list.<br>
+Format: <code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Searches with keywords are case insensitive. e.g <code>n/sodium</code> will match <code>Sodium</code></p>
+<p>The search is case insensitive. e.g <code>n/sodium</code> will match <code>Sodium</code></p>
 </li>
 <li>
 <p>The order of the keywords does not matter. e.g. <code>n/Sodium n/Levothyroxine</code> will match <code>Levothyroxine Sodium</code></p>
 </li>
 <li>
-<p>Only full words will be matched e.g. <code>c/Sci</code> will not match <code>Sciences</code></p>
+<p>Only the name is searched.</p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>c/Sod</code> will not match <code>Sodium</code></p>
 </li>
 <li>
 <p>Medicines matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>n/Sodium n/Ibuprofen</code> will return <code>Levothyroxine Sodium</code>, <code>Ibuprofen</code></p>
@@ -357,10 +239,6 @@ Format: <code>find CRITERIA [MORE_CRITERIA]&#8230;&#8203;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find low</code><br>
-Displays list of all medicines that are low in stock.</p>
-</li>
-<li>
 <p><code>find n/Sodium</code><br>
 Returns <code>Levothyroxine Sodium</code> and <code>Naproxen Sodium</code>.</p>
 </li>
@@ -372,7 +250,7 @@ Returns any medicine having names <code>Amoxicillin</code> or <code>Gabapentin</
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-medicine-code-edit-code"><a class="link" href="#editing-a-medicine-code-edit-code">4.6. Editing a medicine : <code>edit</code></a></h3>
+<h3 id="editing-a-medicine-code-edit-code"><a class="link" href="#editing-a-medicine-code-edit-code">3.5. Editing a medicine : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing medicine in the inventory.<br>
 Format: <code>edit INDEX [n/NAME] [c/COMPANY_NAME] [t/TAG]&#8230;&#8203;</code></p>
@@ -419,7 +297,7 @@ Remove tags from the 1st medicine in the results of the <code>find</code> comman
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-medicine-code-delete-code"><a class="link" href="#deleting-a-medicine-code-delete-code">4.7. Deleting a medicine : <code>delete</code></a></h3>
+<h3 id="deleting-a-medicine-code-delete-code"><a class="link" href="#deleting-a-medicine-code-delete-code">3.6. Deleting a medicine : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified medicine from the inventory.<br>
 Format: <code>delete INDEX</code></p>
@@ -460,7 +338,7 @@ Deletes the 1st medicine in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-medicine-information-page-code-select-code"><a class="link" href="#viewing-medicine-information-page-code-select-code">4.8. Viewing medicine information page : <code>select</code></a></h3>
+<h3 id="viewing-medicine-information-page-code-select-code"><a class="link" href="#viewing-medicine-information-page-code-select-code">3.7. Viewing medicine information page : <code>select</code></a></h3>
 <div class="paragraph">
 <p>Selects a medicine and loads the information page of the medicine.<br>
 Format: <code>select INDEX</code></p>
@@ -507,7 +385,7 @@ Selects the 1st medicine in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="updating-batch-records-code-update-code"><a class="link" href="#updating-batch-records-code-update-code">4.9. Updating batch records : <code>update</code></a></h3>
+<h3 id="updating-batch-records-code-update-code"><a class="link" href="#updating-batch-records-code-update-code">3.8. Updating batch records : <code>update</code></a></h3>
 <div class="paragraph">
 <p>Updates details of a batch of medicine.<br>
 Format: <code>update INDEX b/BATCH_NUMBER q/QUANTITY [e/EXPIRY_DATE]</code></p>
@@ -560,7 +438,7 @@ Updates quantity of batch <code>8937v1x7</code> in batch records of the 1st medi
 </div>
 </div>
 <div class="sect2">
-<h3 id="managing-warnings-panel-code-warning-code"><a class="link" href="#managing-warnings-panel-code-warning-code">4.10. Managing warnings panel : <code>warning</code></a></h3>
+<h3 id="managing-warnings-panel-code-warning-code"><a class="link" href="#managing-warnings-panel-code-warning-code">3.9. Managing warnings panel : <code>warning</code></a></h3>
 <div class="paragraph">
 <p>Manage the threshold for expiry date and low stock warnings.<br>
 Format: <code>warning [e/EXPIRY_THRESHOLD] [s/LOWSTOCK_THRESHOLD]</code></p>
@@ -599,7 +477,7 @@ Low stock warning will be triggered when quantity remaining is less than or equa
 </div>
 </div>
 <div class="sect2">
-<h3 id="exporting-as-csv-file-format-code-export-code"><a class="link" href="#exporting-as-csv-file-format-code-export-code">4.11. Exporting as CSV file format : <code>export</code></a></h3>
+<h3 id="exporting-as-csv-file-format-code-export-code"><a class="link" href="#exporting-as-csv-file-format-code-export-code">3.10. Exporting as CSV file format : <code>export</code></a></h3>
 <div class="paragraph">
 <p>Exports the current list shown into CSV file format.<br>
 Format: <code>export [FILE_NAME]</code></p>
@@ -632,7 +510,7 @@ Export the current list shown in the GUI to a CSV file which has a default file 
 </div>
 </div>
 <div class="sect2">
-<h3 id="printing-labels-code-label-code"><a class="link" href="#printing-labels-code-label-code">4.12. Printing labels : <code>label</code></a></h3>
+<h3 id="printing-labels-code-label-code"><a class="link" href="#printing-labels-code-label-code">3.11. Printing labels : <code>label</code></a></h3>
 <div class="paragraph">
 <p>Outputs label to a PDF file. Label will include name of medicine and standard label template.<br>
 Format: <code>label INDEX [FILE_NAME]</code></p>
@@ -676,7 +554,7 @@ Outputs label PDF file for 1st medicine in the results of the <code>find</code> 
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">4.13. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.12. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -697,7 +575,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">4.14. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.13. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the inventory to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -742,7 +620,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">4.15. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.14. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -774,28 +652,21 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">4.16. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.15. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the inventory.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="changing-to-address-book-mode-code-mode-code-code-coming-in-v2-0-code"><a class="link" href="#changing-to-address-book-mode-code-mode-code-code-coming-in-v2-0-code">4.17. Changing to Address Book Mode : <code>mode</code> <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p>Changes operating mode to Address Book Mode.<br>
-Format: <code>mode</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.18. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="suggested-medicine-names-code-coming-in-v2-0-code"><a class="link" href="#suggested-medicine-names-code-coming-in-v2-0-code">4.19. Suggested medicine names <code>[coming in v2.0]</code></a></h3>
+<h3 id="suggested-medicine-names-code-coming-in-v2-0-code"><a class="link" href="#suggested-medicine-names-code-coming-in-v2-0-code">3.17. Suggested medicine names <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>When typing fields that include medicine name, a list of suggested medicine names will appear after you input the first letter.<br></p>
 </div>
@@ -815,14 +686,14 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.20. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.18. Saving the data</a></h3>
 <div class="paragraph">
 <p>Inventory data is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">4.21. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.19. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -830,385 +701,16 @@ There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="address-book-mode-features-code-coming-in-v2-0-code"><a class="link" href="#address-book-mode-features-code-coming-in-v2-0-code">5. Address Book Mode Features <code>[coming in v2.0]</code></a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="viewing-help-code-help-code-2"><a class="link" href="#viewing-help-code-help-code-2">5.1. Viewing help : <code>help</code></a></h3>
-<div class="paragraph">
-<p>Format: <code>help</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-a-company-code-add-code"><a class="link" href="#adding-a-company-code-add-code">5.2. Adding a company : <code>add</code></a></h3>
-<div class="paragraph">
-<p>Adds a company to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add n/3M Pharmaceuticals p/67661584 e/johnd@example.com a/John street, block 123, #01-01 t/3weeksLeadTime</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-all-companies-code-list-code"><a class="link" href="#listing-all-companies-code-list-code">5.3. Listing all companies : <code>list</code></a></h3>
-<div class="paragraph">
-<p>Shows a list of all companies in the address book.<br>
-Format: <code>list</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The details of the company shown in the list include: name, phone number, email, address and tags.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-a-company-code-edit-code"><a class="link" href="#editing-a-company-code-edit-code">5.4. Editing a company : <code>edit</code></a></h3>
-<div class="paragraph">
-<p>Edits an existing company in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the company at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed company list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit 1 p/61234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st company to be <code>61234567</code> and <code>johndoe@example.com</code> respectively.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="locating-companies-by-name-code-find-code"><a class="link" href="#locating-companies-by-name-code-find-code">5.5. Locating companies by name : <code>find</code></a></h3>
-<div class="paragraph">
-<p>Finds companies whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive. e.g <code>pfizer</code> will match <code>Pfizer</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>Sciences Gilead</code> will match <code>Gilead Sciences</code></p>
-</li>
-<li>
-<p>Only the name is searched.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Pfiz</code> will not match <code>Pfizer</code></p>
-</li>
-<li>
-<p>Companies matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Pharmaceuticals</code> will return <code>3M Pharmaceuticals</code>, <code>Acadia Pharmaceuticals</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find Pharmaceuticals</code><br>
-Returns <code>Acadia Pharmaceuticals</code> and <code>3M Pharmaceuticals</code></p>
-</li>
-<li>
-<p><code>find Sciences Co. Industries</code><br>
-Returns any company having names <code>Sciences</code>, <code>Co.</code>, or <code>Industries</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-company-code-delete-code"><a class="link" href="#deleting-a-company-code-delete-code">5.6. Deleting a company : <code>delete</code></a></h3>
-<div class="paragraph">
-<p>Deletes the specified company from the address book.<br>
-Format: <code>delete INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the company at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed company list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd company in the address book.</p>
-</li>
-<li>
-<p><code>find Pharmaceuticals</code><br>
-<code>delete 1</code><br>
-Deletes the 1st company in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="viewing-company-google-search-page-code-select-code"><a class="link" href="#viewing-company-google-search-page-code-select-code">5.7. Viewing company Google search page : <code>select</code></a></h3>
-<div class="paragraph">
-<p>Selects the company and loads the Google search page of the company.<br>
-Format: <code>select INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Loads the Google search page the company at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed company list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>select 2</code><br>
-Selects the 2nd company in the address book.</p>
-</li>
-<li>
-<p><code>find Pharmaceuticals</code><br>
-<code>select 1</code><br>
-Selects the 1st company in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="mailing-a-company-code-mailto-code"><a class="link" href="#mailing-a-company-code-mailto-code">5.8. Mailing a company : <code>mailto</code></a></h3>
-<div class="paragraph">
-<p>Open mail application with new mail with email address of company inputted.<br>
-Format: <code>mailto INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The index refers to the index number shown in the displayed company list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>mailto 2</code><br>
-Open mail application with address of the 2nd company in the address book.</p>
-</li>
-<li>
-<p><code>find Pharmaceuticals</code><br>
-<code>mailto 1</code><br>
-Open mail application with address of 1st company in the results of the find</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-entered-commands-code-history-code-2"><a class="link" href="#listing-entered-commands-code-history-code-2">5.9. Listing entered commands : <code>history</code></a></h3>
-<div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order.<br>
-Format: <code>history</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code-2"><a class="link" href="#undoing-previous-command-code-undo-code-2">5.10. Undoing previous command : <code>undo</code></a></h3>
-<div class="paragraph">
-<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>list</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code-2"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-2">5.11. Redoing the previously undone command : <code>redo</code></a></h3>
-<div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code-2"><a class="link" href="#clearing-all-entries-code-clear-code-2">5.12. Clearing all entries : <code>clear</code></a></h3>
-<div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code-2"><a class="link" href="#exiting-the-program-code-exit-code-2">5.13. Exiting the program : <code>exit</code></a></h3>
-<div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-the-data-2"><a class="link" href="#saving-the-data-2">5.14. Saving the data</a></h3>
-<div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="encrypting-data-files"><a class="link" href="#encrypting-data-files">5.15. Encrypting data files</a></h3>
-
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">6. FAQ</a></h2>
+<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address book folder.</p>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous MediTabs folder.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="medicine-inventory-mode-commands-summary"><a class="link" href="#medicine-inventory-mode-commands-summary">7. Medicine Inventory Mode Commands Summary</a></h2>
+<h2 id="commands-summary"><a class="link" href="#commands-summary">5. Commands Summary</a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1252,9 +754,6 @@ e.g. <code>label 1 Paracetamol</code></p>
 <p><strong>List</strong> : <code>list</code></p>
 </li>
 <li>
-<p><strong>Mode</strong> : <code>mode</code></p>
-</li>
-<li>
 <p><strong>Redo</strong> : <code>redo</code></p>
 </li>
 <li>
@@ -1281,70 +780,10 @@ e.g. <code>warning e/20 s/10</code></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="address-book-mode-commands-summary-code-coming-in-v2-0-code"><a class="link" href="#address-book-mode-commands-summary-code-coming-in-v2-0-code">8. Address Book Mode Commands Summary <code>[coming in v2.0]</code></a></h2>
+<h2 id="keyboard-shortcuts-code-coming-in-v2-0-code"><a class="link" href="#keyboard-shortcuts-code-coming-in-v2-0-code">6. Keyboard Shortcuts <code>[coming in v2.0]</code></a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
-<li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/GlaxoSmithKline p/22224444 e/jamesho@gsk.com a/123, Clementi Rd, 1234665 + t/3weeksLeadTime</code></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/Pfizer e/jameslee@pfizer.com</code></p>
-</li>
-<li>
-<p><strong>Exit</strong> : <code>exit</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code><br>
-e.g. <code>find Pfizer 3M</code></p>
-</li>
-<li>
-<p><strong>List</strong> : <code>list</code></p>
-</li>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-<li>
-<p><strong>History</strong> : <code>history</code></p>
-</li>
-<li>
-<p><strong>Mail</strong> : <code>mailto INDEX</code><br>
-e.g.<code>mailto 1</code></p>
-</li>
-<li>
-<p><strong>Mode</strong> : <code>mode</code></p>
-</li>
-<li>
-<p><strong>Redo</strong> : <code>redo</code></p>
-</li>
-<li>
-<p><strong>Select</strong> : <code>select INDEX</code><br>
-e.g.<code>select 2</code></p>
-</li>
-<li>
-<p><strong>Undo</strong> : <code>undo</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="keyboard-shortcuts-code-coming-in-v2-0-code"><a class="link" href="#keyboard-shortcuts-code-coming-in-v2-0-code">9. Keyboard Shortcuts <code>[coming in v2.0]</code></a></h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Change operating mode</strong> : <kbd>Shift</kbd> + <kbd>Spacebar</kbd></p>
-</li>
 <li>
 <p><strong>Back to input</strong> : <kbd>Shift</kbd> + <kbd>Enter</kbd></p>
 </li>
@@ -1357,4 +796,4 @@ e.g.<code>select 2</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-12 07:16:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-13 08:51:28 UTC</div></div></div></body></html>
