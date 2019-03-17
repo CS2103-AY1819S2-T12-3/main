@@ -479,7 +479,7 @@ Low stock warning will be triggered when quantity remaining is less than or equa
 <div class="sect2">
 <h3 id="exporting-as-csv-file-format-code-export-code"><a class="link" href="#exporting-as-csv-file-format-code-export-code">3.10. Exporting as CSV file format : <code>export</code></a></h3>
 <div class="paragraph">
-<p>Exports the current list shown into CSV file format.<br>
+<p>You can export the current Medicine Inventory data shown in the GUI as CSV file format.<br>
 Format: <code>export [FILE_NAME]</code></p>
 </div>
 <div class="sidebarblock">
@@ -504,9 +504,21 @@ Export the current list shown in the GUI to a CSV file which has the filename <c
 </li>
 <li>
 <p><code>export</code><br>
-Export the current list shown in the GUI to a CSV file which has a default file name in this format <code>{Date of export}_{Time of export}</code>.</p>
+Export the current list shown in the GUI to a CSV file which has a default file name in this format <code>{Date of export}_{Time of export}</code>. The specific date and time format used is <code>dd_MMM_yyyy_HH_mm_ss</code>. In other words, an example of a default CSV file name is <code>18_Mar_2019_10_28_00</code>.</p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If a file with the specified file name already exists in the default <code>exported</code> directory, a <code>File already exists</code> exception would be shown.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -796,4 +808,4 @@ e.g. <code>warning e/20 s/10</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-16 05:22:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-17 12:49:44 UTC</div></div></div></body></html>

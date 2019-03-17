@@ -29,10 +29,11 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#exporting-as-csv-file-format-feature-via-export-command">3.1. Exporting as CSV file format feature via Export Command</a></li>
+<li><a href="#undo-redo-feature">3.2. Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -564,12 +565,172 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section describes some noteworthy details on how certain features are implemented.</p>
+<p>This section provides you with some description of how certain key features of our product are being implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.1. Undo/Redo feature</a></h3>
+<h3 id="exporting-as-csv-file-format-feature-via-export-command"><a class="link" href="#exporting-as-csv-file-format-feature-via-export-command">3.1. Exporting as CSV file format feature via Export Command</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The exporting as CSV file format mechanism is facilitated by <code>CsvWrapper</code>.
+It is build on top of the <code>Opencsv</code> Java CSV parser library, licensed under the <code>Apache 2 OSS License</code>, so that it integrates with our product. This is done by providing additional operations to support exporting the current Medicine Inventory data shown in the GUI to CSV file format.</p>
+</div>
+<div class="paragraph">
+<p>There are many additonal operations added in <code>CsvWrapper</code> but we will only list the key operations which are the main drivers of the overall implementation of the feature for easier reference and understanding.</p>
+</div>
+<div class="paragraph">
+<p>The key operations are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CsvWrapper#export()</code>&#8201;&#8212;&#8201;Export the current Medicine Inventory data shown in the GUI to CSV file format.</p>
+</li>
+<li>
+<p><code>CsvWrapper#createCsvFile(String csvFileName)</code>&#8201;&#8212;&#8201;Creates a CSV file with the file name based on the <code>csvFileName</code> input. The file is created in the <code>exported</code> directory which is located in the same directory as our product application.</p>
+</li>
+<li>
+<p><code>CsvWrapper#writeDataToCsv(List currentGuiList)</code>&#8201;&#8212;&#8201;Writes the current Medicine Inventory data shown in the GUI to the CSV file created by the <code>CsvWrapper#createCsvFile(String csvFileName)</code> operation.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Out of the three key operations stated above, <strong>only</strong> <code>CsvWrapper#export()</code> is a <em>public</em> operation available for use by other components. It acts as the main interface which other components use to interact with <code>CsvWrapper</code> in order to integrate exporting to CSV file format feature into their own implementation.</p>
+</div>
+<div class="paragraph">
+<p>Given below is a sequence diagram overview of how these 3 key operations behaves when you execute the export command in order to export the current Medicine Inventory data shown in the GUI to CSV file format:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ExportCommandSequenceDiagramOverview.png" alt="ExportCommandSequenceDiagramOverview" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is a brief description of how the exporting as CSV file format mechanism behaves as shown in the sequence diagram above:</p>
+</div>
+<div class="paragraph">
+<p>Step 1: When the user executes the export command, assuming parsing of the command line arguments have already been completed, the <code>ExportCommand#execute()</code> operation is called.</p>
+</div>
+<div class="paragraph">
+<p>Step 2: The <code>ExportCommand#execute()</code> operation initialises the <code>CsvWrapper</code> with the <em>file name of the CSV file to be stored</em> and <em>the current model instance</em> as its input parameters.</p>
+</div>
+<div class="paragraph">
+<p>Step 3: The <code>ExportCommand#execute()</code> operation then calls <code>CsvWrapper#export()</code> operation which is the first key operation which implements the export to CSV file format feature.</p>
+</div>
+<div class="paragraph">
+<p>Step 4: The <code>CsvWrapper#export()</code> operation retrieves the current Medicine Inventory data shown in the GUI by calling the <code>Model#getFilteredMedicineList()</code> operation.</p>
+</div>
+<div class="paragraph">
+<p>Step 5: After retrieving the data, the <code>CsvWrapper#createCsvFile(String csvFileName)</code> operation, which is the second key operation, is called. It creates an empty CSV file with the input file name in the <code>exported</code> directory as mentioned earlier.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a CSV file with the input file name <strong>already exist</strong> in the <code>exported</code> directory, a <code>File already exist</code> exception will be shown in the <code>CommandResult</code> panel of the GUI as a <code>CommandException</code> is thrown and the exporting process will stop executing. In other words, the current Medicine Inventory data shown in the GUI would not be exported.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 6: After the empty CSV file is created, the <code>CsvWrapper#writeDataToCsv</code>, which is the third key operation, is called to process the current Medicine Inventory data retrieved earlier in Step 4 and writes to the CSV file in an organised format for easier reference by the users of the exported CSV file.</p>
+</div>
+<div class="paragraph">
+<p>Step 7: The current Medicine Inventory data shown in the GUI is exported successfully to CSV file format.</p>
+</div>
+<div class="paragraph">
+<p>Step 8: The <code>ExportCommand#execute()</code> operations returns a <code>CommandResult</code> which shows the current list is exported to a CSV file with the input file name.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-the-exporting-as-csv-file-format-feature-via-the-export-command-executes"><a class="link" href="#aspect-how-the-exporting-as-csv-file-format-feature-via-the-export-command-executes">Aspect: How the exporting as CSV file format feature via the export command executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Export all the Medicine Inventory data currently shown in the GUI to CSV file format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement and users have a preview of the data before exporting.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of memory usage.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Individual commands each adds an additional parameter to export as CSV file.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Individuals can export directly through a single command (e.g. for <code>filter</code> command when the export option is enabled, export the filtered Medicine Inventory data immediately without having to retrieve from <code>Model#getFilteredMedicineList()</code> operation.</p>
+</li>
+<li>
+<p>Cons: We must ensure that the implementation and integration of the exporting to CSV file of each individual commands are correct. Furthermore, users are not able preview the data before exporting.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-algorithm-implementation-to-support-the-exporting-as-csv-file-format-feature-via-the-export-command"><a class="link" href="#aspect-data-structure-algorithm-implementation-to-support-the-exporting-as-csv-file-format-feature-via-the-export-command">Aspect: Data structure/Algorithm/Implementation to support the exporting as CSV file format feature via the export command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Iterate through each of the Medicine in the list retrieved from <code>Model#getFilterMedicineList()</code> operation to build the structure in which the data is organised when exported to CSV file format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy for developers to understand, especially for those who want to modify the way the data is organised when exported to CSV file format but have no prior knowledge on <code>Opencsv</code> Java CSV parser library.</p>
+</li>
+<li>
+<p>Cons: The time complexity of the algorithm is O(n) and might not be as efficient especially when involving large amounts of data. Furthermore, it does not take full advantage of the more advanced features provided by the <code>Opencsv</code> Java CSV parser library.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use <code>Opencsv</code> Java CSV parser library&#8217;s <code>StatefulBeanToCsvBuilder</code> operation for building the structure in which the data is organised from the list retrieved from <code>Model#getFilterMedicineList()</code> operation when exported to CSV file format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: We do not need to iterate through the list and convert it to a String Array as we can just use the library&#8217;s <code>StatefulBeanToCsvBuilder</code> operation to build the structure from the list by passing the list as a parameter to the operation. Furthermore, the formatting process can be automated using the operation. It is also more efficient in terms of performance according to the library&#8217;s documentation if ordering of the data exported is not a concern to the developer.</p>
+</li>
+<li>
+<p>Cons: Requires prior knowledge on the way in which the library&#8217;s <code>StatefulBeanToCsvBuilder</code> operation works. If the developers want to modify the data exported to be ordered in a specific way, it requires knowledge on the library&#8217;s <code>MappingStrategy</code> related operations which may be complicated for developers new to the library.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+More information on <code>Opencsv</code> library&#8217;s <code>StatefulBeanToCsvBuilder</code> operation can be found in the library&#8217;s <a href="http://opencsv.sourceforge.net/">documentation</a>.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.2. Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -699,7 +860,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -769,12 +930,12 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p>Data encryption is likely to be implemented in future versions of the address book if a reasonable implementation is found.</p>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.1. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.1. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-data-encryption-is-executed"><a class="link" href="#aspect-how-data-encryption-is-executed">Aspect: How data encryption is executed</a></h5>
 <div class="ulist">
@@ -844,14 +1005,14 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -882,7 +1043,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2553,4 +2714,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-16 05:22:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-17 12:49:44 UTC</div></div></div></body></html>
