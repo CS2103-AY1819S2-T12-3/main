@@ -29,11 +29,12 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#exporting-as-csv-file-format-feature-via-export-command">3.1. Exporting as CSV file format feature via Export Command</a></li>
-<li><a href="#undo-redo-feature">3.2. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
+<li><a href="#batch-table-feature">3.1. Batch table feature</a></li>
+<li><a href="#exporting-as-csv-file-format-feature-via-export-command">3.2. Exporting as CSV file format feature via Export Command</a></li>
+<li><a href="#undo-redo-feature">3.3. Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -503,15 +504,24 @@ The following class plays an important role at the architecture level:</p>
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores the Address Book data.</p>
+<p>stores the Inventory data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;Medicine&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Given below an object diagram to better illustrate how a medicine is stored in the <code>Model</code> component.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ModelMedicineObjectDiagram.png" alt="ModelMedicineObjectDiagram" width="800">
+</div>
+<div class="title">Figure 8. An example of how the medicine "Paracetamol" could be represented by the <code>Medicine</code> class.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -520,7 +530,7 @@ The following class plays an important role at the architecture level:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+As a more OOP model, we can store a <code>Tag</code> list in <code>Inventory</code>, which <code>Medicine</code> can reference. This would allow <code>Inventory</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Medicine</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
 <br>
 <span class="image"><img src="images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800"></span>
 </td>
@@ -534,7 +544,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram" width="800">
 </div>
-<div class="title">Figure 8. Structure of the Storage Component</div>
+<div class="title">Figure 9. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S2-T12-3/main/blob/master//src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -568,9 +578,100 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section provides you with some description of how certain key features of our product are being implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="exporting-as-csv-file-format-feature-via-export-command"><a class="link" href="#exporting-as-csv-file-format-feature-via-export-command">3.1. Exporting as CSV file format feature via Export Command</a></h3>
+<h3 id="batch-table-feature"><a class="link" href="#batch-table-feature">3.1. Batch table feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The batch table is mainly driven by <code>InformationPanel</code> which extends <code>UiPart</code> with an added mechanism to interact with the currently selected medicine.
+It implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>InformationPanel#showSelectedInformation(Medicine medicine)</code>&#8201;&#8212;&#8201;Creates and displays a <code>BatchTable</code> that contains information of the selected medicine and its batches.</p>
+</li>
+<li>
+<p><code>InformationPanel#emptyInformationPanel()</code>&#8201;&#8212;&#8201;Deletes the <code>BatchTable</code> being displayed (if any) to show an empty pane.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are hidden and are only triggered when the value of the selected medicine changes.
+The <code>InformationPanel</code> is initialized with the selected medicine as an <code>ObservableValue</code>, and a <code>ChangeListener</code> is added to it.
+<code>ChangeListener#changed(ObservableValue&lt;? extends T&gt; observable, T oldValue, T newValue)</code> is called whenever the value of the selected medicine changes.
+Given below is a diagram showing the execution of <code>InformationPanel</code> when a change occurs:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BatchTableSequenceDiagram.png" alt="BatchTableSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the batch table behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. An empty <code>InformationPanel</code> is displayed.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>select 1</code> command to select the 1st medicine in the inventory. Since the new value is not null, <code>InformationPanel#showSelectedInformation(Medicine medicine)</code> is called.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+An <code>update</code> command will also cause <code>ChangeListener#changed(ObservableValue&lt;? extends T&gt; observable, T oldValue, T newValue)</code> to be called as although the same medicine is still selected, the medicine is replaced in the <code>Inventory</code> with updated fields.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>find n/Paracetamol &#8230;&#8203;</code>. The <code>find</code> command deselects the selected medicine and the new value is null. Only <code>InformationPanel#emptyInformationPanel()</code> is called.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-the-batch-table-executes"><a class="link" href="#aspect-how-the-batch-table-executes">Aspect: How the batch table executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Creates a new <code>BatchTable</code> every time a new medicine is selected.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Information can be taken from <code>Model</code> component during initialization so no extra memory is needed to store table information.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of time needed to retrieve the information and build the table, especially if number of batches becomes huge.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Save created <code>BatchTables</code> as a field in <code>Medicine</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Save time needed for creating the <code>BatchTable</code> for faster response time.</p>
+</li>
+<li>
+<p>Cons: More memory needed to store <code>BatchTable</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exporting-as-csv-file-format-feature-via-export-command"><a class="link" href="#exporting-as-csv-file-format-feature-via-export-command">3.2. Exporting as CSV file format feature via Export Command</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The exporting as CSV file format mechanism is facilitated by <code>CsvWrapper</code>.
 It is build on top of the <code>Opencsv</code> Java CSV parser library, licensed under the <code>Apache 2 OSS License</code>, so that it integrates with our product. This is done by providing additional operations to support exporting the current Medicine Inventory data shown in the GUI to CSV file format.</p>
@@ -646,7 +747,7 @@ If a CSV file with the input file name <strong>already exist</strong> in the <co
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-exporting-as-csv-file-format-feature-via-the-export-command-executes"><a class="link" href="#aspect-how-the-exporting-as-csv-file-format-feature-via-the-export-command-executes">Aspect: How the exporting as CSV file format feature via the export command executes</a></h5>
 <div class="ulist">
@@ -728,35 +829,35 @@ More information on <code>Opencsv</code> library&#8217;s <code>StatefulBeanToCsv
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.2. Undo/Redo feature</a></h3>
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.3. Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
+<p>The undo/redo mechanism is facilitated by <code>VersionedInventory</code>.
+It extends <code>Inventory</code> with an undo/redo history, stored internally as an <code>inventoryStateList</code> and <code>currentStatePointer</code>.
 Additionally, it implements the following operations:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
+<p><code>VersionedInventory#commit()</code>&#8201;&#8212;&#8201;Saves the current inventory state in its history.</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
+<p><code>VersionedInventory#undo()</code>&#8201;&#8212;&#8201;Restores the previous inventory state from its history.</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
+<p><code>VersionedInventory#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone inventory state from its history.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitInventory()</code>, <code>Model#undoInventory()</code> and <code>Model#redoInventory()</code> respectively.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
+<p>Step 1. The user launches the application for the first time. The <code>VersionedInventory</code> will be initialized with the initial inventory state, and the <code>currentStatePointer</code> pointing to that single inventory state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -764,7 +865,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
+<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th medicine in the inventory. The <code>delete</code> command calls <code>Model#commitInventory()</code>, causing the modified state of the inventory after the <code>delete 5</code> command executes to be saved in the <code>inventoryStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted inventory state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -772,7 +873,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
+<p>Step 3. The user executes <code>add n/Paracetamol &#8230;&#8203;</code> to add a new medicine. The <code>add</code> command also calls <code>Model#commitInventory()</code>, causing another modified inventory state to be saved into the <code>inventoryStateList</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -786,13 +887,13 @@ Additionally, it implements the following operations:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
+If a command fails its execution, it will not call <code>Model#commitInventory()</code>, so the inventory state will not be saved into the <code>inventoryStateList</code>.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
+<p>Step 4. The user now decides that adding the medicine was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoInventory()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous inventory state, and restores the inventory to that state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -806,7 +907,7 @@ If a command fails its execution, it will not call <code>Model#commitAddressBook
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
+If the <code>currentStatePointer</code> is at index 0, pointing to the initial inventory state, then there are no previous inventory states to restore. The <code>undo</code> command uses <code>Model#canUndoInventory()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
 </td>
 </tr>
 </table>
@@ -820,7 +921,7 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial a
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
+<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoInventory()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the inventory to that state.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -829,13 +930,13 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial a
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+If the <code>currentStatePointer</code> is at index <code>inventoryStateList.size() - 1</code>, pointing to the latest inventory state, then there are no undone inventory states to restore. The <code>redo</code> command uses <code>Model#canRedoInventory()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
+<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the inventory, such as <code>list</code>, will usually not call <code>Model#commitInventory()</code>, <code>Model#undoInventory()</code> or <code>Model#redoInventory()</code>. Thus, the <code>inventoryStateList</code> remains unchanged.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -843,7 +944,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
+<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitInventory()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>inventoryStateList</code>, all inventory states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/Paracetamol &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -860,13 +961,13 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
+<p><strong>Alternative 1 (current choice):</strong> Saves the entire inventory.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -883,7 +984,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
+<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the medicine being deleted).</p>
 </li>
 <li>
 <p>Cons: We must ensure that the implementation of each individual command are correct.</p>
@@ -899,14 +1000,14 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
+<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of inventory states.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
 </li>
 <li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
+<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedInventory</code>.</p>
 </li>
 </ul>
 </div>
@@ -930,12 +1031,12 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p>Data encryption is likely to be implemented in future versions of the address book if a reasonable implementation is found.</p>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.1. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.1. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-data-encryption-is-executed"><a class="link" href="#aspect-how-data-encryption-is-executed">Aspect: How data encryption is executed</a></h5>
 <div class="ulist">
@@ -1005,14 +1106,14 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1043,7 +1144,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1109,7 +1210,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 9. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 10. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2311,7 +2412,7 @@ for <code>RemarkCommandParser</code>.</p>
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix D: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>MediTab</code> and the <strong>Actor</strong> is the <code>pharmacist</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>MediTabs</code> and the <strong>Actor</strong> is the <code>pharmacist</code>, unless specified otherwise)</p>
 </div>
 <h3 id="use-case-1-view-complete-inventory" class="discrete">Use Case 1: View Complete Inventory</h3>
 <div class="paragraph">
@@ -2336,11 +2437,11 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. Pharmacist used a <code>filter</code> function, filtered inventory is shown.</p>
+<p>1a. Pharmacist used <code>find</code> function, filtered inventory is shown.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. Pharmacist requests for complete inventory to be listed.</p>
+<p>1a1. Pharmacist requests for complete inventory to be listed using <code>list</code> command.</p>
 </li>
 <li>
 <p>1a2. System displays complete inventory.</p>
@@ -2353,26 +2454,109 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-2-update-inventory-in-batches-medicine" class="discrete">Use Case 2: Update Inventory in Batches Medicine</h3>
+<h3 id="use-case-2-update-batch-details-of-a-medicine-in-inventory" class="discrete">Use Case 2: Update Batch Details of a Medicine in Inventory</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Pharmacist notes the index of the selected medicine in the list.</p>
+<p>Pharmacist notes the index of the medicine to be updated in the list.</p>
 </li>
 <li>
-<p>Pharmacist request to add new batch to medicine using the index.</p>
+<p>Pharmacist request to update details of a batch of medicine using the index and the <code>update</code> command.</p>
 </li>
 <li>
-<p>System requests details of the new batch of medicine</p>
+<p>System displays updated details.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Medicine is new and has not been added to the inventory.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Pharmacist uses the <code>add</code> function to add a new entry to list.</p>
 </li>
 <li>
-<p>Pharmacist enters the required details</p>
+<p>1a2. Pharmacist notes the index of the new medicine listing from the search result.</p>
+<div class="paragraph">
+<p>Use case resume at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. Pharmacist cannot remember batch number of batch to be updated.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. Pharmacist uses <code>select</code> command to select the medicine to be updated.</p>
 </li>
 <li>
-<p>System displays updated details</p>
+<p>1b2. System displays the batch table with information of all batches of the selected medicine.</p>
+</li>
+<li>
+<p>1b3. Pharmacist refers to the batch table while inputting batch details.</p>
+<div class="paragraph">
+<p>Use case resume at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. Pharmacist did not enter expiry date and batch does not already exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. An error message is shown.</p>
+</li>
+<li>
+<p>2a2. System requests expiry date be entered for new batches.</p>
+</li>
+<li>
+<p>2a3. Pharmacist repeats request with the required input.</p>
+<div class="paragraph">
+<p>Use case resume at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-3-delete-medicine-from-inventory" class="discrete">Use Case 3: Delete Medicine from Inventory</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Pharmacist notes the index of the medicine to be deleted in the list.</p>
+</li>
+<li>
+<p>Pharmacist request to delete a medicine listing using the index and the <code>delete</code> command.</p>
+</li>
+<li>
+<p>System displays updated list.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2389,82 +2573,13 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. Pharmacist uses the <code>search</code> function to look for medicine listing.</p>
+<p>1a1. Pharmacist uses the <code>find</code> function to look for medicine listing.</p>
 </li>
 <li>
 <p>1a2. System list the search results.</p>
 </li>
 <li>
 <p>1a3. Pharmacist notes the index of the medicine listing from the search result.</p>
-<div class="paragraph">
-<p>Use case resume at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1b. Medicine is new and has not been added to the inventory.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1b1. Pharmacist uses the <code>add</code> function to add a new entry to list.</p>
-</li>
-<li>
-<p>1b2. Pharmacist enters details of the medicine to add.</p>
-</li>
-<li>
-<p>1b3. Pharmacist notes the index of the medicine listing from the search result.</p>
-<div class="paragraph">
-<p>Use case resume at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-3-delete-medicine-from-inventory" class="discrete">Use Case 3: Delete Medicine from Inventory</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Pharmacist uses the <code>delete</code> function to remove a listing from the inventory.</p>
-</li>
-<li>
-<p>System displays updated list.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. Selected entry is not empty. Deletion is illegal.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1.  System displays error message.</p>
-</li>
-<li>
-<p>1a2.  Pharmacist uses the <code>edit</code> function to decrease quantity of medicine to zero.</p>
-</li>
-<li>
-<p>1a3.  System displays updated quantity.</p>
-</li>
-<li>
-<p>1a4.  Repeat step 1.</p>
 <div class="paragraph">
 <p>Use case resume at step 2.</p>
 </div>
@@ -2714,4 +2829,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-17 12:49:44 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-18 12:24:21 UTC</div></div></div></body></html>
