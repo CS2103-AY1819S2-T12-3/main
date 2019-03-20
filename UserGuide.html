@@ -529,7 +529,7 @@ If a file with the specified file name already exists in the default <code>expor
 <div class="paragraph">
 <p>Outputs label to a PDF file. Label will include name of medicine and standard label template.<br>
 This includes the company that manufactured it, expiry date and the tags that was set with it.<br>
-Format: <code>label INDEX [FILE_NAME]</code></p>
+Format: <code>label INDEX [f/FILE_NAME]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -571,8 +571,8 @@ Outputs label PDF file for 2nd medicine in the list with default file name <code
 </li>
 <li>
 <p><code>find Simvastatin</code><br>
-<code>label 1</code><br>
-Outputs label PDF file for 1st medicine in the results of the <code>find</code> command with file name <code>Gabapentin</code>.</p>
+<code>label 1 f/Simvastatin</code><br>
+Outputs label PDF file for 1st medicine in the results of the <code>find</code> command with file name <code>Simvastatin</code>.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/label1_example.png" alt="label1 example" width="790">
@@ -585,7 +585,7 @@ Outputs label PDF file for 1st medicine in the results of the <code>find</code> 
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-The <code>label</code> command will overwrite the <code>to_print</code> file every time it is used. Hence, do print the required file first before using the <code>label</code> command again.
+The <code>label</code> command will overwrite the <code>to_print</code> file every time it is used. Hence, do print the required file first before using the <code>label</code> command again. This extends to all other existing file names.
 </td>
 </tr>
 </table>
@@ -833,4 +833,4 @@ e.g. <code>warning e/20 s/10</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-19 12:27:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-20 03:19:39 UTC</div></div></div></body></html>
