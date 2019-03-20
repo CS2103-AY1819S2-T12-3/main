@@ -21,7 +21,7 @@
 <li><a href="#deleting-a-medicine-code-delete-code">3.6. Deleting a medicine : <code>delete</code></a></li>
 <li><a href="#viewing-medicine-information-page-code-select-code">3.7. Viewing medicine information page : <code>select</code></a></li>
 <li><a href="#updating-batch-records-code-update-code">3.8. Updating batch records : <code>update</code></a></li>
-<li><a href="#managing-warnings-panel-code-warning-code">3.9. Managing warnings panel : <code>warning</code></a></li>
+<li><a href="#managing-warning-panel-code-warning-code">3.9. Managing warning panel : <code>warning</code></a></li>
 <li><a href="#exporting-as-csv-file-format-code-export-code">3.10. Exporting as CSV file format : <code>export</code></a></li>
 <li><a href="#printing-labels-code-label-code">3.11. Printing labels : <code>label</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">3.12. Listing entered commands : <code>history</code></a></li>
@@ -109,10 +109,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Low stock of a medicine and expiring medicine will trigger warnings to notify the user that action is required.</p>
+<p>The list of medicine running low on stock or expiring soon medicine will be displayed in the warning panel to notify the user.</p>
 </li>
 <li>
-<p>Warnings will be logged in the warnings panel until action required has been taken.</p>
+<p>Warnings will be logged in the warnings panel until action has been taken to either remove or update the medicine.</p>
 </li>
 </ul>
 </div>
@@ -441,10 +441,11 @@ Updates quantity of batch <code>8937v1x7</code> in batch records of the 1st medi
 </div>
 </div>
 <div class="sect2">
-<h3 id="managing-warnings-panel-code-warning-code"><a class="link" href="#managing-warnings-panel-code-warning-code">3.9. Managing warnings panel : <code>warning</code></a></h3>
+<h3 id="managing-warning-panel-code-warning-code"><a class="link" href="#managing-warning-panel-code-warning-code">3.9. Managing warning panel : <code>warning</code></a></h3>
 <div class="paragraph">
-<p>Manage the threshold for expiry date and low stock warnings.<br>
-Format: <code>warning [e/EXPIRY_THRESHOLD] [s/LOWSTOCK_THRESHOLD]</code></p>
+<p>Manage the threshold for expiry date and low stock warnings.
+Format: <code>warning [e/EXPIRY_THRESHOLD] [s/LOWSTOCK_THRESHOLD]</code>
+If the thresholds are not set, the default threshold for expiry is 10 days, while threshold for low stock is 20.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -470,11 +471,11 @@ Format: <code>warning [e/EXPIRY_THRESHOLD] [s/LOWSTOCK_THRESHOLD]</code></p>
 <ul>
 <li>
 <p><code>warning e/20</code><br>
-Expiry date warning will be triggered 20 days before any medicine expires.</p>
+Medicines with expiry dates within 10 days to expiry from today will be displayed in the warning panel.</p>
 </li>
 <li>
 <p><code>warning s/10</code><br>
-Low stock warning will be triggered when quantity remaining is less than or equal to 10.</p>
+Medicines with quanities of less than or equal to 20 will be displayed in the warning panel.</p>
 </li>
 </ul>
 </div>
@@ -833,4 +834,4 @@ e.g. <code>warning e/20 s/10</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-20 15:00:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-20 15:12:17 UTC</div></div></div></body></html>
