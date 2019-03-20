@@ -34,8 +34,9 @@
 <li><a href="#undo-redo-feature">3.3. Undo/Redo feature</a></li>
 <li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
 <li><a href="#label">3.5. Label</a></li>
-<li><a href="#logging">3.6. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
+<li><a href="#warning-panel">3.6. Warning Panel</a></li>
+<li><a href="#logging">3.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -1196,14 +1197,130 @@ If the user would execute another <code>label 1</code>, the original <code>to_pr
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
+<h3 id="warning-panel"><a class="link" href="#warning-panel">3.6. Warning Panel</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.6.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The warning panel is driven by the <code>MainWindow</code> which creates <code>WarningPanel</code> that extends <code>UiPart</code>. The <code>WarningPanel</code> then creates two <code>WarningListView</code> where the list of expiring medicine and list of medicine low in stock will reside. The lists updates themselves when there are any changes made to the inventory. Each item of a list is represented by a <code>WarningCard</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following are implemented:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>WarningPanel#setUpVBox(ObservableList&lt;Medicine&gt;, ObservableList&lt;Medicine&gt;)</code>&#8201;&#8212;&#8201;Sets up the <code>VBox</code> (vertical box) where the lists will be displayed in, and creates two <code>WarningListView</code> objects. Each <code>ObservableList</code> is passed into a <code>WarningListView</code>, along with a <code>String</code> descriptor of the list, as such: <code>WarningListView(ObservableList&lt;Medicine&gt;, String "expiry")</code></p>
+</li>
+<li>
+<p><code>WarningListView</code> extends <code>UiPart</code>&#8201;&#8212;&#8201;Upon construction, <code>ListView#setItems(ObservableList&lt;T&gt; value)</code> and <code>ListView#setCellFactory(Callback&lt;ListView&lt;T&gt;, ListCell&lt;T&gt;&gt; value)</code> are called.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ListView#setItems(ObserverableList&lt;Medicine&gt; medicineList)</code>&#8201;&#8212;&#8201;Sets the <code>ObservableList</code> whose items will be displayed in the <code>ListView</code>. Due to <code>ObservableList</code> semantics, the <code>ListView</code> automatically updates when there are changes made to the inventory.</p>
+</li>
+<li>
+<p><code>ListView#setCellFactory(Callback&lt;ListView&lt;Medicine&gt;, ListCell&lt;Medicine&gt;&gt; listView &#8594; new WarningListViewCell())</code>&#8201;&#8212;&#8201;Sets the cell factory for the <code>ListView</code> within the class <code>WarningListView</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>WarningListViewCell</code> extends <code>ListCell&lt;T&gt;</code>&#8201;&#8212;&#8201;It overrides <code>ListCell#updateItem(T item, boolean empty)</code> allowing customization by creating a <code>WarningCard</code> for each cell.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>WarningCard</code> extends <code>UiPart</code>&#8201;&#8212;&#8201;Sets the fields (eg. name of medicine, quantity, expiry date) to be displayed in the warning list view cell.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how <code>WarningPanel</code> is executed when MediTab is initialized:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/WarningPanelSequenceDiagram.png" alt="WarningPanelSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Explanation of the sequence diagram above:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. When the user launches the application for the first time, <code>MainWindow</code> is called during the setting up of the GUI. Within the <code>MainWindow</code>. A <code>WarningPanel</code>, with the two <code>ObservableList</code> to be displayed as parameters, is then created.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>WarningPanel#setUpVBox</code> is called to create two <code>WarningListView</code> so that the <code>ObservableList</code> can be displayed. Each list will be passed into one <code>WarningListView</code> as a parameter, along with a <code>String</code> descriptor of that list. For simplicity, the construction of only one <code>WarningListView</code> is shown.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. Within the <code>WarningListView&#8217;s constructor, `ListView#setItems</code> and <code>ListView#setCellFactory</code> are called to set up this <code>ListView&lt;Medicine&gt;</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Any command that modifies the inventory will result in a change in the <code>ObservableList</code> being set using <code>ListView#setItems</code>. This ensures that the <code>ListView</code> is kept up to date with the most recent version of the inventory.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 4. The cell factory creates cells by creating a <code>WarningListViewCell</code>. This creates a <code>WarningCard</code> for every item in the <code>ListView</code> supplied. These cells are displayed in the GUI.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.6.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-construction-of-the-lists-displayed-by-the-warning-panel"><a class="link" href="#aspect-construction-of-the-lists-displayed-by-the-warning-panel">Aspect: Construction of the lists displayed by the warning panel</a></h5>
+<div class="paragraph">
+<p>Two <code>ObservableLists</code> are required, one to display names of medicine expiring soon and the other to display medicine low in stock.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Create two <code>ObservableList</code> in the <code>Model</code> by filtering the main medicine list from the versioned inventory.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to change predicate for filtration when needed, making it possible to have user defined thresholds for filtration.</p>
+</li>
+<li>
+<p>Cons: Need to create a new filtered <code>ObservableList</code> every time the predicate used for filtering changes. This would be the case when the user sets his/her own threshold.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Pass the medicine list into the <code>Ui</code> for filtration.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simple to implement and filter with the default predicates (i.e. thresholds for expiration and low stock) to obtain the two lists.</p>
+</li>
+<li>
+<p>Cons: No separation of concerns. Not possible to set user defined thresholds for either list.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1234,7 +1351,7 @@ If the user would execute another <code>label 1</code>, the original <code>to_pr
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2919,4 +3036,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-20 07:46:58 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-20 15:00:45 UTC</div></div></div></body></html>
