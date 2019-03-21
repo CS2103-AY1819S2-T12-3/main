@@ -9,7 +9,12 @@
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
-<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#introduction">1. Introduction</a>
+<ul class="sectlevel2">
+<li><a href="#what-is-meditabs">1.1. What is MediTabs?</a></li>
+<li><a href="#who-is-it-for">1.2. Who is it for?</a></li>
+</ul>
+</li>
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
@@ -34,9 +39,10 @@
 <li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.19. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
-<li><a href="#faq">4. FAQ</a></li>
+<li><a href="#frequently-asked-questions-faq">4. Frequently Asked Questions (FAQ)</a></li>
 <li><a href="#commands-summary">5. Commands Summary</a></li>
 <li><a href="#keyboard-shortcuts-code-coming-in-v2-0-code">6. Keyboard Shortcuts <code>[coming in v2.0]</code></a></li>
+<li><a href="#appendix-a-file-naming-convention">7. Appendix A: File Naming Convention</a></li>
 </ul>
 </div>
 </div>
@@ -44,7 +50,22 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>MediTabs is for those who prefer to use a desktop app for managing medicine stock taking. This is especially useful for clinics such as family clinics or private clinics to track the amount of medicine they have left available. More importantly, MediTabs is optimized for those who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, MediTabs can get your medicine stock taking done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>Welcome to the <em>MediTabs User Guide</em>. You can find step by step instructions on how to set up MediTabs and take advantage of the features provided by MediTabs to optimise your clinic&#8217;s medicine stock taking workflow. Interested? You can jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to start get started. Enjoy!</p>
+</div>
+<div class="sect2">
+<h3 id="what-is-meditabs"><a class="link" href="#what-is-meditabs">1.1. What is MediTabs?</a></h3>
+<div class="paragraph">
+<p>MediTabs is a desktop application for managing medicine stock taking. You can use MediTabs in your clinics such as family clinics or private clinics to keep track of your clinic&#8217;s medicine inventory such as which medicines are low in stock and which medicines are expiring soon.</p>
+</div>
+<div class="paragraph">
+<p>MediTabs supports Windows, Linux and MacOS operating systems.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="who-is-it-for"><a class="link" href="#who-is-it-for">1.2. Who is it for?</a></h3>
+<div class="paragraph">
+<p>If you are looking for a medicine stock taking application for clinics, MediTabs is the product you are looking for. Whether you are an owner of a clinic or a pharmacist in charge of your clinic&#8217;s medicine inventory, you can use MediTabs to help improve your workflow. It is optimized for those who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, MediTabs can get your medicine stock taking done faster than traditional GUI apps.</p>
+</div>
 </div>
 </div>
 </div>
@@ -57,10 +78,10 @@
 <p>Ensure you have Java version <code>9</code> or later installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>meditabs.jar</code> <a href="https://github.com/cs2103-ay1819s2-t12-3/main/releases">here</a>.</p>
+<p>Download the latest version of <code>meditabs.jar</code> <a href="https://github.com/cs2103-ay1819s2-t12-3/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your MediTabs application.</p>
+<p>Copy the <code>meditabs.jar</code> file to the folder you want to use as the home folder for your MediTabs application.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -79,10 +100,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>list</code></strong> : lists all medicines in inventory</p>
+<p><strong><code>list</code></strong> : lists all medicines in the inventory</p>
 </li>
 <li>
-<p><strong><code>add</code></strong> <code>n/Paracetamol c/3M Pharmaceuticals</code> : adds a new medicine named Paracetamol to the inventory</p>
+<p><strong><code>add</code></strong> <code>n/Paracetamol c/3M Pharmaceuticals</code> : adds a new medicine named <code>Paracetamol</code> to the inventory</p>
 </li>
 <li>
 <p><strong><code>delete</code></strong> <code>3</code> : deletes the 3rd entry shown in the current list</p>
@@ -95,6 +116,9 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </li>
 <li>
 <p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
+</li>
+<li>
+<p>Having trouble setting up MediTabs? You can refer to the <a href="#frequently-asked-questions-faq">Section 4, &#8220;Frequently Asked Questions (FAQ)&#8221;</a> for solutions to common problems you might encounter. Do you require further assistance? If so, you can also post your queries <a href="https://github.com/CS2103-AY1819S2-T12-3/main/issues">here</a> and our team would do our best to assist you.</p>
 </li>
 </ol>
 </div>
@@ -443,8 +467,8 @@ Updates quantity of batch <code>8937v1x7</code> in batch records of the 1st medi
 <div class="sect2">
 <h3 id="managing-warning-panel-code-warning-code"><a class="link" href="#managing-warning-panel-code-warning-code">3.9. Managing warning panel : <code>warning</code></a></h3>
 <div class="paragraph">
-<p>Manage the threshold for expiry date and low stock warnings.
-Format: <code>warning [e/EXPIRY_THRESHOLD] [s/LOWSTOCK_THRESHOLD]</code>
+<p>Manage the threshold for expiry date and low stock warnings.<br>
+Format: <code>warning [e/EXPIRY_THRESHOLD] [s/LOWSTOCK_THRESHOLD]</code><br>
 If the thresholds are not set, the default threshold for expiry is 10 days, while threshold for low stock is 20.</p>
 </div>
 <div class="sidebarblock">
@@ -483,7 +507,13 @@ Medicines with quanities of less than or equal to 20 will be displayed in the wa
 <div class="sect2">
 <h3 id="exporting-as-csv-file-format-code-export-code"><a class="link" href="#exporting-as-csv-file-format-code-export-code">3.10. Exporting as CSV file format : <code>export</code></a></h3>
 <div class="paragraph">
-<p>You can export the current Medicine Inventory data shown in the GUI as CSV file format.<br>
+<p>You can export the current Medicine Inventory data shown in the GUI as Comma-separated values (CSV) file format which is supported by many commonly used spreadsheet applications such as Microsoft Excel (Windows), LibreOffice (Linux) or Numbers (MacOS).</p>
+</div>
+<div class="paragraph">
+<p>This feature is especially useful if you want to save the current Medicine Inventory data in a file so that it can be printed later or if you want to organise the Medicine Inventory data using a spreadsheet application for you, your superior or your supplier&#8217;s reference.</p>
+</div>
+<div class="paragraph">
+<p>In addition, you can even use the spreadsheet application to convert the CSV file to Microsoft Excel format and use all the functionalities provided by Microsoft Excel such as drawing graphs or chart to display the overview of your clinic&#8217;s medicine inventory.<br>
 Format: <code>export [FILE_NAME]</code></p>
 </div>
 <div class="sidebarblock">
@@ -491,7 +521,22 @@ Format: <code>export [FILE_NAME]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>If no file name is specified, the export will just name the file according to the date and time of export.</p>
+<p>The <code>FILE_NAME</code> field is optional. You can refer to <a href="#appendix-a-file-naming-convention">Section 7, &#8220;Appendix A: File Naming Convention&#8221;</a> for supported file name format if you want to specify a file name for the exported CSV file.</p>
+</li>
+<li>
+<p>If no file name is specified, the export command uses the default file name format according to the date and time of export.</p>
+</li>
+<li>
+<p>The specific data and time format used if no file name is specified is <code>dd_MMM_yyyy_HH_mm_ss</code> e.g. <code>18_Mar_2019_10_28_00</code></p>
+</li>
+<li>
+<p>The file extension for a CSV file is <code>.csv</code></p>
+</li>
+<li>
+<p>The exported file can be found in the default <code>exported</code> folder which can be found in the home folder used for your MediTabs application.</p>
+</li>
+<li>
+<p>If the default <code>exported</code> folder is not found in the home folder, MediTabs will automatically create the folder when the export command is executed.</p>
 </li>
 </ul>
 </div>
@@ -503,12 +548,12 @@ Format: <code>export [FILE_NAME]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>export example</code><br>
-Export the current list shown in the GUI to a CSV file which has the filename <code>example</code>.</p>
+<p><code>export</code><br>
+Exports the current Medicine Inventory data shown in the GUI to a CSV file which has a default file name format <code>{Date of export}_{Time of export}</code>. e.g. <code>18_Mar_2019_10_28_00</code></p>
 </li>
 <li>
-<p><code>export</code><br>
-Export the current list shown in the GUI to a CSV file which has a default file name in this format <code>{Date of export}_{Time of export}</code>. The specific date and time format used is <code>dd_MMM_yyyy_HH_mm_ss</code>. In other words, an example of a default CSV file name is <code>18_Mar_2019_10_28_00</code>.</p>
+<p><code>export example</code><br>
+Exports the current list shown in the GUI to a CSV file which has the filename <code>example</code>.</p>
 </li>
 </ul>
 </div>
@@ -519,7 +564,27 @@ Export the current list shown in the GUI to a CSV file which has a default file 
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-If a file with the specified file name already exists in the default <code>exported</code> directory, a <code>File already exists</code> exception would be shown.
+If a file with the specified file name already exists in the default <code>exported</code> folder, the file would not exported and an error message <code>"Could not export data to csv file: {Specified File Name} already exists in "exported" directory"</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A sample image of how the Medicine Inventory data in the exported CSV file is organised:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SampleCSVFileImage.png" alt="SampleCSVFileImage" width="790">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+From the image above, you can observe that different batches of the same medicine have their own row in the CSV file. This provides a more detailed information on the quantity and expiry date for each batch of the same medicine as different batches of the same medicine can have different expiry dates and quantity.
 </td>
 </tr>
 </table>
@@ -743,7 +808,7 @@ There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
+<h2 id="frequently-asked-questions-faq"><a class="link" href="#frequently-asked-questions-faq">4. Frequently Asked Questions (FAQ)</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
@@ -834,4 +899,37 @@ e.g. <code>warning e/20 s/10</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-21 06:23:24 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="appendix-a-file-naming-convention"><a class="link" href="#appendix-a-file-naming-convention">7. Appendix A: File Naming Convention</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>MediTabs uses the following File Naming Convention when File Name field is used e.g. The <code>export</code> command&#8217;s optional <code>[FILE_NAME]</code> field. The File Naming Convention is to ensure consistency and to avoid potential bugs involving file names with different operating systems such as Windows, Linux and MacOS<br>
+Format: <code>Start with an Alphabet or Number followed by Alphabets, Numbers, underscore or hyphen</code></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+You should follow the File Naming Convention format when specifying the File Name field for any commands that support File Name as a field.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+The characters of the File Name cannot contain any spacing or symbols such as <code>\/:*?"&lt;&gt;|.</code>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-21 15:50:07 UTC</div></div></div></body></html>
