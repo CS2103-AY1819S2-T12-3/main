@@ -55,7 +55,7 @@
 <div class="sect2">
 <h3 id="what-is-meditabs"><a class="link" href="#what-is-meditabs">1.1. What is MediTabs?</a></h3>
 <div class="paragraph">
-<p>MediTabs is a desktop application for managing medicine stock taking. You can use MediTabs in your clinics such as family clinics or private clinics to keep track of your clinic&#8217;s medicine inventory such as which medicines are low in stock and which medicines are expiring soon.</p>
+<p>MediTabs is a desktop application for managing medicine stock taking. You can use MediTabs in your clinics to easily track of your medicine inventory and take note of important information such as which medicines are low in stock and which medicines are expiring soon.</p>
 </div>
 <div class="paragraph">
 <p>MediTabs supports Windows, Linux and MacOS operating systems.</p>
@@ -103,7 +103,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all medicines in the inventory</p>
 </li>
 <li>
-<p><strong><code>add</code></strong> <code>n/Paracetamol c/3M Pharmaceuticals</code> : adds a new medicine named <code>Paracetamol</code> to the inventory</p>
+<p><strong><code>add</code></strong> <code>n/Paracetamol c/3M Pharmaceuticals</code> : adds a new medicine named <code>Paracetamol</code> to the inventory with the manufacturing company <code>3M Pharmaceuticals</code></p>
 </li>
 <li>
 <p><strong><code>delete</code></strong> <code>3</code> : deletes the 3rd entry shown in the current list</p>
@@ -172,7 +172,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/Paracetamol</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>e.g n/NAME [t/TAG] can be used as `n/Paracetamol t/Popular</code> or as <code>n/Paracetamol</code>.</p>
+<p>Items in square brackets are optional e.g <code>e.g n/NAME [t/TAG] can be used as n/Paracetamol t/Popular</code> or as <code>n/Paracetamol</code>.</p>
 </li>
 <li>
 <p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]…</code> can be used as <code>&#160;</code> (i.e. 0 times), t/Ordered, t/PhasingOut t/SlowMoving etc..</p>
@@ -905,7 +905,7 @@ e.g. <code>warning e/20 s/10</code></p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>MediTabs uses the following File Naming Convention when File Name field is used e.g. The <code>export</code> command&#8217;s optional <code>[FILE_NAME]</code> field. The File Naming Convention is to ensure consistency and to avoid potential bugs involving file names with different operating systems such as Windows, Linux and MacOS<br>
-Format: <code>Start with an Alphabet or Number followed by Alphabets, Numbers, underscore or hyphen</code></p>
+Format: <code>Start with an alphabet or number followed by alphabets, numbers, underscore or hyphen</code></p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -914,7 +914,7 @@ Format: <code>Start with an Alphabet or Number followed by Alphabets, Numbers, u
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-You should follow the File Naming Convention format when specifying the File Name field for any commands that support File Name as a field.
+You must follow the File Naming Convention format when specifying the File Name field for any commands that support File Name as a field.
 </td>
 </tr>
 </table>
@@ -926,10 +926,10 @@ You should follow the File Naming Convention format when specifying the File Nam
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-The characters of the File Name cannot contain any spacing or symbols such as <code>\/:*?"&lt;&gt;|.</code>
+The characters of the File Name cannot contain any spacing or symbols, including but not limited to, <code>\/:*?"&lt;&gt;|.+[]{};!@#$%^&amp;~`</code>
 </td>
 </tr>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-21 15:50:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-22 06:28:28 UTC</div></div></div></body></html>
