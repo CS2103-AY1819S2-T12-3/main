@@ -12,7 +12,7 @@
 <li><a href="#setting-up">1. Setting up</a>
 <ul class="sectlevel2">
 <li><a href="#prerequisites">1.1. Prerequisites</a></li>
-<li><a href="#setting-up-the-project-in-your-computer">1.2. Setting up the project in your computer</a></li>
+<li><a href="#setting-up-the-project-on-your-computer">1.2. Setting up the project on your computer</a></li>
 <li><a href="#verifying-the-setup">1.3. Verifying the setup</a></li>
 <li><a href="#configurations-to-do-before-writing-code">1.4. Configurations to do before writing code</a></li>
 </ul>
@@ -29,11 +29,11 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#batch-table-feature">3.1. Batch table feature</a></li>
-<li><a href="#exporting-as-csv-file-format-feature-via-export-command">3.2. Exporting as CSV file format feature via Export Command</a></li>
-<li><a href="#undo-redo-feature">3.3. Undo/Redo feature</a></li>
+<li><a href="#batch-table">3.1. Batch table</a></li>
+<li><a href="#exporting-as-csv-file-format">3.2. Exporting as CSV file format</a></li>
+<li><a href="#undo-redo">3.3. Undo/Redo</a></li>
 <li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
-<li><a href="#label">3.5. Label</a></li>
+<li><a href="#exporting-medicine-label">3.5. Exporting Medicine Label</a></li>
 <li><a href="#warning-panel">3.6. Warning Panel</a></li>
 <li><a href="#logging">3.7. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
@@ -89,7 +89,19 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><strong>JDK <code>9</code></strong> or later</p>
+<p><strong>JDK <code>9</code> (highly recommended) or <code>10</code></strong></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+JDK <code>11</code> and later are not recommended due to some features being removed which were once available in JDK <code>9</code>. You can read more about the issue highlighted from the developers of the base source code which MediTabs is based on and improved upon <a href="https://github.com/se-edu/addressbook-level4/issues/951">here</a>
+</td>
+</tr>
+</table>
+</div>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -124,11 +136,11 @@ Do not disable them. If you have disabled them, go to <code>File</code> &gt; <co
 </div>
 </div>
 <div class="sect2">
-<h3 id="setting-up-the-project-in-your-computer"><a class="link" href="#setting-up-the-project-in-your-computer">1.2. Setting up the project in your computer</a></h3>
+<h3 id="setting-up-the-project-on-your-computer"><a class="link" href="#setting-up-the-project-on-your-computer">1.2. Setting up the project on your computer</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Fork this repo, and clone the fork to your computer</p>
+<p>Fork this repository, and clone the fork to your computer</p>
 </li>
 <li>
 <p>Open IntelliJ (if you are not in the welcome screen, click <code>File</code> &gt; <code>Close Project</code> to close the existing project dialog first)</p>
@@ -160,7 +172,7 @@ Do not disable them. If you have disabled them, go to <code>File</code> &gt; <co
 </li>
 <li>
 <p>Open a console and run the command <code>gradlew processResources</code> (Mac/Linux: <code>./gradlew processResources</code>). It should finish with the <code>BUILD SUCCESSFUL</code> message.<br>
-This will generate all resources required by the application and tests.</p>
+This will generate all the resources required by the application and tests.</p>
 </li>
 <li>
 <p>Open <a href="https://github.com/CS2103-AY1819S2-T12-3/main/blob/master//src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow.java</code></a> and check for any code errors</p>
@@ -419,7 +431,7 @@ The following class plays an important role at the architecture level:</p>
 <p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>MedicineListPanel</code>, <code>StatusBarFooter</code>, <code>InformationPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/CS2103-AY1819S2-T12-3/main/blob/master//src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/CS2103-AY1819S2-T12-3/main/blob/master//src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses JavaFX UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/CS2103-AY1819S2-T12-3/main/blob/master//src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/CS2103-AY1819S2-T12-3/main/blob/master//src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -549,7 +561,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Inventory</co
 <div class="sect2">
 <h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
 <div class="paragraph">
-<p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
+<p>Classes used by multiple components are in the <code>seedu.address.commons</code> package.</p>
 </div>
 </div>
 </div>
@@ -561,7 +573,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Inventory</co
 <p>This section provides you with some description of how certain key features of our product are being implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="batch-table-feature"><a class="link" href="#batch-table-feature">3.1. Batch table feature</a></h3>
+<h3 id="batch-table"><a class="link" href="#batch-table">3.1. Batch table</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -652,7 +664,7 @@ An <code>update</code> command will also cause <code>ChangeListener#changed(Obse
 </div>
 </div>
 <div class="sect2">
-<h3 id="exporting-as-csv-file-format-feature-via-export-command"><a class="link" href="#exporting-as-csv-file-format-feature-via-export-command">3.2. Exporting as CSV file format feature via Export Command</a></h3>
+<h3 id="exporting-as-csv-file-format"><a class="link" href="#exporting-as-csv-file-format">3.2. Exporting as CSV file format</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -671,18 +683,39 @@ It is build on top of the <code>Opencsv</code> Java CSV parser library, licensed
 <p><code>CsvWrapper#export()</code>&#8201;&#8212;&#8201;Export the current Medicine Inventory data shown in the GUI to CSV file format.</p>
 </li>
 <li>
-<p><code>CsvWrapper#createCsvFile(String csvFileName)</code>&#8201;&#8212;&#8201;Creates a CSV file with the file name based on the <code>csvFileName</code> input. The file is created in the <code>exported</code> directory which is located in the same directory as our product application.</p>
+<p><code>CsvWrapper#createCsvFile(String csvFileName)</code>&#8201;&#8212;&#8201;Creates a CSV file with the file name based on the <code>csvFileName</code> input. The file is created in the default <code>exported</code> directory which is located in the same directory as our product application.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the default <code>exported</code> directory is not found, it will be automatically created.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p><code>CsvWrapper#writeDataToCsv(List currentGuiList)</code>&#8201;&#8212;&#8201;Writes the current Medicine Inventory data shown in the GUI to the CSV file created by the <code>CsvWrapper#createCsvFile(String csvFileName)</code> operation.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Out of the three key operations stated above, <strong>only</strong> <code>CsvWrapper#export()</code> is a <em>public</em> operation available for use by other components. It acts as the main interface which other components use to interact with <code>CsvWrapper</code> in order to integrate exporting to CSV file format feature into their own implementation.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Out of the three key operations stated above, <strong>only</strong> <code>CsvWrapper#export()</code> is a <em>public</em> operation available for use by other components. It acts as the main interface which other components use to interact with <code>CsvWrapper</code> in order to integrate exporting to CSV file format feature into their own implementation.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Given below is a sequence diagram overview of how these 3 key operations behaves when you execute the export command in order to export the current Medicine Inventory data shown in the GUI to CSV file format:</p>
+<p>Given below is a sequence diagram overview of how these 3 key operations behaves when the user executes the <code>export</code> command in order to export the current Medicine Inventory data shown in the GUI to CSV file format:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -693,7 +726,7 @@ It is build on top of the <code>Opencsv</code> Java CSV parser library, licensed
 <p>Given below is a brief description of how the exporting as CSV file format mechanism behaves as shown in the sequence diagram above:</p>
 </div>
 <div class="paragraph">
-<p>Step 1: When the user executes the export command, assuming parsing of the command line arguments have already been completed, the <code>ExportCommand#execute()</code> operation is called.</p>
+<p>Step 1: When the user executes the <code>export</code> command, assuming parsing of the command line arguments have already been completed, the <code>ExportCommand#execute()</code> operation is called.</p>
 </div>
 <div class="paragraph">
 <p>Step 2: The <code>ExportCommand#execute()</code> operation initialises the <code>CsvWrapper</code> with the <em>file name of the CSV file to be stored</em> and <em>the current model instance</em> as its input parameters.</p>
@@ -705,7 +738,7 @@ It is build on top of the <code>Opencsv</code> Java CSV parser library, licensed
 <p>Step 4: The <code>CsvWrapper#export()</code> operation retrieves the current Medicine Inventory data shown in the GUI by calling the <code>Model#getFilteredMedicineList()</code> operation.</p>
 </div>
 <div class="paragraph">
-<p>Step 5: After retrieving the data, the <code>CsvWrapper#createCsvFile(String csvFileName)</code> operation, which is the second key operation, is called. It creates an empty CSV file with the input file name in the <code>exported</code> directory as mentioned earlier.</p>
+<p>Step 5: After retrieving the data, the <code>CsvWrapper#createCsvFile(String csvFileName)</code> operation, which is the second key operation, is called. It creates an empty CSV file with the input file name in the default <code>exported</code> directory.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -714,7 +747,7 @@ It is build on top of the <code>Opencsv</code> Java CSV parser library, licensed
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a CSV file with the input file name <strong>already exist</strong> in the <code>exported</code> directory, a <code>File already exist</code> exception will be shown in the <code>CommandResult</code> panel of the GUI as a <code>CommandException</code> is thrown and the exporting process will stop executing. In other words, the current Medicine Inventory data shown in the GUI would not be exported.
+If a CSV file with the input file name already exists in the <code>exported</code> directory, a <code>"Could not export data to csv file: {Input File Name} already exists in "exported" directory"</code> exception will be shown in the <code>CommandResult</code> panel of the GUI as a <code>CommandException</code> is thrown and the exporting process will stop executing. In other words, the current Medicine Inventory data shown in the GUI would not be exported.
 </td>
 </tr>
 </table>
@@ -728,15 +761,23 @@ If a CSV file with the input file name <strong>already exist</strong> in the <co
 <div class="paragraph">
 <p>Step 8: The <code>ExportCommand#execute()</code> operations returns a <code>CommandResult</code> which shows the current list is exported to a CSV file with the input file name.</p>
 </div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes the <code>export</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ExportCommandActivityDiagram.png" alt="ExportCommandActivityDiagram" width="800">
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-the-exporting-as-csv-file-format-feature-via-the-export-command-executes"><a class="link" href="#aspect-how-the-exporting-as-csv-file-format-feature-via-the-export-command-executes">Aspect: How the exporting as CSV file format feature via the export command executes</a></h5>
+<h5 id="aspect-how-exporting-as-csv-file-format-executes"><a class="link" href="#aspect-how-exporting-as-csv-file-format-executes">Aspect: How exporting as CSV file format executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Export all the Medicine Inventory data currently shown in the GUI to CSV file format.</p>
+<p><strong>Alternative 1 (current choice):</strong> Export the current Medicine Inventory data shown in the GUI to CSV file format.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -753,7 +794,7 @@ If a CSV file with the input file name <strong>already exist</strong> in the <co
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Individuals can export directly through a single command (e.g. for <code>filter</code> command when the export option is enabled, export the filtered Medicine Inventory data immediately without having to retrieve from <code>Model#getFilteredMedicineList()</code> operation.</p>
+<p>Pros: Users can export directly through a single command (e.g. for <code>filter</code> command when the export option is enabled, export the filtered Medicine Inventory data immediately without having to retrieve from <code>Model#getFilteredMedicineList()</code> operation.</p>
 </li>
 <li>
 <p>Cons: We must ensure that the implementation and integration of the exporting to CSV file of each individual commands are correct. Furthermore, users are not able preview the data before exporting.</p>
@@ -765,7 +806,7 @@ If a CSV file with the input file name <strong>already exist</strong> in the <co
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-data-structure-algorithm-implementation-to-support-the-exporting-as-csv-file-format-feature-via-the-export-command"><a class="link" href="#aspect-data-structure-algorithm-implementation-to-support-the-exporting-as-csv-file-format-feature-via-the-export-command">Aspect: Data structure/Algorithm/Implementation to support the exporting as CSV file format feature via the export command</a></h5>
+<h5 id="aspect-data-structure-algorithm-implementation-to-support-the-code-export-code-command"><a class="link" href="#aspect-data-structure-algorithm-implementation-to-support-the-code-export-code-command">Aspect: Data structure/Algorithm/Implementation to support the <code>export</code> command</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -812,7 +853,7 @@ More information on <code>Opencsv</code> library&#8217;s <code>StatefulBeanToCsv
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.3. Undo/Redo feature</a></h3>
+<h3 id="undo-redo"><a class="link" href="#undo-redo">3.3. Undo/Redo</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -1089,7 +1130,7 @@ If the <code>currentStatePointer</code> is at index <code>inventoryStateList.siz
 </div>
 </div>
 <div class="sect2">
-<h3 id="label"><a class="link" href="#label">3.5. Label</a></h3>
+<h3 id="exporting-medicine-label"><a class="link" href="#exporting-medicine-label">3.5. Exporting Medicine Label</a></h3>
 <div class="paragraph">
 <p>The exporting of a medicine label to a PDF formatted file is implemented by using Apache PDFBox.</p>
 </div>
@@ -2287,4 +2328,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-22 06:28:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-24 04:44:41 UTC</div></div></div></body></html>
