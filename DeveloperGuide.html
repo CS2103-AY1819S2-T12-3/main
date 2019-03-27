@@ -29,7 +29,7 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#batch-table">3.1. Batch table</a></li>
+<li><a href="#information-panel">3.1. Information Panel</a></li>
 <li><a href="#exporting-as-csv-file-format">3.2. Exporting as CSV file format</a></li>
 <li><a href="#undo-redo">3.3. Undo/Redo</a></li>
 <li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
@@ -526,11 +526,13 @@ The following class plays an important role at the architecture level:</p>
 </td>
 <td class="content">
 As a more OOP model, we can store a <code>Tag</code> list in <code>Inventory</code>, which <code>Medicine</code> can reference. This would allow <code>Inventory</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Medicine</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800"></span>
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>+
+<span class="image"><img src="images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800"></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -573,11 +575,11 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Inventory</co
 <p>This section provides you with some description of how certain key features of our product are being implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="batch-table"><a class="link" href="#batch-table">3.1. Batch table</a></h3>
+<h3 id="information-panel"><a class="link" href="#information-panel">3.1. Information Panel</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The batch table is mainly driven by <code>InformationPanel</code> which extends <code>UiPart</code> with an added mechanism to interact with the currently selected medicine.
+<p>The information panel is mainly driven by <code>InformationPanel</code> which extends <code>UiPart</code> with an added mechanism to interact with the currently selected medicine.
 It implements the following operations:</p>
 </div>
 <div class="ulist">
@@ -598,11 +600,11 @@ Given below is a diagram showing the execution of <code>InformationPanel</code> 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/BatchTableSequenceDiagram.png" alt="BatchTableSequenceDiagram" width="800">
+<img src="images/InformationPanelSequenceDiagram.png" alt="InformationPanelSequenceDiagram" width="800">
 </div>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the batch table behaves at each step.</p>
+<p>Given below is an example usage scenario and how the information panel behaves at each step.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. The user launches the application for the first time. An empty <code>InformationPanel</code> is displayed.</p>
@@ -2328,4 +2330,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-27 09:26:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-27 16:01:30 UTC</div></div></div></body></html>
