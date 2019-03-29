@@ -555,7 +555,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Inventory</co
 <p>can save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>can save the Medicine Inventory data in json format and read it back.</p>
+<p>can save the medicine inventory data in json format and read it back.</p>
 </li>
 </ul>
 </div>
@@ -671,7 +671,7 @@ An <code>update</code> command will also cause <code>ChangeListener#changed(Obse
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The exporting as CSV file format mechanism is facilitated by <code>CsvWrapper</code>.
-It is build on top of the <code>Opencsv</code> Java CSV parser library, licensed under the <code>Apache 2 OSS License</code>, so that it integrates with our product. This is done by providing additional operations to support exporting the current Medicine Inventory data shown in the GUI to CSV file format.</p>
+It is build on top of the <code>Opencsv</code> Java CSV parser library, licensed under the <code>Apache 2 OSS License</code>, so that it integrates with our product. This is done by providing additional operations to support exporting the current medicine inventory data shown in the GUI to CSV file format.</p>
 </div>
 <div class="paragraph">
 <p>There are many additonal operations added in <code>CsvWrapper</code> but we will only list the key operations which are the main drivers of the overall implementation of the feature for easier reference and understanding.</p>
@@ -682,7 +682,7 @@ It is build on top of the <code>Opencsv</code> Java CSV parser library, licensed
 <div class="ulist">
 <ul>
 <li>
-<p><code>CsvWrapper#export()</code>&#8201;&#8212;&#8201;Export the current Medicine Inventory data shown in the GUI to CSV file format.</p>
+<p><code>CsvWrapper#export()</code>&#8201;&#8212;&#8201;Export the current medicine inventory data shown in the GUI to CSV file format.</p>
 </li>
 <li>
 <p><code>CsvWrapper#createCsvFile(String csvFileName)</code>&#8201;&#8212;&#8201;Creates a CSV file with the file name based on the <code>csvFileName</code> input. The file is created in the default <code>exported</code> directory which is located in the same directory as our product application.</p>
@@ -700,7 +700,7 @@ If the default <code>exported</code> directory is not found, it will be automati
 </div>
 </li>
 <li>
-<p><code>CsvWrapper#writeDataToCsv(List currentGuiList)</code>&#8201;&#8212;&#8201;Writes the current Medicine Inventory data shown in the GUI to the CSV file created by the <code>CsvWrapper#createCsvFile(String csvFileName)</code> operation.</p>
+<p><code>CsvWrapper#writeDataToCsv(List currentGuiList)</code>&#8201;&#8212;&#8201;Writes the current medicine inventory data shown in the GUI to the CSV file created by the <code>CsvWrapper#createCsvFile(String csvFileName)</code> operation.</p>
 </li>
 </ul>
 </div>
@@ -717,7 +717,7 @@ Out of the three key operations stated above, <strong>only</strong> <code>CsvWra
 </table>
 </div>
 <div class="paragraph">
-<p>Given below is a sequence diagram overview of how these 3 key operations behaves when the user executes the <code>export</code> command in order to export the current Medicine Inventory data shown in the GUI to CSV file format:</p>
+<p>Given below is a sequence diagram overview of how these 3 key operations behaves when the user executes the <code>export</code> command in order to export the current medicine inventory data shown in the GUI to CSV file format:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -737,7 +737,7 @@ Out of the three key operations stated above, <strong>only</strong> <code>CsvWra
 <p>Step 3: The <code>ExportCommand#execute()</code> operation then calls <code>CsvWrapper#export()</code> operation which is the first key operation which implements the export to CSV file format feature.</p>
 </div>
 <div class="paragraph">
-<p>Step 4: The <code>CsvWrapper#export()</code> operation retrieves the current Medicine Inventory data shown in the GUI by calling the <code>Model#getFilteredMedicineList()</code> operation.</p>
+<p>Step 4: The <code>CsvWrapper#export()</code> operation retrieves the current medicine inventory data shown in the GUI by calling the <code>Model#getFilteredMedicineList()</code> operation.</p>
 </div>
 <div class="paragraph">
 <p>Step 5: After retrieving the data, the <code>CsvWrapper#createCsvFile(String csvFileName)</code> operation, which is the second key operation, is called. It creates an empty CSV file with the input file name in the default <code>exported</code> directory.</p>
@@ -749,16 +749,16 @@ Out of the three key operations stated above, <strong>only</strong> <code>CsvWra
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a CSV file with the input file name already exists in the <code>exported</code> directory, a <code>"Could not export data to csv file: {Input File Name} already exists in "exported" directory"</code> exception will be shown in the <code>CommandResult</code> panel of the GUI as a <code>CommandException</code> is thrown and the exporting process will stop executing. In other words, the current Medicine Inventory data shown in the GUI would not be exported.
+If a CSV file with the input file name already exists in the <code>exported</code> directory, a <code>"Could not export data to csv file: {Input File Name} already exists in "exported" directory"</code> exception will be shown in the <code>CommandResult</code> panel of the GUI as a <code>CommandException</code> is thrown and the exporting process will stop executing. In other words, the current medicine inventory data shown in the GUI would not be exported.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 6: After the empty CSV file is created, the <code>CsvWrapper#writeDataToCsv</code>, which is the third key operation, is called to process the current Medicine Inventory data retrieved earlier in Step 4 and writes to the CSV file in an organised format for easier reference by the users of the exported CSV file.</p>
+<p>Step 6: After the empty CSV file is created, the <code>CsvWrapper#writeDataToCsv</code>, which is the third key operation, is called to process the current medicine inventory data retrieved earlier in Step 4 and writes to the CSV file in an organised format for easier reference by the users of the exported CSV file.</p>
 </div>
 <div class="paragraph">
-<p>Step 7: The current Medicine Inventory data shown in the GUI is exported successfully to CSV file format.</p>
+<p>Step 7: The current medicine inventory data shown in the GUI is exported successfully to CSV file format.</p>
 </div>
 <div class="paragraph">
 <p>Step 8: The <code>ExportCommand#execute()</code> operations returns a <code>CommandResult</code> which shows the current list is exported to a CSV file with the input file name.</p>
@@ -779,7 +779,7 @@ If a CSV file with the input file name already exists in the <code>exported</cod
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Export the current Medicine Inventory data shown in the GUI to CSV file format.</p>
+<p><strong>Alternative 1 (current choice):</strong> Export the current medicine inventory data shown in the GUI to CSV file format.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -796,7 +796,7 @@ If a CSV file with the input file name already exists in the <code>exported</cod
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Users can export directly through a single command (e.g. for <code>filter</code> command when the export option is enabled, export the filtered Medicine Inventory data immediately without having to retrieve from <code>Model#getFilteredMedicineList()</code> operation.</p>
+<p>Pros: Users can export directly through a single command (e.g. for <code>filter</code> command when the export option is enabled, export the filtered medicine inventory data immediately without having to retrieve from <code>Model#getFilteredMedicineList()</code> operation.</p>
 </li>
 <li>
 <p>Cons: We must ensure that the implementation and integration of the exporting to CSV file of each individual commands are correct. Furthermore, users are not able preview the data before exporting.</p>
@@ -2330,4 +2330,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-27 16:01:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-29 08:00:35 UTC</div></div></div></body></html>
