@@ -1524,21 +1524,21 @@ The specified file name <strong>must not</strong> be an empty string or <code>nu
 </div>
 </div>
 <div class="sect3">
-<h4 id="how-to-integrate-it-into-your-project-or-code"><a class="link" href="#how-to-integrate-it-into-your-project-or-code">4.8.2. How to integrate it into your project or code?</a></h4>
+<h4 id="how-to-integrate-it-into-new-commands-in-meditabs"><a class="link" href="#how-to-integrate-it-into-new-commands-in-meditabs">4.8.2. How to integrate it into new commands in MediTabs?</a></h4>
 <div class="paragraph">
-<p>If you are a developer looking to integrate <code>FileName</code> class into your project or code, we have provided a code snippet which provides you with an example of how to take advantage of the validation of file names provided by <code>FileName#isValidFileName(String fileNameToCheck)</code> operation.</p>
+<p>If you are a developer looking to add new features to MediTabs which involves the creation of files, we recommend integrating the existing <code>FileName</code> class. This can easily be done by making use of <code>FileName#isValidFileName(String fileNameToCheck)</code> operation.</p>
 </div>
 <div class="paragraph">
-<p>For example purposes, the code snippet shown below is a modified version of <code>ParserUtil#parseFileName(String fileName, boolean isEmptyFileNameAllowed)</code> operation used in MediTabs for your reference:</p>
+<p>You may wish to refer to the code snippet shown below, which is a modified version of the <code>ParserUtil#parseFileName(String fileName, boolean isEmptyFileNameAllowed)</code> operation used in MediTabs. The code snippet demonstrates how <code>FileName#isValidFileName(String fileNameToCheck)</code> operation can be used for easier reference.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">static</span> FileName parseFileName(<span class="predefined-type">String</span> fileName) <span class="directive">throws</span> <span class="exception">ParseException</span> {
-        <span class="keyword">if</span> (!FileName.isValidFileName(fileName)) { <i class="conum" data-value="1"></i><b>(1)</b>
-            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="exception">ParseException</span>(FileName.MESSAGE_CONSTRAINTS); <i class="conum" data-value="2"></i><b>(2)</b>
-        }
-        <span class="keyword">return</span> <span class="keyword">new</span> FileName(fileName); <i class="conum" data-value="3"></i><b>(3)</b>
-    }</code></pre>
+    <span class="keyword">if</span> (!FileName.isValidFileName(fileName)) { <i class="conum" data-value="1"></i><b>(1)</b>
+        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="exception">ParseException</span>(FileName.MESSAGE_CONSTRAINTS); <i class="conum" data-value="2"></i><b>(2)</b>
+    }
+    <span class="keyword">return</span> <span class="keyword">new</span> FileName(fileName); <i class="conum" data-value="3"></i><b>(3)</b>
+}</code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -2552,4 +2552,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-31 10:31:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-31 12:38:23 UTC</div></div></div></body></html>
