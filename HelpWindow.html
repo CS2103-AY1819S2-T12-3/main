@@ -36,8 +36,9 @@
 <li><a href="#clearing-all-entries-code-clear-code">4.15. Clearing all entries : <code>clear</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">4.16. Exiting the program : <code>exit</code></a></li>
 <li><a href="#suggested-medicine-names-code-coming-in-v2-0-code">4.17. Suggested medicine names <code>[coming in v2.0]</code></a></li>
-<li><a href="#saving-the-data">4.18. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.19. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#integration-addon-support-code-coming-in-v2-0-code">4.18. Integration Addon Support <code>[coming in v2.0]</code></a></li>
+<li><a href="#saving-the-data">4.19. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">4.20. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#frequently-asked-questions-faq">5. Frequently Asked Questions (FAQ)</a></li>
@@ -56,7 +57,7 @@
 <div class="sect2">
 <h3 id="what-is-meditabs"><a class="link" href="#what-is-meditabs">1.1. What is MediTabs?</a></h3>
 <div class="paragraph">
-<p>MediTabs is a desktop application for managing medicine stock taking. You can use MediTabs in your clinics to easily keep track of your medicine inventory and take note of important information such as which medicines are low in stock and which medicines are expiring soon.</p>
+<p>MediTabs is a desktop application for managing medicine stock taking. You can use MediTabs in your clinics to easily keep track of your medicine inventory and take note of important information such as which medicines are low in stock, expiring soon or have expired.</p>
 </div>
 <div class="paragraph">
 <p>MediTabs supports Windows, Linux and MacOS operating systems.</p>
@@ -147,9 +148,17 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Result Display</strong>
-* The result of the command will be displayed in the Result Display.
-* If commands are entered incorrectly, error messages will be shown here.</p>
+<p><strong>Result Display</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The result of the command will be displayed in the Result Display.</p>
+</li>
+<li>
+<p>If commands are entered incorrectly, error messages will be shown here.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Medicine List</strong></p>
@@ -646,7 +655,7 @@ If a file with the specified file name already exists in the default <code>expor
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-From the image above, you can observe that different batches of the same medicine have their own row in the CSV file. This provides more detailed information on the quantity and expiry date for each batch of the same medicine as different batches of the same medicine can have different expiry dates and quantity. Furthermore, the CSV file also includes information such as which medicines are low in stock, which medicines are expiring soon or have expired for easier reference.
+From the image above, you can observe that different batches of the same medicine have their own row in the CSV file. This provides more detailed information on the quantity and expiry date for each batch of the same medicine as different batches of the same medicine can have different expiry dates and quantity. Furthermore, the CSV file also includes information such as which medicines are low in stock, expiring soon or have expired for easier reference.
 </td>
 </tr>
 </table>
@@ -869,14 +878,68 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.18. Saving the data</a></h3>
+<h3 id="integration-addon-support-code-coming-in-v2-0-code"><a class="link" href="#integration-addon-support-code-coming-in-v2-0-code">4.18. Integration Addon Support <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>You can download and install integration addons created for MediTabs such as addons which allows MediTabs to integrate with different third party services which your clinic might currently be using.<br>
+Format: <code>install an/NAME_OF_ADDON</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only integration addons that have been verified by our team can be downloaded and installed in MediTabs. This is to ensure that the addons downloaded and installed in MediTabs are secure and have no malicious code. This is to ensure the security which MediTabs provides would not be compromise as security is an important factor due to the increasing threat with regards to cybersecurity.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Benefits of integration addon support are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Provides greater flexibility as your clinic might have different third party services which you might want to integrate with to allow for easier transition between services.</p>
+</li>
+<li>
+<p>Allows you to customise MediTabs with features that your clinic requires without any unnecessary features which might not be relevant to your clinic&#8217;s workflow.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>An example of an integration addon which would be supported by MediTabs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Singapore&#8217;s Health Science Authority (HSA) - To integrate the Singapore HSA&#8217;s medical database with MediTabs which allows easy retrieval of important information such as when a medicine is requested to be recalled by the HSA.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This feature could be further expanded to support medical databases of different countries.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.19. Saving the data</a></h3>
 <div class="paragraph">
 <p>Inventory data is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">4.19. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">4.20. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -1089,4 +1152,4 @@ The characters of the file name cannot contain any spacing or symbols, including
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-31 06:19:23 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-31 10:31:05 UTC</div></div></div></body></html>
