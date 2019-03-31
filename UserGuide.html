@@ -713,20 +713,35 @@ Format: <code>label INDEX [f/FILE_NAME]</code></p>
 <li>
 <p><code>list</code><br>
 <code>label 2</code><br>
-Outputs label PDF file for 2nd medicine in the list with default file name <code>to_print</code>.</p>
+This will allow you to select the 2nd medicine in the inventory and output the information to a default file named <code>to_print</code>.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/label2_example.png" alt="label2 example" width="790">
+<img src="images/label2_taken.png" alt="label2 taken" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A confirmation message will be shown to indicate to you that it have been successfully labeled.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>You can open the file in the PDF folder with your preferred PDF reader to print the medicine information.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/label2.png" alt="label2" width="790">
 </div>
 </div>
 </li>
 <li>
 <p><code>find Simvastatin</code><br>
 <code>label 1 f/Simvastatin</code><br>
-Outputs label PDF file for 1st medicine in the results of the <code>find</code> command with file name <code>Simvastatin</code>.</p>
+Similar to the example above, the 1st medicine information will be output to a file name <code>Simvastatin</code>.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/label1_example.png" alt="label1 example" width="790">
+<img src="images/label1.png" alt="label1" width="790">
 </div>
 </div>
 <div class="admonitionblock warning">
@@ -736,7 +751,7 @@ Outputs label PDF file for 1st medicine in the results of the <code>find</code> 
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-The <code>label</code> command will overwrite the <code>to_print</code> file every time it is used. Hence, do print the required file first before using the <code>label</code> command again. This extends to all other existing file names.
+The <code>label</code> command will overwrite the <code>to_print</code> file every time it is used without specifying a file name. Hence, do print the required file first before using the <code>label</code> command again. This extends to all other existing file names.
 </td>
 </tr>
 </table>
@@ -1152,4 +1167,4 @@ The characters of the file name cannot contain any spacing or symbols, including
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-31 12:38:23 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-03-31 15:20:11 UTC</div></div></div></body></html>
