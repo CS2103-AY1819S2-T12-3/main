@@ -22,7 +22,6 @@
 <li><a href="#your-feature-here">4.1. your feature here</a></li>
 <li><a href="#warning-panel">4.2. Warning Panel</a></li>
 <li><a href="#coming-in-v2-0">4.3. Coming in v2.0</a></li>
-<li><a href="#encrypting-data-files">4.4. Encrypting data files</a></li>
 </ul>
 </li>
 <li><a href="#Commands">5. Commands</a>
@@ -35,7 +34,7 @@
 <li><a href="#deleting-a-medicine-code-delete-code">5.6. Deleting a medicine : <code>delete</code></a></li>
 <li><a href="#viewing-medicine-information-page-code-select-code">5.7. Viewing medicine information page : <code>select</code></a></li>
 <li><a href="#updating-batch-records-code-update-code">5.8. Updating batch records : <code>update</code></a></li>
-<li><a href="#managing-warning-panel-code-warning-code">5.9. Managing warning panel : <code>warning</code></a></li>
+<li><a href="#WarningPanel">5.9. Managing the warning panel : <code>warning</code></a></li>
 <li><a href="#exporting-as-csv-file-format-code-export-code">5.10. Exporting as CSV file format : <code>export</code></a></li>
 <li><a href="#printing-labels-code-label-code">5.11. Printing labels : <code>label</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">5.12. Listing entered commands : <code>history</code></a></li>
@@ -48,7 +47,8 @@
 </li>
 <li><a href="#frequently-asked-questions-faq">6. Frequently Asked Questions (FAQ)</a></li>
 <li><a href="#commands-summary">7. Commands Summary</a></li>
-<li><a href="#appendix-a-file-naming-convention">8. Appendix A: File Naming Convention</a></li>
+<li><a href="#terminology">8. Terminology</a></li>
+<li><a href="#appendix-a-file-naming-convention">9. Appendix A: File Naming Convention</a></li>
 </ul>
 </div>
 </div>
@@ -56,7 +56,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Welcome to the <em>MediTabs User Guide</em>. You can find step by step instructions on how to set up MediTabs and take advantage of the features provided by MediTabs to optimise your clinic&#8217;s medicine stock taking workflow. Interested? You can jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>Welcome to the <em>MediTabs User Guide</em>! Over here, you can find step by step instructions on setting up MediTabs and learn ways to take advantage features provided to optimise your clinic&#8217;s inventory management flow. Interested? You can jump to  <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
 <div class="sect2">
 <h3 id="what-is-meditabs"><a class="link" href="#what-is-meditabs">1.1. What is MediTabs?</a></h3>
@@ -121,7 +121,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </li>
 <li>
-<p>Refer to <a href="#Features">Section 4, &#8220;Features&#8221;</a> for details of each command.</p>
+<p>Refer to <a href="#Commands">Section 5, &#8220;Commands&#8221;</a> for details of each command.</p>
 </li>
 <li>
 <p>Having trouble setting up MediTabs? You can refer to the <a href="#frequently-asked-questions-faq">Section 6, &#8220;Frequently Asked Questions (FAQ)&#8221;</a> for solutions to common problems you might encounter. Do you require further assistance? If so, you can also post your queries <a href="https://github.com/CS2103-AY1819S2-T12-3/main/issues">here</a> and our team would do our best to assist you.</p>
@@ -135,7 +135,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
-<img src="images/UserGuide_Components.png" alt="UserGuide Components" width="1000">
+<img src="images/UserGuide_ApplicationInterface.png" alt="UserGuide ApplicationInterface" width="1000">
 </div>
 </div>
 <div class="paragraph">
@@ -144,7 +144,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Type commmands into the command box and press <kbd>Enter</kbd> to execute them.</p>
+<p>Type commands into the command box and press <kbd>Enter</kbd> to execute them.</p>
 </li>
 <li>
 <p>You may refer to <a href="#commands-summary">Section 7, &#8220;Commands Summary&#8221;</a> for a list of all possible commands.</p>
@@ -157,7 +157,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>The result of the command will be displayed in the Result Display.</p>
+<p>The result from executing the command will be displayed in the Result Display.</p>
 </li>
 <li>
 <p>If commands are entered incorrectly, error messages will be shown here.</p>
@@ -170,10 +170,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>A list of medicines can be seen in the medicine list.</p>
+<p>Medicine list provides a list view of the inventory.</p>
 </li>
 <li>
-<p>The list may contain all medicine in the inventory, or it may be filtered if the <code>find</code> command was used.</p>
+<p>The list may contain all medicine in the inventory, or a filtered view if the <code>find</code> command was executed.</p>
 </li>
 </ul>
 </div>
@@ -203,34 +203,13 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </li>
 </ul>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UserGuide_WarningPanel.png" alt="UserGuide WarningPanel" width="250">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Terminology</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>List:</strong> This refers to the currently displayed list (possibly filtered).</p>
-</li>
-<li>
-<p><strong>Inventory:</strong> This refers to the storage containing all medicines that have been added. Display all medicines in the inventory by using the <code>list</code> command.</p>
-</li>
-<li>
-<p><strong>Batch:</strong> This refers to medicine with the same name, medical properties and manufacturing date. There may be more than one batch of medicine with the same name, but they will have different batch numbers and manufacturing dates. View all batches of a medicine by using the <code>select</code> command.</p>
-</li>
-</ul>
-</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="Features"><a class="link" href="#Features">4. Features</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>On top of the most basic features we are offering in our something something i&#8217;ll think of something, MediTabs offers exciting features blah blah blah.</p>
+<p>As an inventory management application, MediTabs supports basic functionalities (add, edit, delete, list). On top of these basic functions, MediTabs also boasts several features tailored to your needs. These features aim to streamline your inventory management process, thereby enhancing your user experience.</p>
 </div>
 <div class="sect2">
 <h3 id="your-feature-here"><a class="link" href="#your-feature-here">4.1. your feature here</a></h3>
@@ -240,21 +219,29 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 <div class="sect2">
 <h3 id="warning-panel"><a class="link" href="#warning-panel">4.2. Warning Panel</a></h3>
-<div class="paragraph">
-<p>The warning panel makes it easy to view expirying/expired medicine blah blah draws your attention to the most pressing matters that have to be taken care of as a pharmacist something something. features real time values and changes as you make changes to your inventory.</p>
+<div class="imageblock" style="float: right">
+<div class="content">
+<img src="images/UserGuide_WarningPanel.png" alt="UserGuide WarningPanel" width="190">
+</div>
+<div class="title">Figure 1. Warning panel</div>
 </div>
 <div class="paragraph">
-<p><strong>Motivation</strong><br>
-you can include the motivation behind this if you wanna</p>
+<p>A standard clinical inventory holds around a hundred types of medicine. This makes sieving out medicines which are expiring, expired or running low in stock extremely cumbersome and time consuming. Thus, to streamline this aspect of inventory management, the warning panel was included as one of the features in our first product release.</p>
 </div>
 <div class="paragraph">
-<p>Click here to learn how to change the threshold! or something you need to link</p>
+<p>The warning panel provides an overview of the most pressing issues that have to be taken care of. With a quick glance, you will be able to identify expiring or expired batches of medicine, and medicines running low in stock.</p>
+</div>
+<div class="paragraph">
+<p>On top of that, the panel features flexible thresholds to determine what is expiring and what is low in stock. These thresholds can be changed according your own preferences and needs with a simple command.</p>
+</div>
+<div class="paragraph">
+<p>You can learn about related commands related in <a href="#WarningPanel">Section 5.9, &#8220;Managing the warning panel : <code>warning</code>&#8221;</a>.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="coming-in-v2-0"><a class="link" href="#coming-in-v2-0">4.3. Coming in v2.0</a></h3>
 <div class="paragraph">
-<p>The team is constantly striving to improve your user experience. Here are some features to look forward to in our next release.</p>
+<p>The team is constantly working to improve your user experience. Here are some features to look forward to in our next release.</p>
 </div>
 <div class="sect3">
 <h4 id="suggested-medicine-names"><a class="link" href="#suggested-medicine-names">4.3.1. Suggested medicine names</a></h4>
@@ -330,11 +317,11 @@ This feature could be further expanded to support medical databases of different
 </table>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="encrypting-data-files"><a class="link" href="#encrypting-data-files">4.4. Encrypting data files</a></h3>
+<div class="sect3">
+<h4 id="encrypting-data-files"><a class="link" href="#encrypting-data-files">4.3.3. Encrypting data files</a></h4>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>Due to the nature of medical inventories, the integrity of data stored is of utmost importance. The next release will feature data encryption to keep your inventory safe and keep unauthorised users away. With this feature, you will be required to log in with a password to view and edit your inventory. This feature can be disabled if it is not required for your needs.</p>
+</div>
 </div>
 </div>
 </div>
@@ -646,7 +633,7 @@ Updates quantity of batch <code>8937v1x7</code> in batch records of the 1st medi
 </div>
 </div>
 <div class="sect2">
-<h3 id="managing-warning-panel-code-warning-code"><a class="link" href="#managing-warning-panel-code-warning-code">5.9. Managing warning panel : <code>warning</code></a></h3>
+<h3 id="WarningPanel"><a class="link" href="#WarningPanel">5.9. Managing the warning panel : <code>warning</code></a></h3>
 <div class="paragraph">
 <p>Manage the threshold for expiry date and low stock warnings.<br>
 Format: <code>warning [e/EXPIRY_THRESHOLD] [q/LOW_STOCK_THRESHOLD] [SHOW]</code><br>
@@ -710,7 +697,7 @@ Format: <code>export [FILE_NAME]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>FILE_NAME</code> field is optional. You can refer to <a href="#appendix-a-file-naming-convention">Section 8, &#8220;Appendix A: File Naming Convention&#8221;</a> for supported file name format if you want to specify a file name for the exported CSV file.</p>
+<p>The <code>FILE_NAME</code> field is optional. You can refer to <a href="#appendix-a-file-naming-convention">Section 9, &#8220;Appendix A: File Naming Convention&#8221;</a> for supported file name format if you want to specify a file name for the exported CSV file.</p>
 </li>
 <li>
 <p>If no file name is specified, the export command uses the default file name format according to the date and time of export.</p>
@@ -1111,7 +1098,25 @@ e.g. <code>warning e/20 s/10</code></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="appendix-a-file-naming-convention"><a class="link" href="#appendix-a-file-naming-convention">8. Appendix A: File Naming Convention</a></h2>
+<h2 id="terminology"><a class="link" href="#terminology">8. Terminology</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>List:</strong> This refers to the currently displayed list (possibly filtered).</p>
+</li>
+<li>
+<p><strong>Inventory:</strong> This refers to the storage containing all medicines that have been added. Display all medicines in the inventory by using the <code>list</code> command.</p>
+</li>
+<li>
+<p><strong>Batch:</strong> This refers to medicine with the same name, medical properties and manufacturing date. There may be more than one batch of medicine with the same name, but they will have different batch numbers and manufacturing dates. View all batches of a medicine by using the <code>select</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="appendix-a-file-naming-convention"><a class="link" href="#appendix-a-file-naming-convention">9. Appendix A: File Naming Convention</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>MediTabs uses the following file naming convention when file name field is used e.g. The <code>export</code> command&#8217;s optional <code>[FILE_NAME]</code> field. The file naming convention is to ensure consistency and to avoid potential bugs involving file names with different operating systems such as Windows, Linux and MacOS<br>
@@ -1187,4 +1192,4 @@ The characters of the file name cannot contain any spacing or symbols, including
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 10:24:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 10:39:26 UTC</div></div></div></body></html>
