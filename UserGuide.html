@@ -19,7 +19,7 @@
 <li><a href="#application-interface">3. Application Interface</a></li>
 <li><a href="#Features">4. Features</a>
 <ul class="sectlevel2">
-<li><a href="#your-feature-here">4.1. your feature here</a></li>
+<li><a href="#information-panel">4.1. Information Panel</a></li>
 <li><a href="#warning-panel">4.2. Warning Panel</a></li>
 <li><a href="#exporting-as-csv-file-format">4.3. Exporting as CSV file format</a></li>
 <li><a href="#coming-in-v2-0">4.4. Coming in v2.0</a></li>
@@ -33,17 +33,18 @@
 <li><a href="#locating-medicines-code-find-code">5.4. Locating medicines : <code>find</code></a></li>
 <li><a href="#editing-a-medicine-code-edit-code">5.5. Editing a medicine : <code>edit</code></a></li>
 <li><a href="#deleting-a-medicine-code-delete-code">5.6. Deleting a medicine : <code>delete</code></a></li>
-<li><a href="#viewing-medicine-information-page-code-select-code">5.7. Viewing medicine information page : <code>select</code></a></li>
-<li><a href="#updating-batch-records-code-update-code">5.8. Updating batch records : <code>update</code></a></li>
-<li><a href="#WarningPanel">5.9. Managing the warning panel : <code>warning</code></a></li>
-<li><a href="#ExportCommand">5.10. Exporting as CSV file format : <code>export</code></a></li>
-<li><a href="#printing-labels-code-label-code">5.11. Printing labels : <code>label</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">5.12. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">5.13. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">5.14. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">5.15. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">5.16. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">5.17. Saving the data</a></li>
+<li><a href="#SelectCommand">5.7. Viewing medicine information page : <code>select</code></a></li>
+<li><a href="#SortCommand">5.8. Sorting the batch table : <code>sort</code></a></li>
+<li><a href="#updating-batch-records-code-update-code">5.9. Updating batch records : <code>update</code></a></li>
+<li><a href="#WarningPanel">5.10. Managing the warning panel : <code>warning</code></a></li>
+<li><a href="#ExportCommand">5.11. Exporting as CSV file format : <code>export</code></a></li>
+<li><a href="#printing-labels-code-label-code">5.12. Printing labels : <code>label</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">5.13. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">5.14. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">5.15. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">5.16. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">5.17. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">5.18. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#frequently-asked-questions-faq">6. Frequently Asked Questions (FAQ)</a></li>
@@ -57,7 +58,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Welcome to the <em>MediTabs User Guide</em>! Over here, you can find step by step instructions on setting up MediTabs and learn ways to take advantage features provided to optimise your clinic&#8217;s inventory management flow. Interested? You can jump to  <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>Welcome to the <em>MediTabs User Guide</em>! Over here, you can find step by step instructions on setting up MediTabs and learn ways to take advantage of the features provided to optimise your clinic&#8217;s inventory management flow. Interested? You can jump to <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
 <div class="sect2">
 <h3 id="what-is-meditabs"><a class="link" href="#what-is-meditabs">1.1. What is MediTabs?</a></h3>
@@ -71,7 +72,7 @@
 <div class="sect2">
 <h3 id="who-is-it-for"><a class="link" href="#who-is-it-for">1.2. Who is it for?</a></h3>
 <div class="paragraph">
-<p>If you are looking for a medicine stock taking application for clinics, MediTabs is the product you are looking for. Whether you are an owner of a clinic or a pharmacist in charge of your clinic&#8217;s medicine inventory, you can use MediTabs to help improve your workflow. It is optimized for those who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, MediTabs can get your medicine stock taking done faster than traditional GUI apps.</p>
+<p>If you are looking for a medicine stock taking application for clinics, MediTabs is the product for you. Whether you are an owner of a clinic or a pharmacist in charge of your clinic&#8217;s medicine inventory, you can use MediTabs to help improve your workflow. It is optimized for those who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, MediTabs can get your medicine stock taking done faster than traditional GUI apps.</p>
 </div>
 </div>
 </div>
@@ -125,7 +126,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Refer to <a href="#Commands">Section 5, &#8220;Commands&#8221;</a> for details of each command.</p>
 </li>
 <li>
-<p>Having trouble setting up MediTabs? You can refer to the <a href="#frequently-asked-questions-faq">Section 6, &#8220;Frequently Asked Questions (FAQ)&#8221;</a> for solutions to common problems you might encounter. Do you require further assistance? If so, you can also post your queries <a href="https://github.com/CS2103-AY1819S2-T12-3/main/issues">here</a> and our team would do our best to assist you.</p>
+<p>Having trouble setting up MediTabs? You can refer to the <a href="#frequently-asked-questions-faq">Section 6, &#8220;Frequently Asked Questions (FAQ)&#8221;</a> for solutions to common problems you might encounter. Do you require further assistance? If so, you can also post your queries <a href="https://github.com/CS2103-AY1819S2-T12-3/main/issues">here</a> and our team will do our best to assist you.</p>
 </li>
 </ol>
 </div>
@@ -184,7 +185,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>You can select a medicine from the medicine list by using the <code>select</code> command. + e.g. <code>select 1</code> selects the first medicine in the list.</p>
+<p>You can select a medicine from the medicine list by using the <code>select</code> command. e.g. <code>select 1</code> selects the first medicine in the list.</p>
 </li>
 <li>
 <p>After selecting a medicine, information about the medicine will be displayed in the information panel.</p>
@@ -213,9 +214,24 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>As an inventory management application, MediTabs supports basic functionalities (add, edit, delete, list). On top of these basic functions, MediTabs also boasts several features tailored to your needs. These features aim to streamline your inventory management process, thereby enhancing your user experience.</p>
 </div>
 <div class="sect2">
-<h3 id="your-feature-here"><a class="link" href="#your-feature-here">4.1. your feature here</a></h3>
+<h3 id="information-panel"><a class="link" href="#information-panel">4.1. Information Panel</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/UserGuide_InformationPanel.png" alt="UserGuide InformationPanel" width="715">
+</div>
+<div class="title">Figure 1. Information panel</div>
+</div>
 <div class="paragraph">
-<p>introduce here. give you an example below.</p>
+<p>Managing medicines by batch is efficient and logical since medicines from the same batch share the same properties. However, with so many different batches of the same medicine, you need an organized way to keep track of them.</p>
+</div>
+<div class="paragraph">
+<p>The information panel provides all the details and information you need about each batch of medicine in a neat and organized manner.</p>
+</div>
+<div class="paragraph">
+<p>You can easily refer to the batch table provided in the information panel while updating and managing your inventory. Simply select a medicine using the <code>select</code> command to view all its relevant details. You may refer to <a href="#SelectCommand">Section 5.7, &#8220;Viewing medicine information page : <code>select</code>&#8221;</a> for more details.</p>
+</div>
+<div class="paragraph">
+<p>You can also sort the table by any of its columns with the <code>sort</code> command to suit your needs and preference. You may refer to <a href="#SortCommand">Section 5.8, &#8220;Sorting the batch table : <code>sort</code>&#8221;</a> for more details.</p>
 </div>
 </div>
 <div class="sect2">
@@ -224,7 +240,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="content">
 <img src="images/UserGuide_WarningPanel.png" alt="UserGuide WarningPanel" width="190">
 </div>
-<div class="title">Figure 1. Warning panel</div>
+<div class="title">Figure 2. Warning panel</div>
 </div>
 <div class="paragraph">
 <p>A standard clinical inventory holds around a hundred types of medicine. This makes sieving out medicines which are expiring, expired or running low in stock extremely cumbersome and time consuming. Thus, to streamline this aspect of inventory management, the warning panel was included as one of the features in our first product release.</p>
@@ -236,7 +252,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>On top of that, the panel features flexible thresholds to determine what is expiring and what is low in stock. These thresholds can be changed according your own preferences and needs with a simple command.</p>
 </div>
 <div class="paragraph">
-<p>You can learn about related commands related in <a href="#WarningPanel">Section 5.9, &#8220;Managing the warning panel : <code>warning</code>&#8221;</a>.</p>
+<p>You can learn about related commands related in <a href="#WarningPanel">Section 5.10, &#8220;Managing the warning panel : <code>warning</code>&#8221;</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -273,7 +289,7 @@ This feature is especially useful if you want to save the current medicine inven
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows to select from the generated list of suggestions.</p>
+<p>Press the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows to select from the generated list of suggestions.</p>
 </div>
 </td>
 </tr>
@@ -281,7 +297,26 @@ This feature is especially useful if you want to save the current medicine inven
 </div>
 </div>
 <div class="sect3">
-<h4 id="integration-addon-support"><a class="link" href="#integration-addon-support">4.4.2. Integration Addon Support</a></h4>
+<h4 id="inventory-forecasting"><a class="link" href="#inventory-forecasting">4.4.2. Inventory Forecasting</a></h4>
+<div class="paragraph">
+<p>MediTabs will store information about your monthly stock level and predict the optimal amount of stock needed for the future. It will be possible to forecast inventory needs up to 3 months into the future with no extra effort from you as all analysis and calculations will take place with data already provided by routine use of MediTabs.
+It will also be possible to import past sales data to increase accuracy of forecasting immediately without having to wait for the application to collect data.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We recommend importing or allowing MediTabs to collect data for 6 months or more for a more accurate forecast.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="integration-addon-support"><a class="link" href="#integration-addon-support">4.4.3. Integration Addon Support</a></h4>
 <div class="paragraph">
 <p>You can download and install integration addons created for MediTabs such as addons which allows MediTabs to integrate with different third party services which your clinic might currently be using.<br>
 Format: <code>install an/NAME_OF_ADDON</code></p>
@@ -335,7 +370,7 @@ This feature could be further expanded to support medical databases of different
 </div>
 </div>
 <div class="sect3">
-<h4 id="encrypting-data-files"><a class="link" href="#encrypting-data-files">4.4.3. Encrypting data files</a></h4>
+<h4 id="encrypting-data-files"><a class="link" href="#encrypting-data-files">4.4.4. Encrypting data files</a></h4>
 <div class="paragraph">
 <p>Due to the nature of medical inventories, the integrity of data stored is of utmost importance. The next release will feature data encryption to keep your inventory safe and keep unauthorised users away. With this feature, you will be required to log in with a password to view and edit your inventory. This feature can be disabled if it is not required for your needs.</p>
 </div>
@@ -357,10 +392,10 @@ This feature could be further expanded to support medical databases of different
 <p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/Paracetamol</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>e.g n/NAME [t/TAG] can be used as n/Paracetamol t/Popular</code> or as <code>n/Paracetamol</code>.</p>
+<p>Items in square brackets are optional e.g <code>e.g n/NAME [t/TAG] can be used as n/Paracetamol t/fever</code> or as <code>n/Paracetamol</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]…</code> can be used as <code>&#160;</code> (i.e. 0 times), t/Ordered, t/PhasingOut t/SlowMoving etc..</p>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]…</code> can be used as <code>&#160;</code> (i.e. 0 times), t/fever, t/painkiller t/inflammation etc..</p>
 </li>
 <li>
 <p>Parameters can be in any order e.g. if the command specifies <code>n/NAME c/COMPANY_NAME</code>, <code>c/COMPANY_NAME n/NAME</code> is also acceptable.</p>
@@ -390,7 +425,7 @@ Format: <code>add n/NAME c/COMPANY_NAME [t/TAG]…​</code></p>
 <p><code>add n/Paracetamol c/3M Pharmaceuticals</code></p>
 </li>
 <li>
-<p><code>add n/Ibuprofen c/Takeda Pharmaceutical Co. t/New</code></p>
+<p><code>add n/Ibuprofen c/Takeda Pharmaceutical Co. t/fever</code></p>
 </li>
 </ul>
 </div>
@@ -424,19 +459,19 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>n/sodium</code> will match <code>Sodium</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>n/Sodium n/Levothyroxine</code> will match <code>Levothyroxine Sodium</code></p>
-</li>
-<li>
 <p>Only the name is searched.</p>
 </li>
 <li>
-<p>Only full words will be matched e.g. <code>c/Sod</code> will not match <code>Sodium</code></p>
+<p>The search is case insensitive. e.g <code>sodium</code> will match <code>Sodium</code></p>
 </li>
 <li>
-<p>Medicines matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>n/Sodium n/Ibuprofen</code> will return <code>Levothyroxine Sodium</code>, <code>Ibuprofen</code></p>
+<p>The order of the keywords does not matter. e.g. <code>Sodium Levothyroxine</code> will match <code>Levothyroxine Sodium</code></p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Sod</code> will not match <code>Sodium</code></p>
+</li>
+<li>
+<p>Medicines matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Sodium Ibuprofen</code> will return <code>Levothyroxine Sodium</code>, <code>Ibuprofen</code></p>
 </li>
 </ul>
 </div>
@@ -448,11 +483,11 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find n/Sodium</code><br>
+<p><code>find Sodium</code><br>
 Returns <code>Levothyroxine Sodium</code> and <code>Naproxen Sodium</code>.</p>
 </li>
 <li>
-<p><code>find n/Amoxicillin n/Gabapentin c/Johnson</code><br>
+<p><code>find Amoxicillin Gabapentin Johnson</code><br>
 Returns any medicine having names <code>Amoxicillin</code> or <code>Gabapentin</code> or with company name having <code>Johnson</code>.</p>
 </li>
 </ul>
@@ -547,23 +582,29 @@ Deletes the 1st medicine in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-medicine-information-page-code-select-code"><a class="link" href="#viewing-medicine-information-page-code-select-code">5.7. Viewing medicine information page : <code>select</code></a></h3>
+<h3 id="SelectCommand"><a class="link" href="#SelectCommand">5.7. Viewing medicine information page : <code>select</code></a></h3>
 <div class="paragraph">
 <p>Selects a medicine and loads the information page of the medicine.<br>
 Format: <code>select INDEX</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UserGuide_InformationPanel.png" alt="UserGuide InformationPanel" width="715">
+</div>
+<div class="title">Figure 3. Information page will be loaded when a medicine is selected</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Loads the information page of the medicine at the specified <code>INDEX</code>.</p>
+<p>Loads the information page of the medicine at the specified <code>INDEX</code> in the information panel.</p>
 </li>
 <li>
 <p>The information page consists of a table with details of all batches of the selected medicine.</p>
 </li>
 <li>
-<p>These details include: batch number, quantity, expiry date, time last updated.</p>
+<p>These details include: batch number, quantity and expiry date.</p>
 </li>
 <li>
 <p>The index refers to the index number shown in the displayed medicine list.</p>
@@ -594,10 +635,57 @@ Selects the 1st medicine in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="updating-batch-records-code-update-code"><a class="link" href="#updating-batch-records-code-update-code">5.8. Updating batch records : <code>update</code></a></h3>
+<h3 id="SortCommand"><a class="link" href="#SortCommand">5.8. Sorting the batch table : <code>sort</code></a></h3>
+<div class="paragraph">
+<p>Sorts the batch table in the medicine information page based on the entered property and direction<br>
+Format: <code>sort p/PROPERTY d/DIRECTION</code></p>
+</div>
+<div class="ulist">
+<div class="title">Possible properties:</div>
+<ul>
+<li>
+<p><code>batchnumber</code> : sorts the table by batch number (alphabetical order).</p>
+</li>
+<li>
+<p><code>expiry</code>: sorts the table by expiry date.</p>
+</li>
+<li>
+<p><code>quantity</code> : sorts table list by quantity.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Possible directions:</div>
+<ul>
+<li>
+<p><code>ascending</code>: sorts the table in ascending order.</p>
+</li>
+<li>
+<p><code>quantity</code> : sorts table list in descending order.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sort p/expiry d/descending</code><br>
+The table is sorted starting from the batch with the furthest expiry date.</p>
+</li>
+<li>
+<p><code>sort p/quantity d/ascending</code><br>
+The table is sorted starting from the batch with the lowest quantity.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="updating-batch-records-code-update-code"><a class="link" href="#updating-batch-records-code-update-code">5.9. Updating batch records : <code>update</code></a></h3>
 <div class="paragraph">
 <p>Updates details of a batch of medicine.<br>
-Format: <code>update INDEX b/BATCH_NUMBER q/QUANTITY [e/EXPIRY_DATE]</code></p>
+Format: <code>update INDEX b/BATCH_NUMBER [q/QUANTITY] [e/EXPIRY_DATE]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -607,16 +695,19 @@ Format: <code>update INDEX b/BATCH_NUMBER q/QUANTITY [e/EXPIRY_DATE]</code></p>
 <p>Updates details of a batch in the batch records of medicine at specified <code>INDEX</code>.</p>
 </li>
 <li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
 <p>If batch number already exists, the quantity or expiry date of the batch is updated.</p>
 </li>
 <li>
-<p>If batch number does not exist, a new batch record is created.</p>
+<p>If batch number does not exist, a new batch record is created. Both quantity and expiry date must be entered for new batches.</p>
 </li>
 <li>
 <p>If quantity of batch is updated to <code>0</code>, it will be removed.</p>
 </li>
 <li>
-<p>If <code>e/EXPIRY_DATE</code> is not inputted, batch must already exist in the records and existing expiry date is maintained.</p>
+<p>If <code>q/QUANTITY</code> or <code>e/EXPIRY_DATE</code> is not inputted, batch must already exist in the records and existing information is maintained.</p>
 </li>
 <li>
 <p>The total quantity and closest expiry date of the medicine will also be updated.</p>
@@ -650,7 +741,7 @@ Updates quantity of batch <code>8937v1x7</code> in batch records of the 1st medi
 </div>
 </div>
 <div class="sect2">
-<h3 id="WarningPanel"><a class="link" href="#WarningPanel">5.9. Managing the warning panel : <code>warning</code></a></h3>
+<h3 id="WarningPanel"><a class="link" href="#WarningPanel">5.10. Managing the warning panel : <code>warning</code></a></h3>
 <div class="paragraph">
 <p>Manage the threshold for expiry date and low stock warnings.<br>
 Format: <code>warning [e/EXPIRY_THRESHOLD] [q/LOW_STOCK_THRESHOLD] [SHOW]</code><br>
@@ -698,7 +789,7 @@ Current thresholds used for the warning panel will be shown.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="ExportCommand"><a class="link" href="#ExportCommand">5.10. Exporting as CSV file format : <code>export</code></a></h3>
+<h3 id="ExportCommand"><a class="link" href="#ExportCommand">5.11. Exporting as CSV file format : <code>export</code></a></h3>
 <div class="paragraph">
 <p>Exports the current medicine inventory data shown in the GUI as CSV file format.<br>
 Format: <code>export [FILE_NAME]</code></p>
@@ -790,7 +881,7 @@ You would observe that medicines without any batches are not included in the exp
 </div>
 </div>
 <div class="sect2">
-<h3 id="printing-labels-code-label-code"><a class="link" href="#printing-labels-code-label-code">5.11. Printing labels : <code>label</code></a></h3>
+<h3 id="printing-labels-code-label-code"><a class="link" href="#printing-labels-code-label-code">5.12. Printing labels : <code>label</code></a></h3>
 <div class="paragraph">
 <p>You can label any specific medicine information in the inventory using the Portable Document Format (PDF).<br>
 Open the PDF file under the PDF folder to view and print your selected medicine<br>
@@ -877,7 +968,7 @@ The <code>label</code> command will overwrite the <code>to_print</code> file eve
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">5.12. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">5.13. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -898,7 +989,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">5.13. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">5.14. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the inventory to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -943,7 +1034,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">5.14. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">5.15. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -975,21 +1066,21 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">5.15. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">5.16. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the inventory.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">5.16. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">5.17. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">5.17. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">5.18. Saving the data</a></h3>
 <div class="paragraph">
 <p>Inventory data is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -1049,7 +1140,7 @@ If you encounter any problems running <code>jarfix.exe</code>, you can read the 
 <ul>
 <li>
 <p><strong>Add</strong> <code>add n/NAME c/COMPANY_NAME [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/Paracetamol c/3M Pharmaceuticals t/Popular</code></p>
+e.g. <code>add n/Paracetamol c/3M Pharmaceuticals t/fever</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
@@ -1060,7 +1151,7 @@ e.g. <code>delete 3</code></p>
 </li>
 <li>
 <p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [c/COMPANY_NAME] [t/TAG]&#8230;&#8203;</code><br>
-e.g. `edit 2 n/Amoxicillin c/GlaxoSmithKline t/SlowMoving'</p>
+e.g. `edit 2 n/Amoxicillin c/GlaxoSmithKline t/antibiotic'</p>
 </li>
 <li>
 <p><strong>Exit</strong> : <code>exit</code></p>
@@ -1070,8 +1161,8 @@ e.g. `edit 2 n/Amoxicillin c/GlaxoSmithKline t/SlowMoving'</p>
 e.g. export Records</p>
 </li>
 <li>
-<p><strong>Find</strong> : <code>find CRITERIA [MORE_CRITERIA]&#8230;&#8203;</code><br>
-e.g. <code>find n/paracetamol c/3M</code></p>
+<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code><br>
+e.g. <code>find paracetamol</code></p>
 </li>
 <li>
 <p><strong>Help</strong> : <code>help</code></p>
@@ -1094,10 +1185,14 @@ e.g. <code>label 1</code></p>
 e.g.<code>select 2</code></p>
 </li>
 <li>
+<p><strong>Sort</strong> : <code>sort p/PROPERTY d/DIRECTION</code><br>
+e.g.<code>sort p/quantity d/ascending</code></p>
+</li>
+<li>
 <p><strong>Undo</strong> : <code>undo</code></p>
 </li>
 <li>
-<p><strong>Update</strong> : <code>update INDEX b/BATCH_NUMBER q/QUANTITY [e/EXPIRY_DATE]</code><br>
+<p><strong>Update</strong> : <code>update INDEX b/BATCH_NUMBER [q/QUANTITY] [e/EXPIRY_DATE]</code><br>
 e.g.<code>update 2 b/A030F21 q/1000 e/25/1/2020</code></p>
 </li>
 <li>
@@ -1203,4 +1298,4 @@ The characters of the file name cannot contain any spacing or symbols, including
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 14:12:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 15:09:31 UTC</div></div></div></body></html>
