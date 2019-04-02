@@ -1,0 +1,269 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Melvin Vito - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">MediTabs</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/cs2103-ay1819s2-t12-3/main/"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Melvin Vito - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-meditabs"><a class="link" href="#project-meditabs">PROJECT: MediTabs</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Our team of 4 was task to either enhance or morph a basic addressbook for our project. We decided to morph it to be a medicine inventory management system named MediTabs. We chose pharmacist to be our target audience, favouring keyboard inputs.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added the label command to allow user to output the medicine information onto a pdf file</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Enables the user to transfer the medicine information over to a pdf file. Then, the user could use printers or external 3rd party software to print or edit the file.</p>
+</li>
+<li>
+<p>Justification: Pharmacist would like to have the printed information of certain medicine and label the physical counterpart. With the PDF, the pharmacist may use external printers and print out the information on the label as a sticker. PDF is widely used as a file extension and hence very portable which all computers and printer can identify.</p>
+</li>
+<li>
+<p>Highlights: Added security layer to the naming of the file (Auto include .pdf extension) such that users may not over write other important files.</p>
+</li>
+<li>
+<p>Credits: Apache PDFBox external library is imported to help manipulate and output the stream of information to the PDF file.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>:</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>:</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>{you can add/remove categories in the list above}</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="use-cases"><a class="link" href="#use-cases">Use Cases</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>(For all use cases below, the <strong>System</strong> is the <code>MediTabs</code> and the <strong>Actor</strong> is the <code>pharmacist</code>, unless specified otherwise)</p>
+</div>
+<h3 id="use-case-1-view-complete-inventory" class="discrete">Use Case 1: View Complete Inventory</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Upon start up, System displays the complete inventory of medicine.</p>
+</li>
+<li>
+<p>Pharmacist navigates the list with arrow keys.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Pharmacist used <code>find</code> function, filtered inventory is shown.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Pharmacist requests for complete inventory to be listed using <code>list</code> command.</p>
+</li>
+<li>
+<p>1a2. System displays complete inventory.</p>
+<div class="paragraph">
+<p>Use case resume at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-2-update-batch-details-of-a-medicine-in-inventory" class="discrete">Use Case 2: Update Batch Details of a Medicine in Inventory</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Pharmacist notes the index of the medicine to be updated in the list.</p>
+</li>
+<li>
+<p>Pharmacist request to update details of a batch of medicine using the index and the <code>update</code> command.</p>
+</li>
+<li>
+<p>System displays updated details.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Medicine is new and has not been added to the inventory.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Pharmacist uses the <code>add</code> function to add a new entry to list.</p>
+</li>
+<li>
+<p>1a2. Pharmacist notes the index of the new medicine listing from the search result.</p>
+<div class="paragraph">
+<p>Use case resume at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. Pharmacist cannot remember batch number of batch to be updated.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. Pharmacist uses <code>select</code> command to select the medicine to be updated.</p>
+</li>
+<li>
+<p>1b2. System displays the batch table with information of all batches of the selected medicine.</p>
+</li>
+<li>
+<p>1b3. Pharmacist refers to the batch table while inputting batch details.</p>
+<div class="paragraph">
+<p>Use case resume at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. Pharmacist did not enter expiry date and batch does not already exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. An error message is shown.</p>
+</li>
+<li>
+<p>2a2. System requests expiry date be entered for new batches.</p>
+</li>
+<li>
+<p>2a3. Pharmacist repeats request with the required input.</p>
+<div class="paragraph">
+<p>Use case resume at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-3-delete-medicine-from-inventory" class="discrete">Use Case 3: Delete Medicine from Inventory</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Pharmacist notes the index of the medicine to be deleted in the list.</p>
+</li>
+<li>
+<p>Pharmacist request to delete a medicine listing using the index and the <code>delete</code> command.</p>
+</li>
+<li>
+<p>System displays updated list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Pharmacist cannot find the medicine listing manually from the list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Pharmacist uses the <code>find</code> function to look for medicine listing.</p>
+</li>
+<li>
+<p>1a2. System list the search results.</p>
+</li>
+<li>
+<p>1a3. Pharmacist notes the index of the medicine listing from the search result.</p>
+<div class="paragraph">
+<p>Use case resume at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 15:35:45 UTC</div></div></div></body></html>
