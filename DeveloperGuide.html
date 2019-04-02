@@ -719,10 +719,10 @@ An <code>update</code> command will also cause <code>ChangeListener#changed(Obse
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The exporting as CSV file format mechanism is facilitated by <code>CsvWrapper</code>.
-It is build on top of the <code>Opencsv</code> Java CSV parser library, licensed under the <code>Apache 2 OSS License</code>, so that it integrates with our product. This is done by providing additional operations to support exporting the current medicine inventory data shown in the GUI to CSV file format.</p>
+It is built on top of the <code>Opencsv</code> Java CSV parser library, licensed under the <code>Apache 2 OSS License</code>, so that it integrates with our product. This is done by providing additional operations to support exporting the current medicine inventory data shown in the GUI to CSV file format.</p>
 </div>
 <div class="paragraph">
-<p>There are many additonal operations added in <code>CsvWrapper</code> but we will only list the key operations which are the main drivers of the overall implementation of the feature for easier reference and understanding.</p>
+<p>There are many additional operations added in <code>CsvWrapper</code> but we will only list the key operations which are the main drivers of the overall implementation of the feature for easier reference and understanding.</p>
 </div>
 <div class="paragraph">
 <p>The key operations are as follows:</p>
@@ -809,7 +809,7 @@ If a CSV file with the input file name already exists in the <code>exported</cod
 <p>Step 7: The current medicine inventory data shown in the GUI is exported successfully to CSV file format.</p>
 </div>
 <div class="paragraph">
-<p>Step 8: The <code>ExportCommand#execute()</code> operations returns a <code>CommandResult</code> which shows the current list is exported to a CSV file with the input file name.</p>
+<p>Step 8: The <code>ExportCommand#execute()</code> operation returns a <code>CommandResult</code> which shows the current list is exported to a CSV file with the input file name.</p>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes the <code>export</code> command:</p>
@@ -847,7 +847,7 @@ If a CSV file with the input file name already exists in the <code>exported</cod
 <p>Pros: Users can export directly through a single command (e.g. for <code>filter</code> command when the export option is enabled, export the filtered medicine inventory data immediately without having to retrieve from <code>Model#getFilteredMedicineList()</code> operation.</p>
 </li>
 <li>
-<p>Cons: We must ensure that the implementation and integration of the exporting to CSV file of each individual commands are correct. Furthermore, users are not able preview the data before exporting.</p>
+<p>Cons: We must ensure that the implementation and integration of the exporting to CSV file of each individual commands are correct. Furthermore, users are not able to preview the data before exporting.</p>
 </li>
 </ul>
 </div>
@@ -1186,7 +1186,7 @@ If the <code>currentStatePointer</code> is at index <code>inventoryStateList.siz
 </div>
 <div class="paragraph">
 <p>Current implementation:
-Under the build.gradle file, we have added new dependency implementation group: 'org.apache.pdfbox', name: 'pdfbox', version: '2.0.13'. This imports the library over to the project for use.</p>
+Under the build.gradle file, we have added new dependency implementation group: <code>org.apache.pdfbox</code>, name: <code>pdfbox</code>, version: <code>2.0.13</code>. This imports the library over to the project for use.</p>
 </div>
 <div class="paragraph">
 <p>There are many operations available added in the Apache PDFBox, the key operations that we are using would only be:</p>
@@ -1510,6 +1510,18 @@ Based on manual testing by our team on Windows, it is discovered that <code>COM0
 </li>
 </ul>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The reserved names listed above are <strong>case insensitive</strong>, in other words, names such as <code>prn</code> or <code>CoM0</code> are also reserved names.
+</td>
+</tr>
+</table>
+</div>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -1517,7 +1529,7 @@ Based on manual testing by our team on Windows, it is discovered that <code>COM0
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-The specified file name <strong>must not</strong> be an empty string or <code>null</code>. If the specified file name is an empty string, the specified file name will be declared as invalid. If the specified file name is <code>null</code>, a <code>NullPointerException</code> will be thrown.
+The argument passed to the <code>fileNameToCheck</code> parameter of the <code>FileName#isValidFileName(String fileNameToCheck)</code> operation <strong>must not</strong> be an empty string or a null argument. If the argument passed is an empty string, the specified file name will be declared as invalid. If a null argument is passed, a <code>NullPointerException</code> will be thrown.
 </td>
 </tr>
 </table>
@@ -2327,7 +2339,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <p>The product caters users with a preference for typing commands over the command line. Only limited GUI interactions are available as the focus is on the command line interface.</p>
 </li>
 <li>
-<p>The product is meant only for single user usage. i.e, any features (e.g. profile switching) should only be limited to a single user. Using such features to support mulitple users is not recommended.</p>
+<p>The product is meant only for single user usage. i.e, any features (e.g. profile switching) should only be limited to a single user. Using such features to support multiple users is not recommended.</p>
 </li>
 </ol>
 </div>
@@ -2552,4 +2564,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 10:39:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 14:12:32 UTC</div></div></div></body></html>

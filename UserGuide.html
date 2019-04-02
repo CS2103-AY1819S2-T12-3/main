@@ -21,7 +21,8 @@
 <ul class="sectlevel2">
 <li><a href="#your-feature-here">4.1. your feature here</a></li>
 <li><a href="#warning-panel">4.2. Warning Panel</a></li>
-<li><a href="#coming-in-v2-0">4.3. Coming in v2.0</a></li>
+<li><a href="#exporting-as-csv-file-format">4.3. Exporting as CSV file format</a></li>
+<li><a href="#coming-in-v2-0">4.4. Coming in v2.0</a></li>
 </ul>
 </li>
 <li><a href="#Commands">5. Commands</a>
@@ -35,7 +36,7 @@
 <li><a href="#viewing-medicine-information-page-code-select-code">5.7. Viewing medicine information page : <code>select</code></a></li>
 <li><a href="#updating-batch-records-code-update-code">5.8. Updating batch records : <code>update</code></a></li>
 <li><a href="#WarningPanel">5.9. Managing the warning panel : <code>warning</code></a></li>
-<li><a href="#exporting-as-csv-file-format-code-export-code">5.10. Exporting as CSV file format : <code>export</code></a></li>
+<li><a href="#ExportCommand">5.10. Exporting as CSV file format : <code>export</code></a></li>
 <li><a href="#printing-labels-code-label-code">5.11. Printing labels : <code>label</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">5.12. Listing entered commands : <code>history</code></a></li>
 <li><a href="#undoing-previous-command-code-undo-code">5.13. Undoing previous command : <code>undo</code></a></li>
@@ -239,12 +240,28 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="coming-in-v2-0"><a class="link" href="#coming-in-v2-0">4.3. Coming in v2.0</a></h3>
+<h3 id="exporting-as-csv-file-format"><a class="link" href="#exporting-as-csv-file-format">4.3. Exporting as CSV file format</a></h3>
 <div class="paragraph">
-<p>The team is constantly working to improve your user experience. Here are some features to look forward to in our next release.</p>
+<p>You can export the current medicine inventory data shown in the GUI as Comma-separated values (CSV) file format which is supported by many commonly used spreadsheet applications such as Microsoft Excel (Windows), LibreOffice (Linux) or Numbers (MacOS).</p>
+</div>
+<div class="paragraph">
+<p><strong>Motivation</strong><br>
+This feature is especially useful if you want to save the current medicine inventory data shown in the GUI in a file so that it can be printed later or if you want to organise the medicine inventory data using a spreadsheet application for you, your superior or your supplier&#8217;s reference.</p>
+</div>
+<div class="paragraph">
+<p>In addition, you can even use the spreadsheet application to convert the CSV file to Microsoft Excel format and use all the functionalities provided by Microsoft Excel such as drawing graphs or chart to display the overview of your clinic&#8217;s medicine inventory.</p>
+</div>
+<div class="paragraph">
+<p>You can use the <code>export</code> command to take advantage of this feature. You can learn more about how to use the <code>export</code> command <a href="#ExportCommand">here</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="coming-in-v2-0"><a class="link" href="#coming-in-v2-0">4.4. Coming in v2.0</a></h3>
+<div class="paragraph">
+<p>Our team is constantly working to improve your user experience. Here are some features to look forward to in our next release.</p>
 </div>
 <div class="sect3">
-<h4 id="suggested-medicine-names"><a class="link" href="#suggested-medicine-names">4.3.1. Suggested medicine names</a></h4>
+<h4 id="suggested-medicine-names"><a class="link" href="#suggested-medicine-names">4.4.1. Suggested medicine names</a></h4>
 <div class="paragraph">
 <p>When typing fields that include medicine name, a list of suggested medicine names will appear after you input the first letter.<br></p>
 </div>
@@ -264,7 +281,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect3">
-<h4 id="integration-addon-support"><a class="link" href="#integration-addon-support">4.3.2. Integration Addon Support</a></h4>
+<h4 id="integration-addon-support"><a class="link" href="#integration-addon-support">4.4.2. Integration Addon Support</a></h4>
 <div class="paragraph">
 <p>You can download and install integration addons created for MediTabs such as addons which allows MediTabs to integrate with different third party services which your clinic might currently be using.<br>
 Format: <code>install an/NAME_OF_ADDON</code></p>
@@ -318,7 +335,7 @@ This feature could be further expanded to support medical databases of different
 </div>
 </div>
 <div class="sect3">
-<h4 id="encrypting-data-files"><a class="link" href="#encrypting-data-files">4.3.3. Encrypting data files</a></h4>
+<h4 id="encrypting-data-files"><a class="link" href="#encrypting-data-files">4.4.3. Encrypting data files</a></h4>
 <div class="paragraph">
 <p>Due to the nature of medical inventories, the integrity of data stored is of utmost importance. The next release will feature data encryption to keep your inventory safe and keep unauthorised users away. With this feature, you will be required to log in with a password to view and edit your inventory. This feature can be disabled if it is not required for your needs.</p>
 </div>
@@ -681,15 +698,9 @@ Current thresholds used for the warning panel will be shown.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exporting-as-csv-file-format-code-export-code"><a class="link" href="#exporting-as-csv-file-format-code-export-code">5.10. Exporting as CSV file format : <code>export</code></a></h3>
+<h3 id="ExportCommand"><a class="link" href="#ExportCommand">5.10. Exporting as CSV file format : <code>export</code></a></h3>
 <div class="paragraph">
-<p>You can export the current medicine inventory data shown in the GUI as Comma-separated values (CSV) file format which is supported by many commonly used spreadsheet applications such as Microsoft Excel (Windows), LibreOffice (Linux) or Numbers (MacOS).</p>
-</div>
-<div class="paragraph">
-<p>This feature is especially useful if you want to save the current medicine inventory data shown in the GUI in a file so that it can be printed later or if you want to organise the medicine inventory data using a spreadsheet application for you, your superior or your supplier&#8217;s reference.</p>
-</div>
-<div class="paragraph">
-<p>In addition, you can even use the spreadsheet application to convert the CSV file to Microsoft Excel format and use all the functionalities provided by Microsoft Excel such as drawing graphs or chart to display the overview of your clinic&#8217;s medicine inventory.<br>
+<p>Exports the current medicine inventory data shown in the GUI as CSV file format.<br>
 Format: <code>export [FILE_NAME]</code></p>
 </div>
 <div class="sidebarblock">
@@ -1186,10 +1197,10 @@ You must follow the file naming convention format when specifying the file name 
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-The characters of the file name cannot contain any spacing or symbols, including but not limited to, <code>\/:*?"&lt;&gt;|.+[]{};!@#$%^&amp;~`</code> Reserved names, indicated in Windows documentation, are also <strong>not allowed</strong> to be used as file names such as <code>COM1</code> and <code>LPT8</code>. You can read more about file naming conventions in Windows <a href="https://docs.microsoft.com/en-us/windows/desktop/FileIO/naming-a-file#naming-conventions">here</a>.
+The characters of the file name cannot contain any spacing or symbols, including but not limited to, <code>\/:*?"&lt;&gt;|.+[]{};!@#$%^&amp;~`</code> Reserved names, indicated in Windows documentation, are also <strong>not allowed</strong> to be used as file names such as <code>COM1</code> and <code>LPT8</code>. The reserved names are <strong>case insensitive</strong> for example, <code>com1</code> or <code>CoM1</code> are also reserved names. You can read more about file naming conventions in Windows <a href="https://docs.microsoft.com/en-us/windows/desktop/FileIO/naming-a-file#naming-conventions">here</a>.
 </td>
 </tr>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 10:39:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-02 14:12:32 UTC</div></div></div></body></html>
