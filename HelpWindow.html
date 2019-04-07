@@ -98,6 +98,20 @@
 <img src="images/Ui.png" alt="Ui" width="790">
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This program requires a minimum resolution of 1000*810. Best viewed in full screen.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
@@ -177,6 +191,9 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <li>
 <p>The list may contain all medicine in the inventory, or a filtered view if the <code>find</code> command was executed.</p>
 </li>
+<li>
+<p>The list is sorted lexicographically by medicine name, insensitive to casing.</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -238,7 +255,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h3 id="warning-panel"><a class="link" href="#warning-panel">4.2. Warning Panel</a></h3>
 <div class="imageblock" style="float: right">
 <div class="content">
-<img src="images/UserGuide_WarningPanel.png" alt="UserGuide WarningPanel" width="190">
+<img src="images/UserGuide_WarningPanel.png" alt="UserGuide WarningPanel" width="180">
 </div>
 <div class="title">Figure 2. Warning panel</div>
 </div>
@@ -246,10 +263,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>A standard clinical inventory holds around a hundred types of medicine. This makes sieving out medicines which are expiring, expired or running low in stock extremely cumbersome and time consuming. Thus, to streamline this aspect of inventory management, the warning panel was included as one of the features in our first product release.</p>
 </div>
 <div class="paragraph">
-<p>The warning panel provides an overview of the most pressing issues that have to be taken care of. With a quick glance, you will be able to identify expiring or expired batches of medicine, and medicines running low in stock.</p>
+<p>The warning panel provides an overview of pressing issues that have to be taken care of. With a quick glance, you will be able to identify expiring or expired batches of medicine, and medicines running low in stock.</p>
 </div>
 <div class="paragraph">
-<p>On top of that, the panel features flexible thresholds to determine what is expiring and what is low in stock. These thresholds can be changed according your own preferences and needs with a simple command.</p>
+<p>On top of that, the panel features flexible thresholds to determine what is expiring and what is low in stock. These thresholds can be changed according your own needs and preferences with a simple command.</p>
 </div>
 <div class="paragraph">
 <p>You can learn about related commands related in <a href="#WarningPanel">Section 5.10, &#8220;Managing the warning panel : <code>warning</code>&#8221;</a>.</p>
@@ -756,7 +773,7 @@ Thresholds set are saved as a user preference, and will be used when the applica
 <div class="ulist">
 <ul>
 <li>
-<p>Provide only one of the optional fields.</p>
+<p>Provide <strong>only one</strong> of the optional fields available.</p>
 </li>
 <li>
 <p><code>EXPIRY_THRESHOLD</code> should be in days before expiry date.</p>
@@ -778,11 +795,11 @@ Thresholds set are saved as a user preference, and will be used when the applica
 <ul>
 <li>
 <p><code>warning e/20</code><br>
-Medicines with expiry dates within 10 days to expiry from today will be displayed in the warning panel.</p>
+Medicine batches with expiry dates within 10 days to expiry from today will be displayed in the warning panel.</p>
 </li>
 <li>
 <p><code>warning q/10</code><br>
-Medicines with quanities of less than or equal to 20 will be displayed in the warning panel.</p>
+Medicines with a total quantity of less than or equal to 20 will be displayed in the warning panel.</p>
 </li>
 <li>
 <p><code>warning show</code><br>
@@ -1199,8 +1216,8 @@ e.g.<code>sort p/quantity d/ascending</code></p>
 e.g.<code>update 2 b/A030F21 q/1000 e/25/1/2020</code></p>
 </li>
 <li>
-<p><strong>Warning</strong> : <code>warning [e/EXPIRY_THRESHOLD] [s/LOWSTOCK_THRESHOLD]</code><br>
-e.g. <code>warning e/20 s/10</code></p>
+<p><strong>Warning</strong> : <code>warning [e/EXPIRY_THRESHOLD] [s/LOW_STOCK_THRESHOLD] [SHOW]</code><br>
+e.g. <code>warning e/20</code>, <code>warning s/10</code>, <code>warning show</code></p>
 </li>
 </ul>
 </div>
@@ -1301,4 +1318,4 @@ The characters of the file name cannot contain any spacing or symbols, including
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-07 10:39:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-07 13:38:36 UTC</div></div></div></body></html>
