@@ -345,7 +345,7 @@ Format: <code>install an/NAME_OF_ADDON</code></p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Only integration addons that have been verified by our team can be downloaded and installed in MediTabs. This is to ensure that the addons downloaded and installed in MediTabs are secure and have no malicious code. This is to ensure the security which MediTabs provides would not be compromise as security is an important factor due to the increasing threat with regards to cybersecurity.
+Only integration addons that have been verified by our team can be downloaded and installed in MediTabs. This is to ensure that the addons are secure and have no malicious code due to the increasing cybersecurity threat.
 </td>
 </tr>
 </table>
@@ -356,7 +356,7 @@ Only integration addons that have been verified by our team can be downloaded an
 <div class="ulist">
 <ul>
 <li>
-<p>Provides greater flexibility as your clinic might have different third party services which you might want to integrate with to allow for easier transition between services.</p>
+<p>Provides greater flexibility as as you might choose to integrate with different third-party services which are currently used by your clinic, to allow for easier transition between services.</p>
 </li>
 <li>
 <p>Allows you to customise MediTabs with features that your clinic requires without any unnecessary features which might not be relevant to your clinic&#8217;s workflow.</p>
@@ -380,7 +380,7 @@ Only integration addons that have been verified by our team can be downloaded an
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This feature could be further expanded to support medical databases of different countries.
+This feature can be improved to support medical databases of different countries.
 </td>
 </tr>
 </table>
@@ -847,7 +847,7 @@ Format: <code>export [FILE_NAME]</code></p>
 <p>The <code>FILE_NAME</code> field is optional. You can refer to <a href="#appendix-a-file-naming-convention">Section 9, &#8220;Appendix A: File Naming Convention&#8221;</a> for supported file name format if you want to specify a file name for the exported CSV file.</p>
 </li>
 <li>
-<p>If no file name is specified, the export command uses the default file name format according to the date and time of export.</p>
+<p>If no file name is specified, the <code>export</code> command uses the default file name format according to the date and time of export.</p>
 </li>
 <li>
 <p>The specific data and time format used if no file name is specified is <code>dd_MMM_yyyy_HH_mm_ss</code> e.g. <code>18_Mar_2019_10_28_00</code></p>
@@ -859,7 +859,7 @@ Format: <code>export [FILE_NAME]</code></p>
 <p>The exported file can be found in the default <code>exported</code> folder which can be found in the home folder used for your MediTabs application.</p>
 </li>
 <li>
-<p>If the default <code>exported</code> folder is not found in the home folder, MediTabs will automatically create the folder when the export command is executed.</p>
+<p>If the default <code>exported</code> folder is not found in the home folder, MediTabs will automatically create the folder when the <code>export</code> command is executed.</p>
 </li>
 </ul>
 </div>
@@ -899,6 +899,7 @@ If a file with the specified file name already exists in the default <code>expor
 <div class="content">
 <img src="images/SampleCSVFileImage.png" alt="SampleCSVFileImage" width="790">
 </div>
+<div class="title">Figure 4. Sample of exported CSV file</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -907,7 +908,7 @@ If a file with the specified file name already exists in the default <code>expor
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-From the image above, you can observe that different batches of the same medicine have their own row in the CSV file. This provides more detailed information on the quantity and expiry date for each batch of the same medicine as different batches of the same medicine can have different expiry dates and quantity. Furthermore, the CSV file also includes information such as which medicines are low in stock, expiring soon or have expired for easier reference.
+From the image above, you can observe that the exported CSV file only contains essential information such as the medicine batches, quantity and expiry date for each batch of medicine and which medicines are low in stock, expiring soon or have expired for easier reference.
 </td>
 </tr>
 </table>
@@ -919,7 +920,7 @@ From the image above, you can observe that different batches of the same medicin
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-You would observe that medicines without any batches are not included in the exported CSV file though they might be present in the current medicine inventory data shown in the GUI. This is by design, as our team believes that the exported CSV file should provide <strong>useful detailed information</strong>. Medicines without any batches would not have any useful information such as the quantity and expiry dates which are important when it comes to keeping track of your medicine inventory.
+You would observe that medicines without any batches are not included in the exported CSV file. This is by design, as our team believes that the exported CSV file should only provide <strong>useful detailed information</strong>. Medicines without any batches would not have any useful information such as the quantity and expiry dates which are important when it comes to keeping track of your medicine inventory.
 </td>
 </tr>
 </table>
@@ -1343,4 +1344,4 @@ The characters of the file name cannot contain any spacing or symbols, including
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-08 14:02:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-08 14:08:51 UTC</div></div></div></body></html>

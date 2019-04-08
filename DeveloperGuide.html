@@ -769,6 +769,7 @@ Out of the three key operations stated above, <strong>only</strong> <code>CsvWra
 <div class="content">
 <img src="images/ExportCommandSequenceDiagramOverview.png" alt="ExportCommandSequenceDiagramOverview" width="800">
 </div>
+<div class="title">Figure 9. Export Command Sequence Diagram Overview</div>
 </div>
 <div class="paragraph">
 <p>Given below is a brief description of how the exporting as CSV file format mechanism behaves as shown in the sequence diagram above:</p>
@@ -780,7 +781,7 @@ Out of the three key operations stated above, <strong>only</strong> <code>CsvWra
 <p>Step 2: The <code>ExportCommand#execute()</code> operation initialises the <code>CsvWrapper</code> with the <em>file name of the CSV file to be stored</em> and <em>the current model instance</em> as its input parameters.</p>
 </div>
 <div class="paragraph">
-<p>Step 3: The <code>ExportCommand#execute()</code> operation then calls <code>CsvWrapper#export()</code> operation which is the first key operation which implements the export to CSV file format feature.</p>
+<p>Step 3: The <code>ExportCommand#execute()</code> operation then calls <code>CsvWrapper#export()</code> operation which is the first key operation implementing the export to CSV file format feature.</p>
 </div>
 <div class="paragraph">
 <p>Step 4: The <code>CsvWrapper#export()</code> operation retrieves the current medicine inventory data shown in the GUI by calling the <code>Model#getFilteredMedicineList()</code> operation.</p>
@@ -795,13 +796,13 @@ Out of the three key operations stated above, <strong>only</strong> <code>CsvWra
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a CSV file with the input file name already exists in the <code>exported</code> directory, a <code>"Could not export data to csv file: {Input File Name} already exists in "exported" directory"</code> exception will be shown in the <code>CommandResult</code> panel of the GUI as a <code>CommandException</code> is thrown and the exporting process will stop executing. In other words, the current medicine inventory data shown in the GUI would not be exported.
+If a CSV file with the input file name already exists in the <code>exported</code> directory, a <code>"Could not export data to csv file: {Input File Name} already exists in "exported" directory"</code> exception will be shown in the <code>ResultDisplay</code> panel of the GUI as a <code>CommandException</code> is thrown and the exporting process will stop executing. In other words, the current medicine inventory data shown in the GUI would not be exported.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 6: After the empty CSV file is created, the <code>CsvWrapper#writeDataToCsv</code>, which is the third key operation, is called to process the current medicine inventory data retrieved earlier in Step 4 and writes to the CSV file in an organised format for easier reference by the users of the exported CSV file.</p>
+<p>Step 6: After the empty CSV file is created, the <code>CsvWrapper#writeDataToCsv(List currentGuiList)</code>, which is the third key operation, is called to process the current medicine inventory data retrieved earlier in Step 4 and writes to the CSV file in an organised format for easier reference by the users of the exported CSV file.</p>
 </div>
 <div class="paragraph">
 <p>Step 7: The current medicine inventory data shown in the GUI is exported successfully to CSV file format.</p>
@@ -816,6 +817,7 @@ If a CSV file with the input file name already exists in the <code>exported</cod
 <div class="content">
 <img src="images/ExportCommandActivityDiagram.png" alt="ExportCommandActivityDiagram" width="800">
 </div>
+<div class="title">Figure 10. Export Command Activity Diagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -825,11 +827,11 @@ If a CSV file with the input file name already exists in the <code>exported</cod
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Export the current medicine inventory data shown in the GUI to CSV file format.</p>
+<p><strong>Alternative 1 (current choice):</strong> Exports the current medicine inventory data shown in the GUI to CSV file format using the <code>export</code> command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement and users have a preview of the data before exporting.</p>
+<p>Pros: Easy to implement and users can preview the data before exporting.</p>
 </li>
 <li>
 <p>Cons: May have performance issues in terms of memory usage.</p>
@@ -838,11 +840,11 @@ If a CSV file with the input file name already exists in the <code>exported</cod
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Individual commands each adds an additional parameter to export as CSV file.</p>
+<p><strong>Alternative 2:</strong> Individual commands can add an additional <code>export</code> parameter to support exporting as CSV file.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Users can export directly through a single command (e.g. for <code>filter</code> command when the export option is enabled, export the filtered medicine inventory data immediately without having to retrieve from <code>Model#getFilteredMedicineList()</code> operation.</p>
+<p>Pros: Users can export directly through individual commands which support the additional <code>export</code> parameter (e.g. The <code>find</code> command with its additional <code>export</code> parameter set to true, exports the filtered medicine inventory data immediately without having to retrieve from <code>Model#getFilteredMedicineList()</code> operation).</p>
 </li>
 <li>
 <p>Cons: We must ensure that the implementation and integration of the exporting to CSV file of each individual commands are correct. Furthermore, users are not able to preview the data before exporting.</p>
@@ -858,27 +860,27 @@ If a CSV file with the input file name already exists in the <code>exported</cod
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Iterate through each of the Medicine in the list retrieved from <code>Model#getFilterMedicineList()</code> operation to build the structure in which the data is organised when exported to CSV file format.</p>
+<p><strong>Alternative 1 (current choice):</strong> Iterate through each of the medicine in the list retrieved from <code>Model#getFilterMedicineList()</code> operation to build the structure in which the data is organised when exported to CSV file format.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy for developers to understand, especially for those who want to modify the way the data is organised when exported to CSV file format but have no prior knowledge on <code>Opencsv</code> Java CSV parser library.</p>
+<p>Pros: Easy for developers to understand, especially for those who want to modify the way in which the data is organised when exported to CSV file format but have no prior knowledge on <code>Opencsv</code> Java CSV parser library.</p>
 </li>
 <li>
-<p>Cons: The time complexity of the algorithm is O(n) and might not be as efficient especially when involving large amounts of data. Furthermore, it does not take full advantage of the more advanced features provided by the <code>Opencsv</code> Java CSV parser library.</p>
+<p>Cons: The time complexity of the algorithm is O(n) and might not be as efficient especially when a large amount of data is involved. Furthermore, it does not take full advantage of the more advanced features provided by the <code>Opencsv</code> Java CSV parser library.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Use <code>Opencsv</code> Java CSV parser library&#8217;s <code>StatefulBeanToCsvBuilder</code> operation for building the structure in which the data is organised from the list retrieved from <code>Model#getFilterMedicineList()</code> operation when exported to CSV file format.</p>
+<p><strong>Alternative 2:</strong> Use <code>Opencsv</code> Java CSV parser library&#8217;s <code>StatefulBeanToCsvBuilder</code> operation for building the structure in which the data is organised from the list retrieved using the <code>Model#getFilterMedicineList()</code> operation when exporting to CSV file format.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: We do not need to iterate through the list and convert it to a String Array as we can just use the library&#8217;s <code>StatefulBeanToCsvBuilder</code> operation to build the structure from the list by passing the list as a parameter to the operation. Furthermore, the formatting process can be automated using the operation. It is also more efficient in terms of performance according to the library&#8217;s documentation if ordering of the data exported is not a concern to the developer.</p>
+<p>Pros: Does not require iterating through the list and convert it to a String Array as we can use the library&#8217;s <code>StatefulBeanToCsvBuilder</code> operation to build the structure from the list by passing the list as a parameter to the operation. Furthermore, the formatting process can be automated using the operation. It is also more efficient in terms of performance according to the library&#8217;s documentation if ordering of the data exported is not a concern to the developer.</p>
 </li>
 <li>
-<p>Cons: Requires prior knowledge on the way in which the library&#8217;s <code>StatefulBeanToCsvBuilder</code> operation works. If the developers want to modify the data exported to be ordered in a specific way, it requires knowledge on the library&#8217;s <code>MappingStrategy</code> related operations which may be complicated for developers new to the library.</p>
+<p>Cons: Requires prior knowledge on the way in which the library&#8217;s <code>StatefulBeanToCsvBuilder</code> operation works. If a developer wants to modify the data exported to be ordered in a specific format, it requires knowledge on the library&#8217;s <code>MappingStrategy</code> related operations which may be complicated for developers new to the library.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1673,7 +1675,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 9. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 11. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2562,4 +2564,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-08 14:02:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-08 14:08:51 UTC</div></div></div></body></html>
