@@ -4,7 +4,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Welcome to my Project Portfolio which provides you with an overview of my technical skills in the writing of documentations, coding and other contributions to my team project, <strong>MediTabs</strong>, for a Software Engineering module in the National University of Singapore (NUS).</p>
+<p>Welcome to my Project Portfolio which provides you with an overview of my technical skills in the writing of documentation, coding and other contributions to my team project, <strong>MediTabs</strong>, for a Software Engineering module in the National University of Singapore (NUS).</p>
 </div>
 </div>
 </div>
@@ -15,7 +15,7 @@
 <p>The team project involved improving an existing <a href="https://github.com/nus-cs2103-AY1819S2/addressbook-level4/">Addressbook application</a> for users who prefer command line interfaces (CLI). My team and I chose to morph it into a medicine inventory management application called <strong>MediTabs</strong>. The goal is to streamline the medicine inventory management workflow in clinics by enabling pharmacists to keep track and manage medicine inventory easily; export the data for easier reference and data analysis; and print medicine labels containing essential medicine information.</p>
 </div>
 <div class="paragraph">
-<p>I am the team lead and is in charge of designing and implementing the <code>export</code> feature.</p>
+<p>I am the team leader and in charge of designing and implementing the <code>export</code> feature.</p>
 </div>
 <div class="paragraph">
 <p>This document uses the following labels and formatting:</p>
@@ -115,7 +115,7 @@
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: As there are currently no third party libraries available which validates file name such that it adheres to the file naming conventions of the major operating systems (OS), I have created a <code>FileName</code> class which implements this feature to complement the <code>export</code> feature and is also used by the <code>label</code> feature. It requires an indepth knowledge on the different file naming conventions of the various OS and also numerous testing as I discovered that some file name conventions were not documented and not allowed to be used as file names.</p>
+<p><strong>Minor enhancement</strong>: As there are currently no third party libraries available which validate file name such that it adheres to the file naming conventions of the major operating systems (OS), Windows, Linux and macOS, I have created a <code>FileName</code> class which implements this feature to complement the <code>export</code> feature and is also used by the <code>label</code> feature. It requires an indepth knowledge of the different file naming conventions used in the various OS and also numerous testing as I discovered that some file name conventions were not documented and not allowed to be used as file names.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#=undefined&amp;search=jonathanleewh">Project Code Dashboard</a></p>
@@ -129,10 +129,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Set up team project GitHub repository including setting up issue tracker, permissions, project page, milestones and labels.</p>
+<p>Set up team project GitHub repository including setting up the issue tracker, permissions, project page, milestones and labels.</p>
 </li>
 <li>
-<p>Managed releases <code>v1.1</code> - <code>v1.4</code> (7 releases) on GitHub</p>
+<p>Managed releases <code>v1.1</code> - <code>v1.4</code> (9 releases) on GitHub</p>
 </li>
 </ul>
 </div>
@@ -151,7 +151,7 @@
 <p>Added Validation of File Name section to Developer Guide which includes code snippet for reference on how to take advantage of the <code>FileName</code> class provided: <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/140">#140</a></p>
 </li>
 <li>
-<p>Update stylesheet to PDF printing friendly format: <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/150">#150</a></p>
+<p>Update stylesheet to PDF printer friendly format: <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/150">#150</a></p>
 </li>
 <li>
 <p>Updated User Guide&#8217;s Quick Start section and Developer Guide&#8217;s Setting Up section to only allow Java version <code>9</code> and JDK <code>9</code> including references to the reason for the change: <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/117">#117</a>, <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/123">#123</a></p>
@@ -274,7 +274,7 @@ If a file with the specified file name already exists in the default <code>expor
 <div class="content">
 <img src="../images/SampleCSVFileImage.png" alt="SampleCSVFileImage" width="790">
 </div>
-<div class="title">Figure 1. Sample of exported CSV file</div>
+<div class="title">Figure 1. Sample of the exported CSV file</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -337,7 +337,7 @@ Only integration addons that have been verified by our team can be downloaded an
 <div class="ulist">
 <ul>
 <li>
-<p>Singapore&#8217;s Health Science Authority (HSA) - To integrate the Singapore HSA&#8217;s medical database with MediTabs which allows easy retrieval of important information such as when a medicine is requested to be recalled by the HSA.</p>
+<p>Singapore&#8217;s Health Science Authority (HSA) - To integrate the Singapore HSA&#8217;s medical database with MediTabs which allows easy retrieval of important information such as when medicine is requested to be recalled by the HSA.</p>
 </li>
 </ul>
 </div>
@@ -419,7 +419,7 @@ Out of the three key operations stated above, <strong>only</strong> <code>CsvWra
 </table>
 </div>
 <div class="paragraph">
-<p>Given below is a sequence diagram overview of how these 3 key operations behaves when the user executes the <code>export</code> command in order to export the current medicine inventory data shown in the GUI to CSV file format:</p>
+<p>Given below is a sequence diagram overview of how these 3 key operations behave when the user executes the <code>export</code> command in order to export the current medicine inventory data shown in the GUI to CSV file format:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -496,7 +496,7 @@ If a CSV file with the input file name already exists in the <code>exported</cod
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Individual commands can add an additional <code>export</code> parameter to support exporting as CSV file.</p>
+<p><strong>Alternative 2:</strong> Individual commands can add an additional <code>export</code> parameter to support exporting as CSV file format.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -533,7 +533,7 @@ If a CSV file with the input file name already exists in the <code>exported</cod
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Does not require iterating through the list and convert it to a String Array as we can use the library&#8217;s <code>StatefulBeanToCsvBuilder</code> operation to build the structure from the list by passing the list as a parameter to the operation. Furthermore, the formatting process can be automated using the operation. It is also more efficient in terms of performance according to the library&#8217;s documentation if ordering of the data exported is not a concern to the developer.</p>
+<p>Pros: Does not require iterating through the list and convert it to a String Array as we can use the library&#8217;s <code>StatefulBeanToCsvBuilder</code> operation to build the structure from the list by passing the list as a parameter to the operation. Furthermore, the formatting process can be automated using the operation. It is also more efficient in terms of performance according to the library&#8217;s documentation if the ordering of the data exported is not a concern to the developer.</p>
 </li>
 <li>
 <p>Cons: Requires prior knowledge on the way in which the library&#8217;s <code>StatefulBeanToCsvBuilder</code> operation works. If a developer wants to modify the data exported to be ordered in a specific format, it requires knowledge on the library&#8217;s <code>MappingStrategy</code> related operations which may be complicated for developers new to the library.</p>
@@ -559,4 +559,4 @@ More information on <code>Opencsv</code> library&#8217;s <code>StatefulBeanToCsv
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-10 14:56:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-11 05:40:49 UTC</div></div></div></body></html>

@@ -77,12 +77,11 @@
 <li><a href="#use-cases">Appendix B: Use Cases</a></li>
 <li><a href="#non-functional-requirements">Appendix C: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix D: Glossary</a></li>
-<li><a href="#product-survey">Appendix E: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
+<li><a href="#instructions-for-manual-testing">Appendix E: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-medicine">F.2. Deleting a medicine</a></li>
-<li><a href="#saving-data">F.3. Saving data</a></li>
+<li><a href="#launch-and-shutdown">E.1. Launch and Shutdown</a></li>
+<li><a href="#deleting-a-medicine">E.2. Deleting a medicine</a></li>
+<li><a href="#saving-data">E.3. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -92,7 +91,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Welcome to the <em>MediTabs Developer Guide</em>. You can find step by step instructions on how to set up MediTabs project on your computer and modify the project to suit your needs. You can also find out more about the development process of MediTabs such as its design and implementation. Interested? You can jump to <a href="#Setting Up">[Setting Up]</a> to get started. Enjoy!</p>
+<p>Welcome to the <em>MediTabs Developer Guide</em>. You can find step by step instructions on how to set up MediTabs project on your computer and modify the project to suit your needs. You can also find out more about the development process of MediTabs such as its design and implementation. Interested? You can jump to <a href="#setting-up">Section 2, &#8220;Setting up&#8221;</a> to get started. Enjoy!</p>
 </div>
 <div class="sect2">
 <h3 id="what-is-meditabs"><a class="link" href="#what-is-meditabs">1.1. What is MediTabs</a></h3>
@@ -100,7 +99,7 @@
 <p>MediTabs is a desktop application, developed using Java, for managing medicine stock taking. You can use MediTabs in your clinics to easily keep track of your medicine inventory and take note of important information such as which medicines are low in stock, expiring soon or have expired.</p>
 </div>
 <div class="paragraph">
-<p>MediTabs supports Windows, Linux and MacOS operating systems.</p>
+<p>MediTabs supports Windows, Linux and macOS operating systems.</p>
 </div>
 </div>
 <div class="sect2">
@@ -763,7 +762,7 @@ Out of the three key operations stated above, <strong>only</strong> <code>CsvWra
 </table>
 </div>
 <div class="paragraph">
-<p>Given below is a sequence diagram overview of how these 3 key operations behaves when the user executes the <code>export</code> command in order to export the current medicine inventory data shown in the GUI to CSV file format:</p>
+<p>Given below is a sequence diagram overview of how these 3 key operations behave when the user executes the <code>export</code> command in order to export the current medicine inventory data shown in the GUI to CSV file format:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -840,7 +839,7 @@ If a CSV file with the input file name already exists in the <code>exported</cod
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Individual commands can add an additional <code>export</code> parameter to support exporting as CSV file.</p>
+<p><strong>Alternative 2:</strong> Individual commands can add an additional <code>export</code> parameter to support exporting as CSV file format.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -877,7 +876,7 @@ If a CSV file with the input file name already exists in the <code>exported</cod
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Does not require iterating through the list and convert it to a String Array as we can use the library&#8217;s <code>StatefulBeanToCsvBuilder</code> operation to build the structure from the list by passing the list as a parameter to the operation. Furthermore, the formatting process can be automated using the operation. It is also more efficient in terms of performance according to the library&#8217;s documentation if ordering of the data exported is not a concern to the developer.</p>
+<p>Pros: Does not require iterating through the list and convert it to a String Array as we can use the library&#8217;s <code>StatefulBeanToCsvBuilder</code> operation to build the structure from the list by passing the list as a parameter to the operation. Furthermore, the formatting process can be automated using the operation. It is also more efficient in terms of performance according to the library&#8217;s documentation if the ordering of the data exported is not a concern to the developer.</p>
 </li>
 <li>
 <p>Cons: Requires prior knowledge on the way in which the library&#8217;s <code>StatefulBeanToCsvBuilder</code> operation works. If a developer wants to modify the data exported to be ordered in a specific format, it requires knowledge on the library&#8217;s <code>MappingStrategy</code> related operations which may be complicated for developers new to the library.</p>
@@ -1489,7 +1488,7 @@ File name <strong>does not</strong> include file extension such as <code>.csv</c
 <div class="ulist">
 <ul>
 <li>
-<p>There are currently no third party libraries available for validating file name to ensure that the file name is platform independent. In other words, there are no public methods to validate the file name specified by the user to ensure that it is supported on Windows, Linux and MacOS operating systems.</p>
+<p>There are currently no third party libraries available for validating file name to ensure that the file name is platform independent. In other words, there are no public methods to validate the file name specified by the user to ensure that it is supported on Windows, Linux and macOS operating systems.</p>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -1497,7 +1496,7 @@ File name <strong>does not</strong> include file extension such as <code>.csv</c
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-There are certain naming conventions which have to be followed on Windows operating system which are not necessary on Linux and MacOS operating systems. You can read more about the naming conventions for Windows <a href="https://docs.microsoft.com/en-us/windows/desktop/FileIO/naming-a-file#naming-conventions">here</a>. You can also refer to <a href="https://en.wikipedia.org/wiki/Filename#Comparison_of_filename_limitations">this</a> Wikipedia article for a detailed comparison between different naming conventions for different operating systems.
+There are certain naming conventions which have to be followed on Windows operating system which are not necessary on Linux and macOS operating systems. You can read more about the naming conventions for Windows <a href="https://docs.microsoft.com/en-us/windows/desktop/FileIO/naming-a-file#naming-conventions">here</a>. You can also refer to <a href="https://en.wikipedia.org/wiki/Filename#Comparison_of_filename_limitations">this</a> Wikipedia article for a detailed comparison between different naming conventions for different operating systems.
 </td>
 </tr>
 </table>
@@ -1507,7 +1506,7 @@ There are certain naming conventions which have to be followed on Windows operat
 <p>Ensure consistency by creating a file naming convention.</p>
 </li>
 <li>
-<p>Ensure that files created with file names specified by the user can be used on Windows, Linux and MacOS operating systems. This is to avoid potential bugs involving file names as MediTabs supports Windows, Linux and MacOS operating systems hence, the user might switch between these operating systems when using MediTabs.</p>
+<p>Ensure that files created with file names specified by the user can be used on Windows, Linux and macOS operating systems. This is to avoid potential bugs involving file names as MediTabs supports Windows, Linux and macOS operating systems hence, the user might switch between these operating systems when using MediTabs.</p>
 </li>
 </ul>
 </div>
@@ -2448,7 +2447,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <dl>
 <dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
 <dd>
-<p>Windows, Linux, Unix, OS-X</p>
+<p>Windows, Linux, Unix, macOS</p>
 </dd>
 <dt class="hdlist1"><a id="inventory"></a> Inventory</dt>
 <dd>
@@ -2463,44 +2462,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix E: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix E: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
@@ -2518,7 +2480,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">F.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">E.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2556,7 +2518,7 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-medicine"><a class="link" href="#deleting-a-medicine">F.2. Deleting a medicine</a></h3>
+<h3 id="deleting-a-medicine"><a class="link" href="#deleting-a-medicine">E.2. Deleting a medicine</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2588,7 +2550,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">F.3. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">E.3. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2608,4 +2570,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-10 14:56:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-11 05:40:49 UTC</div></div></div></body></html>
