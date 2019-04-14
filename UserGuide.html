@@ -392,6 +392,51 @@ This feature can be improved to support medical databases of different countries
 <p>Due to the nature of medical inventories, the integrity of data stored is of utmost importance. The next release will feature data encryption to keep your inventory safe and keep unauthorised users away. With this feature, you will be required to log in with a password to view and edit your inventory. This feature can be disabled if it is not required for your needs.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="preview-of-results"><a class="link" href="#preview-of-results">4.4.5. Preview of results</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Preview of results for Export and Label Commands to be available in the UI.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Current implementation: You may have to manually search for the external files created in their respective folders.<br></p>
+</li>
+<li>
+<p>In v2.0, a snapshot of the resulting files will be previewed under the UI for easier reference. This further streamline the inventory management and improve your usability.</p>
+</li>
+<li>
+<p>Below is a mock up on how the UI may look like with the features integrated.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/MockUp.png" alt="MockUp" width="790">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="importing-pictures"><a class="link" href="#importing-pictures">4.4.6. Importing pictures</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Import of pictures to aid in the medicine identification.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pictures and snapshot of the medicine may be added to MediTabs such that it is easier for you to identify what the physical medicine looks like.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -941,6 +986,9 @@ This includes the company that manufactured it, expiry date and the tags that wa
 <li>
 <p>Your format for using the command should follow: <code>label INDEX [f/FILE_NAME]</code></p>
 </li>
+<li>
+<p>File name is optional.</p>
+</li>
 </ul>
 </div>
 <div class="sidebarblock">
@@ -956,9 +1004,6 @@ This includes the company that manufactured it, expiry date and the tags that wa
 <li>
 <p>The index refers to the index number shown in the displayed medicine list.</p>
 </li>
-<li>
-<p>The index must be a positive integer 1, 2, 3, …</p>
-</li>
 </ul>
 </div>
 </div>
@@ -972,45 +1017,49 @@ This includes the company that manufactured it, expiry date and the tags that wa
 </div>
 </div>
 <div class="paragraph">
+<p>Fig 5.12.1 PDF folder highlighted</p>
+</div>
+<div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open up the software interface. (Fig 5.12.1)</p>
-</li>
-<li>
-<p>Using the keyboard, enter the commands followed by hitting the enter key for each command.</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code> followed by<br>
-<code>label 2</code><br>
-This will allow you to select the 2nd medicine in the inventory and output the information to a default file named <code>to_print</code>.</p>
+<p>Open up the software interface. (Fig 5.12.2)</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/label2_taken.png" alt="label2 taken" width="790">
+<img src="images/blankUI.png" alt="blankUI" width="790">
 </div>
 </div>
 <div class="paragraph">
-<p>Fig 5.12.1 Software interface</p>
+<p>Fig 5.12.2 Software interface</p>
 </div>
+</li>
+<li>
+<p>Key in  <code>list</code> followed by<br>
+<code>label 1</code>.<br>
+This selects the 1st medicine in the inventory and output the information to a default PDF file named <code>to_print</code>.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>A confirmation message will be shown to indicate to you that it have been successfully labeled.</p>
-</li>
-</ul>
+<div class="imageblock">
+<div class="content">
+<img src="images/ConfirmationMessage.png" alt="ConfirmationMessage" width="790">
+</div>
 </div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>You can open the file in the PDF folder with your preferred PDF reader to print the medicine information. (Fig 5.12.2)</p>
+<p>You can open the file in the PDF folder (Fig 5.12.1) with your preferred PDF reader to print the medicine information.</p>
+<div class="paragraph">
+<p>A example below of how the label information will look like (Fig 5.12.2)</p>
+</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/label2.png" alt="label2" width="790">
+<img src="images/label1.png" alt="label1" width="790">
 </div>
 </div>
 <div class="paragraph">
@@ -1027,7 +1076,7 @@ This will allow you to select the 2nd medicine in the inventory and output the i
 Similar to the example above, the 1st medicine information will be output to a file name <code>Simvastatin</code>. (Fig 5.12.3)</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/label1.png" alt="label1" width="790">
+<img src="images/label2.png" alt="label2" width="790">
 </div>
 </div>
 <div class="paragraph">
@@ -1390,4 +1439,4 @@ The characters of the file name cannot contain any spacing or symbols, including
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 06:44:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 20:09:07 UTC</div></div></div></body></html>

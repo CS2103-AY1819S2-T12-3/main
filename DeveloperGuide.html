@@ -1106,25 +1106,27 @@ If the <code>currentStatePointer</code> is at index <code>inventoryStateList.siz
 <div class="sect2">
 <h3 id="medicine-label-using-label-command"><a class="link" href="#medicine-label-using-label-command">4.4. Medicine Label using Label Command</a></h3>
 <div class="paragraph">
-<p>Users can use the command to output medicines information to a specific folder. Information will be in Portable Document Format (PDF) files.</p>
+<p>Users can use the command to output medicines information to the PDF folder. Information will be in Portable Document Format (PDF).</p>
 </div>
 <div class="paragraph">
 <p>Current implementation:
-Under the build.gradle file, we have added new dependency implementation group: <code>org.apache.pdfbox</code>, name: <code>pdfbox</code>, version: <code>2.0.13</code>. This imports the library over to the project for use.</p>
+The label command uses Apache PDFBox, a 3rd party library capable of creating and editing PDF files. To import the library:
+Locate the build.gradle file under the main folder. Insert the new dependency implementation group: <code>org.apache.pdfbox</code>, name: <code>pdfbox</code>, version: <code>2.0.13</code>.
+This imports the library over to the project for use. You can look at <a href="#managing-dependencies">Section 7.6, &#8220;Managing Dependencies&#8221;</a> for more information on 3rd party libraries.</p>
 </div>
 <div class="paragraph">
-<p>There are many operations available added in the Apache PDFBox, the key operations that we are using would only be:</p>
+<p>There are many classes available in the Apache PDFBox, the key operations that we are using are:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>PDDocument()</code> - For creating a new blank PDF file for the medicine details to be exported to.</p>
+<p><code>PDDocument</code> - For creating a new blank PDF file for the medicine details to be exported to.</p>
 </li>
 <li>
-<p><code>PDPage()</code> - Creates a new PDPage instance for embedding.</p>
+<p><code>PDPage</code> - Creates a new PDPage instance for embedding.</p>
 </li>
 <li>
-<p><code>PDPageContentStream(PDDocument, PDPage)</code> - Provides the ability to write a page content stream.</p>
+<p><code>PDPageContentStream</code> - Provides the ability to write a page content stream.</p>
 </li>
 </ul>
 </div>
@@ -1137,19 +1139,29 @@ Under the build.gradle file, we have added new dependency implementation group: 
 </div>
 </div>
 <div class="paragraph">
-<p>Fig 4.4.1</p>
+<p>Fig 4.4 UML sequence diagram</p>
 </div>
 <div class="sect3">
 <h4 id="usage-scenario-example"><a class="link" href="#usage-scenario-example">4.4.1. Usage scenario example</a></h4>
 <div class="sect4">
-<h5 id="below-shows-how-the-label-command-behaves-in-each-step"><a class="link" href="#below-shows-how-the-label-command-behaves-in-each-step">Below shows how the label command behaves in each step:</a></h5>
+<h5 id="label-command-without-filename-behaviour"><a class="link" href="#label-command-without-filename-behaviour">Label command without filename behaviour:</a></h5>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The user launches the application for the first time. An empty InformationPanel is displayed. (Fig 4.5.2 )</p>
+<p>The user launches the application for the first time. An empty InformationPanel is displayed. (Fig 4.4.1.1)</p>
 </li>
 <li>
-<p>The user executes the <code>label 2</code> to output the label of the 2nd medicine indexed in the inventory. Since no file name is included in the argument, the default filename 'to_print' is used instead. <code>LabelCommand#execute()</code> is called.</p>
+<p>The user executes the <code>label 2</code> to output the label of the 2nd medicine indexed in the inventory. Since no file name is included in the argument, the default filename 'to_print' is used instead.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Based on the UML diagram above, "label 2" will be passed onto the <code>InventoryParser</code>. LabelCommand will be created and returned to the logic manager.</p>
+</li>
+<li>
+<p>Logic manager will <code>execute()</code> the <code>LabelCommand</code>. The PDF file will be created using the <code>PDFWrapper</code> class.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>The user can find the file <code>to_print</code> under the main folder. (Fig 4.5.3)</p>
@@ -1174,16 +1186,34 @@ Under the build.gradle file, we have added new dependency implementation group: 
 </div>
 </div>
 <div class="sect4">
-<h5 id="label-command-with-filename-specified"><a class="link" href="#label-command-with-filename-specified">Label command with filename specified</a></h5>
+<h5 id="label-command-with-filename-behaviour"><a class="link" href="#label-command-with-filename-behaviour">Label command with filename behaviour:</a></h5>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The user executes <code>label 1 f/file_to_print</code> to output the label of the 1st medicine indexed in the inventory. The <code>LabelCommandParser</code> class will be able to tokenize and read the desired file name. Then, <code>LabelCommand#execute()</code> is called.</p>
+<p>The user executes <code>label 1 f/file_to_print</code> to output the label of the 1st medicine indexed in the inventory. The <code>InventoryParser</code> class will be able to tokenize and read the desired file name. LabelCommand will be created and return to the logic manager.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Logic manager will <code>execute()</code> the <code>LabelCommand</code>. The PDF file will be created using the <code>PDFWrapper</code> class.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>The user can find a new file <code>file_to_print</code> under the same main folder.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows the behaviours in summary (Fig 4.4.1.3):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LabelActivityDiagram.png" alt="LabelActivityDiagram" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>(Fig 4.4.1.3)</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1192,7 +1222,7 @@ Under the build.gradle file, we have added new dependency implementation group: 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the user would execute another <code>label 1</code>, the original <code>to_print</code> file will be replaced with the information of the 1st medicine indexed in the inventory. Users are warned in the User Guide to be caution about overwriting files.
+If the user would execute another <code>label 1</code>, the original <code>to_print</code> file will be replaced. Users are warned in the User Guide to be caution about overwriting files.
 </td>
 </tr>
 </table>
@@ -1226,7 +1256,7 @@ If the user would execute another <code>label 1</code>, the original <code>to_pr
 <p>Pros: Will use less memory.</p>
 </li>
 <li>
-<p>Cons: We have to read the existing file which requires more time to execute.</p>
+<p>Cons: We have to read the existing file which requires more time to execute. PDF files are also meant to not be edited once created.</p>
 </li>
 </ul>
 </div>
@@ -2570,4 +2600,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 06:44:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-14 20:09:07 UTC</div></div></div></body></html>
