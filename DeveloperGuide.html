@@ -83,6 +83,7 @@
 <li><a href="#deleting-a-medicine">E.2. Deleting a medicine</a></li>
 <li><a href="#exporting-as-csv-file-format-2">E.3. Exporting as CSV file format</a></li>
 <li><a href="#changing-warning-panel-thresholds">E.4. Changing warning panel thresholds</a></li>
+<li><a href="#labeling-medicine-information-onto-a-pdf-file">E.5. Labeling medicine information onto a PDF file</a></li>
 </ul>
 </li>
 </ul>
@@ -1179,7 +1180,7 @@ This imports the library over to the project for use. You can look at <a href="#
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/mainPDF.png" alt="mainPDF" width="790">
+<img src="images/folderPDF.png" alt="folderPDF" width="790">
 </div>
 </div>
 <div class="paragraph">
@@ -2743,5 +2744,48 @@ Expected: Similar to previous.</p>
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="labeling-medicine-information-onto-a-pdf-file"><a class="link" href="#labeling-medicine-information-onto-a-pdf-file">E.5. Labeling medicine information onto a PDF file</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Output a medicine information onto a PDF file using default name.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all medicines using the <code>list</code> command. There is at least a medicine in the first index</p>
+</li>
+<li>
+<p>Test case: <code>label 1</code><br>
+Expected: Success message shown in the UI. Current medicine on index one is successfully output to a PDF file under the PDF folder. Filename is <code>to_print</code>.</p>
+</li>
+<li>
+<p>Test case: <code>label</code><br>
+Expected: Unsuccessful message shown in the UI. No file will be output in the PDF folder.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 11:28:12 UTC</div></div></div></body></html>
+</li>
+<li>
+<p>Output a medicine information onto a PDF file with its name given by the user. Filename must follow Appendix A. Else, error message is shown.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all medicines using the <code>list</code> command. There is at least a medicine in the first index</p>
+</li>
+<li>
+<p>Test case: <code>label 1 f/newfile</code><br>
+Expected: Success message shown in the UI. Current medicine on index one is successfully output to a PDF file under the PDF folder. Filename is <code>newfile</code>.</p>
+</li>
+<li>
+<p>Test case: <code>label 1 f/^@#&amp;</code><br>
+Expected: Expected: Unsuccessful message shown in the UI. No file will be output in the PDF folder.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 12:04:55 UTC</div></div></div></body></html>

@@ -10,7 +10,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This  Project Portfolio shows my contributions to the group project, such as features and documentation.</p>
+<p>This  Project Portfolio shows my contributions to the group project, such as features and documentation. I was in charge of the of the logic component, which mainly focus on the command features of the project. This project is under a core module of software engineering in the my school.</p>
 </div>
 </div>
 </div>
@@ -18,7 +18,8 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The group project, Meditabs, is a medicine inventory management for pharmacist to streamline the process of handling the stick taking process. The user mainly uses the Command-Line Interface (CLI) to interact.</p>
+<p>The group project, Meditabs, is a medicine inventory management for pharmacist to streamline the process of handling the stick taking process. The user mainly uses the Command-Line Interface (CLI) to interact.
+Upon looking  at user case, we implemented a label function to allow the pharmacist to print out the medicine information. This is for easier management for the physical medicine itself.</p>
 </div>
 </div>
 </div>
@@ -38,10 +39,10 @@
 <p>Justification: Pharmacist would like to have the printed information of certain medicine and label the physical counterpart. With the PDF, the pharmacist may use external printers and print out the information on the label as a sticker. PDF is widely used as a file extension.</p>
 </li>
 <li>
-<p>Highlights: Added security layer to the naming of the file (Auto include .pdf extension) such that users may not over write other important files.</p>
+<p>Highlights: Added security layer to the naming of the file (Auto include .pdf extension) such that users may not over write other important files. Also set a limit on the the length of filename.</p>
 </li>
 <li>
-<p>Credits: Apache PDFBox external library is imported to help manipulate and output the stream of information to the PDF file.</p>
+<p>Credits: Apache PDFBox external library is imported to help manipulate and output the stream of information to the PDF file. More information can be found under: <a href="https://pdfbox.apache.org/" class="bare">https://pdfbox.apache.org/</a></p>
 </li>
 </ul>
 </div>
@@ -50,7 +51,7 @@
 <p><strong>Minor enhancement</strong>: -</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#=undefined&amp;search=melpulomas">Project Code Dashboard</a></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -62,6 +63,9 @@
 <ul>
 <li>
 <p>Wrote additional tests for existing features to increase coverage (Pull requests <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/131">#131</a>, <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/142">#142</a>)</p>
+</li>
+<li>
+<p>Refactor test cases: (Pull requests <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/78">#78</a>)</p>
 </li>
 </ul>
 </div>
@@ -81,10 +85,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Added label command to the User Guide: <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/106">#106</a></p>
+<p>Added label command to the User Guide: (Pull requests <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/106">#106</a>, <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/191">#191</a>)</p>
 </li>
 <li>
-<p>Changed About Us documentation to describe our group instead: <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/24">#24</a>, <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/27">#27</a></p>
+<p>Added label command to the Developer Guide: (Pull requests <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/106">#106</a>, <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/191">#191</a>)</p>
+</li>
+<li>
+<p>Changed About Us documentation to describe our group: <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/24">#24</a>, <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/27">#27</a></p>
 </li>
 </ul>
 </div>
@@ -161,7 +168,7 @@ This includes the company that manufactured it, expiry date and the tags that wa
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/mainPDF.png" alt="mainPDF" width="790">
+<img src="../images/folderPDF.png" alt="folderPDF" width="790">
 </div>
 </div>
 <div class="paragraph">
@@ -176,7 +183,7 @@ This includes the company that manufactured it, expiry date and the tags that wa
 <p>Open up the software interface. (Fig 5.12.2)</p>
 <div class="imageblock">
 <div class="content">
-<img src="../images/blankUI.png" alt="blankUI" width="790">
+<img src="../images/Ui.png" alt="Ui" width="790">
 </div>
 </div>
 <div class="paragraph">
@@ -254,6 +261,51 @@ The <code>label</code> command will overwrite the <code>to_print</code> file whe
 </div>
 </li>
 </ol>
+</div>
+<div class="sect3">
+<h4 id="preview-of-results"><a class="link" href="#preview-of-results">Preview of results</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Preview of results for Export and Label Commands to be available in the UI.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Current implementation: You may have to manually search for the external files created in their respective folders.<br></p>
+</li>
+<li>
+<p>In v2.0, a snapshot of the resulting files will be previewed under the UI for easier reference. This further streamline the inventory management and improve your usability.</p>
+</li>
+<li>
+<p>Below is a mock up on how the UI may look like with the features integrated.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/MockUp.png" alt="MockUp" width="790">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="importing-pictures"><a class="link" href="#importing-pictures">Importing pictures</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Import of pictures to aid in the medicine identification.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pictures and snapshot of the medicine may be added to MediTabs such that it is easier for you to identify what the physical medicine looks like.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
@@ -346,7 +398,7 @@ This imports the library over to the project for use. You can look at <a href="#
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/mainPDF.png" alt="mainPDF" width="790">
+<img src="../images/folderPDF.png" alt="folderPDF" width="790">
 </div>
 </div>
 <div class="paragraph">
@@ -434,5 +486,48 @@ If the user would execute another <code>label 1</code>, the original <code>to_pr
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="labeling-medicine-information-onto-a-pdf-file"><a class="link" href="#labeling-medicine-information-onto-a-pdf-file">Labeling medicine information onto a PDF file</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Output a medicine information onto a PDF file using default name.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all medicines using the <code>list</code> command. There is at least a medicine in the first index</p>
+</li>
+<li>
+<p>Test case: <code>label 1</code><br>
+Expected: Success message shown in the UI. Current medicine on index one is successfully output to a PDF file under the PDF folder. Filename is <code>to_print</code>.</p>
+</li>
+<li>
+<p>Test case: <code>label</code><br>
+Expected: Unsuccessful message shown in the UI. No file will be output in the PDF folder.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 11:28:12 UTC</div></div></div></body></html>
+</li>
+<li>
+<p>Output a medicine information onto a PDF file with its name given by the user. Filename must follow Appendix A. Else, error message is shown.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all medicines using the <code>list</code> command. There is at least a medicine in the first index</p>
+</li>
+<li>
+<p>Test case: <code>label 1 f/newfile</code><br>
+Expected: Success message shown in the UI. Current medicine on index one is successfully output to a PDF file under the PDF folder. Filename is <code>newfile</code>.</p>
+</li>
+<li>
+<p>Test case: <code>label 1 f/^@#&amp;</code><br>
+Expected: Expected: Unsuccessful message shown in the UI. No file will be output in the PDF folder.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 12:04:55 UTC</div></div></div></body></html>
