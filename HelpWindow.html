@@ -210,15 +210,24 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Warnings Panel</strong></p>
+<p><strong>Warning Panel</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The list of medicine running low on stock or expiring soon medicine will be displayed in the warning panel to notify the user.</p>
+<p>Displays a list of medicines running low on stock and a list of expiring/expired medicine batches.</p>
 </li>
 <li>
-<p>Warnings will be logged in the warnings panel until action has been taken to either remove or update the medicine.</p>
+<p>Warnings will be logged in the warnings panel until changes are made to medicines and/or batches displayed, or to the thresholds controlling what is displayed.</p>
+</li>
+<li>
+<p>Image below shows the labelled components of the warning panel:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/WarningPanelLabeled.png" alt="WarningPanelLabeled" width="500">
+</div>
+<div class="title">Figure 1. Labelled warning panel</div>
+</div>
 </li>
 </ul>
 </div>
@@ -236,7 +245,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="content">
 <img src="images/UserGuide_InformationPanel.png" alt="UserGuide InformationPanel" width="715">
 </div>
-<div class="title">Figure 1. Information panel</div>
+<div class="title">Figure 2. Information panel</div>
 </div>
 <div class="paragraph">
 <p>Managing medicines by batch is efficient and logical since medicines from the same batch share the same properties. However, with so many different batches of the same medicine, you need an organized way to keep track of them.</p>
@@ -257,7 +266,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="content">
 <img src="images/UserGuide_WarningPanel.png" alt="UserGuide WarningPanel" width="180">
 </div>
-<div class="title">Figure 2. Warning panel</div>
+<div class="title">Figure 3. Warning panel</div>
 </div>
 <div class="paragraph">
 <p>The warning panel provides an overview of pressing issues that have to be taken care of. With a quick glance, you will be able to identify expiring or expired batches of medicine, and medicines running low in stock.</p>
@@ -678,7 +687,7 @@ Format: <code>select INDEX</code></p>
 <div class="content">
 <img src="images/UserGuide_InformationPanel.png" alt="UserGuide InformationPanel" width="715">
 </div>
-<div class="title">Figure 3. Information page will be loaded when a medicine is selected</div>
+<div class="title">Figure 4. Information page will be loaded when a medicine is selected</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -830,11 +839,28 @@ Updates quantity of batch <code>8937v1x7</code> in batch records of the 1st medi
 <div class="sect2">
 <h3 id="WarningPanel"><a class="link" href="#WarningPanel">5.10. Managing the warning panel : <code>warning</code></a></h3>
 <div class="paragraph">
-<p>Manage the threshold for expiry date and low stock warnings.<br>
-Format: <code>warning [e/EXPIRY_THRESHOLD] [q/LOW_STOCK_THRESHOLD] [SHOW]</code><br>
+<p>Manage the threshold for expiry date and low stock warnings to alter the contents of the warning panel.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>warning [e/EXPIRY_THRESHOLD] [q/LOW_STOCK_THRESHOLD] [SHOW]</code><br>
 Provide <strong>only one</strong> of the optional fields available.<br>
 If the thresholds are not set, the default threshold for expiry will be 10 days, and 20 for low stock.<br>
 Thresholds set by the user are saved and will be used when the application is launched again.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>All thresholds must be positive integers.<br>
+If the maximum threshold is set for a list, all medicines and/or batches will be displayed in that list.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -859,16 +885,16 @@ Thresholds set by the user are saved and will be used when the application is la
 <div class="ulist">
 <ul>
 <li>
-<p><code>warning e/20</code><br>
-Medicine batches with expiry dates within 10 days to expiry from today will be displayed in the warning panel.</p>
+<p><code>warning e/30</code><br>
+Medicine batches that have expired or with expiry dates within 30 days to expiry from today will be displayed in the warning panel.</p>
 </li>
 <li>
 <p><code>warning q/10</code><br>
-Medicines with a total quantity of less than or equal to 20 will be displayed in the warning panel.</p>
+Medicines with a total quantity of less than or equal to 10 will be displayed in the warning panel.</p>
 </li>
 <li>
 <p><code>warning show</code><br>
-Current thresholds used for the warning panel will be shown.</p>
+Current thresholds used for the warning panel will be shown in the result display as shown in figure below.</p>
 </li>
 </ul>
 </div>
@@ -951,7 +977,7 @@ If a file with the specified file name already exists in the default <code>expor
 <div class="content">
 <img src="images/SampleCSVFileImage.png" alt="SampleCSVFileImage" width="790">
 </div>
-<div class="title">Figure 4. Sample of the exported CSV file</div>
+<div class="title">Figure 5. Sample of the exported CSV file</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1434,4 +1460,4 @@ The characters of the file name cannot contain any spacing or symbols, including
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 07:34:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 10:14:30 UTC</div></div></div></body></html>

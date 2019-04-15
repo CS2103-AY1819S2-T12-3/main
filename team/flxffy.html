@@ -114,14 +114,53 @@
 <div class="paragraph">
 <p>The following sections are my contributions to the User Guide. They showcase my ability to write documentation targeting end-users.</p>
 </div>
+<div class="paragraph">
+<p><strong>Warning Panel</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Displays a list of medicines running low on stock and a list of expiring/expired medicine batches.</p>
+</li>
+<li>
+<p>Warnings will be logged in the warnings panel until changes are made to medicines and/or batches displayed, or to the thresholds controlling what is displayed.</p>
+</li>
+<li>
+<p>Image below shows the labelled components of the warning panel:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/WarningPanelLabeled.png" alt="WarningPanelLabeled" width="500">
+</div>
+<div class="title">Figure 2. Labelled warning panel</div>
+</div>
+</li>
+</ul>
+</div>
 <div class="sect2">
 <h3 id="WarningPanel"><a class="link" href="#WarningPanel">Managing the warning panel : <code>warning</code></a></h3>
 <div class="paragraph">
-<p>Manage the threshold for expiry date and low stock warnings.<br>
-Format: <code>warning [e/EXPIRY_THRESHOLD] [q/LOW_STOCK_THRESHOLD] [SHOW]</code><br>
+<p>Manage the threshold for expiry date and low stock warnings to alter the contents of the warning panel.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>warning [e/EXPIRY_THRESHOLD] [q/LOW_STOCK_THRESHOLD] [SHOW]</code><br>
 Provide <strong>only one</strong> of the optional fields available.<br>
 If the thresholds are not set, the default threshold for expiry will be 10 days, and 20 for low stock.<br>
 Thresholds set by the user are saved and will be used when the application is launched again.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>All thresholds must be positive integers.<br>
+If the maximum threshold is set for a list, all medicines and/or batches will be displayed in that list.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -146,16 +185,16 @@ Thresholds set by the user are saved and will be used when the application is la
 <div class="ulist">
 <ul>
 <li>
-<p><code>warning e/20</code><br>
-Medicine batches with expiry dates within 10 days to expiry from today will be displayed in the warning panel.</p>
+<p><code>warning e/30</code><br>
+Medicine batches that have expired or with expiry dates within 30 days to expiry from today will be displayed in the warning panel.</p>
 </li>
 <li>
 <p><code>warning q/10</code><br>
-Medicines with a total quantity of less than or equal to 20 will be displayed in the warning panel.</p>
+Medicines with a total quantity of less than or equal to 10 will be displayed in the warning panel.</p>
 </li>
 <li>
 <p><code>warning show</code><br>
-Current thresholds used for the warning panel will be shown.</p>
+Current thresholds used for the warning panel will be shown in the result display as shown in figure below.</p>
 </li>
 </ul>
 </div>
@@ -215,7 +254,7 @@ Current thresholds used for the warning panel will be shown.</p>
 <div class="content">
 <img src="../images/WarningPanelSequenceDiagram.png" alt="WarningPanelSequenceDiagram" width="1000">
 </div>
-<div class="title">Figure 2. Sequence diagram illustrating initialisation of the warning panel on start up</div>
+<div class="title">Figure 3. Sequence diagram illustrating initialisation of the warning panel on start up</div>
 </div>
 </div>
 <div class="sect4">
@@ -265,7 +304,7 @@ Current thresholds used for the warning panel will be shown.</p>
 <div class="content">
 <img src="../images/WarningCommandActivityDiagram.png" alt="WarningCommandActivityDiagram" width="800">
 </div>
-<div class="title">Figure 3. Activity diagram illustrating what happens when a user executes the <code>warning</code> command</div>
+<div class="title">Figure 4. Activity diagram illustrating what happens when a user executes the <code>warning</code> command</div>
 </div>
 </div>
 </div>
@@ -344,6 +383,57 @@ Current thresholds used for the warning panel will be shown.</p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="changing-warning-panel-thresholds"><a class="link" href="#changing-warning-panel-thresholds">Changing warning panel thresholds</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Changing the threshold for expiring medicine batches</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Current expiry threshold is 10 days (default). Multiple medicines with batches in the list.</p>
+</li>
+<li>
+<p>Test case: <code>warning e/0</code><br>
+Expected: All medicines batches that have expired or are expiring today are shown in the warning panel&#8217;s "Expiring Soon/Expired" list. New thresholds are shown in status message.</p>
+</li>
+<li>
+<p>Test case: <code>warning e/-1</code><br>
+Expected: No changes to warning panel. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect warning commands to try: <code>warning</code>, <code>warning e/x</code> (where x is not a positive integer), <code>warning {non-whitespace preamble} e/y</code> (where y is a positive integer)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Changing the threshold for medicines with low stock</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Current low stock threshold is 20 (default). Multiple medicines with non-zero total quantities in the list.</p>
+</li>
+<li>
+<p>Test case: <code>warning q/0</code><br>
+Expected: Warning panel&#8217;s "Low in Stock" list empties and placeholder "Nothing to show" is displayed. New thresholds are shown in status message.</p>
+</li>
+<li>
+<p>Test case: <code>warning q/-1</code><br>
+Expected: No changes to warning panel. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect warning commands to try: <code>warning</code>, <code>warning q/x</code> (where x is not a positive integer), <code>warning {non-whitespace preamble} q/y</code> (where y is a positive integer)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
 <h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p>Data encryption is likely to be implemented in future versions of the MediTabs if a reasonable implementation is found.</p>
@@ -419,4 +509,4 @@ Current thresholds used for the warning panel will be shown.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 07:34:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 10:14:30 UTC</div></div></div></body></html>
