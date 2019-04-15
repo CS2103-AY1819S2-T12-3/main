@@ -82,7 +82,7 @@
 <li><a href="#launch-and-shutdown">E.1. Launch and Shutdown</a></li>
 <li><a href="#deleting-a-medicine">E.2. Deleting a medicine</a></li>
 <li><a href="#exporting-as-csv-file-format-2">E.3. Exporting as CSV file format</a></li>
-<li><a href="#saving-data">E.4. Saving data</a></li>
+<li><a href="#changing-warning-panel-thresholds">E.4. Changing warning panel thresholds</a></li>
 </ul>
 </li>
 </ul>
@@ -1283,7 +1283,7 @@ If the user would execute another <code>label 1</code>, the original <code>to_pr
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement. Use pre-existing encryption libraries to encrypt the entire inventory.</p>
+<p>Pros: Easy to implement. Use existing encryption libraries to encrypt the entire inventory.</p>
 </li>
 <li>
 <p>Cons: May have performance issues when encrypting/decrypting large amounts of data.</p>
@@ -1347,75 +1347,101 @@ If the user would execute another <code>label 1</code>, the original <code>to_pr
 <div class="sect3">
 <h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The warning panel is driven by the <code>MainWindow</code> which creates <code>WarningPanel</code> that extends <code>UiPart</code>. The <code>WarningPanel</code> then creates two <code>WarningListView</code> where the list of expiring medicine and list of medicine low in stock will reside. The lists updates themselves when there are any changes made to the inventory. Each item of a list is represented by a <code>WarningCard</code>.</p>
+<p>The <code>WarningPanel</code> is created as part of the <code>MainWindow</code>, to be displayed in the GUI. Within the panel are two lists, expiring/expired and low in stock, represented by <code>WarningListView</code> objects. The purpose of this feature is to allow the user to view expiring/expired medicine batches and low quantity medicines easily.</p>
 </div>
 <div class="paragraph">
-<p>The following are implemented:</p>
+<p>The following are some of the operations implemented:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>WarningPanel#setUpVBox(ObservableList&lt;Medicine&gt;, ObservableList&lt;Medicine&gt;)</code>&#8201;&#8212;&#8201;Sets up the <code>VBox</code> (vertical box) where the lists will be displayed in, and creates two <code>WarningListView</code> objects. Each <code>ObservableList</code> is passed into a <code>WarningListView</code>, along with a <code>String</code> descriptor of the list, as such: <code>WarningListView(ObservableList&lt;Medicine&gt;, String "expiry")</code></p>
+<p><code>Logic#getWarningPanelPredicateAccessor()</code>&#8201;&#8212;&#8201;Returns a <code>WarningPanelPredicateAccessor</code>. This gives the caller access to all predicates used to filter lists for the warning panel in the current session.</p>
 </li>
 <li>
-<p><code>WarningListView</code> extends <code>UiPart</code>&#8201;&#8212;&#8201;Upon construction, <code>ListView#setItems(ObservableList&lt;T&gt; value)</code> and <code>ListView#setCellFactory(Callback&lt;ListView&lt;T&gt;, ListCell&lt;T&gt;&gt; value)</code> are called.</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>ListView#setItems(ObserverableList&lt;Medicine&gt; medicineList)</code>&#8201;&#8212;&#8201;Sets the <code>ObservableList</code> whose items will be displayed in the <code>ListView</code>. Due to <code>ObservableList</code> semantics, the <code>ListView</code> automatically updates when there are changes made to the inventory.</p>
-</li>
-<li>
-<p><code>ListView#setCellFactory(Callback&lt;ListView&lt;Medicine&gt;, ListCell&lt;Medicine&gt;&gt; listView &#8594; new WarningListViewCell())</code>&#8201;&#8212;&#8201;Sets the cell factory for the <code>ListView</code> within the class <code>WarningListView</code>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>WarningListViewCell</code> extends <code>ListCell&lt;T&gt;</code>&#8201;&#8212;&#8201;It overrides <code>ListCell#updateItem(T item, boolean empty)</code> allowing customization by creating a <code>WarningCard</code> for each cell.</p>
+<p><code>WarningPanel#setUpVBox(ObservableList&lt;Medicine&gt;, ObservableList&lt;Medicine&gt;)</code>&#8201;&#8212;&#8201;Sets up the <code>VBox</code> (vertical box) representing the warning panel by creating <code>WarningListView</code> objects from the <code>ObservableList</code> objects. Each <code>WarningListView</code> is a list to be displayed in the GUI.</p>
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><code>WarningCard</code> extends <code>UiPart</code>&#8201;&#8212;&#8201;Sets the fields (eg. name of medicine, quantity, expiry date) to be displayed in the warning list view cell.</p>
-</li>
-</ul>
+<div class="sect4">
+<h5 id="initialising-the-warning-panel"><a class="link" href="#initialising-the-warning-panel">Initialising the warning panel</a></h5>
+<div class="paragraph">
+<p>Given below is how the warning panel GUI is initialised on start up.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how <code>WarningPanel</code> is executed when MediTab is initialized:</p>
+<p>Step 1. User launches MediTabs, invoking <code>MainWindow#fillInnerPart</code>. The <code>MainWindow</code> class calls <code>Logic#getExpiringMedicinesList</code>, <code>Logic#getLowStockMedicinesList</code> and <code>Logic#getWarningPanelPredicateAccessor</code> to obtain the two <code>ObservableList&lt;Medicine&gt;</code> to be displayed in the warning panel and the predicate accessor used in this session.</p>
 </div>
-<div class="imageblock">
+<div class="paragraph">
+<p>Step 2. The <code>WarningPanel</code> is initialised with the objects obtained in Step 1, and constructs a <code>VBox</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>WarningPanel</code> self-invokes <code>setUpVBox</code> to populate the <code>VBox</code> with <code>WarningListView</code> objects for display. There will be two <code>WarningListView</code> objects, each initialised with its corresponding <code>ObservableList&lt;Medicine&gt;</code>, a list descriptor and the predicate accessor.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>WarningListView</code> configures a <code>ListView&lt;Medicine&gt;</code> object to display elements in the <code>ObservableList&lt;Medicine&gt;</code>. Every <code>ListView&lt;Medicine&gt;</code> cell is populated by a <code>WarningListViewCell</code> object.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>WarningListViewCell</code> listens to updates to the <code>ObservableList&lt;Medicine&gt;</code> that would update the medicines/batches to be displayed in the respective list in the warning panel.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below summarises the above mentioned mechanism.</p>
+</div>
+<div id="fig-WarningPanelSequenceDiagram" class="imageblock">
 <div class="content">
-<img src="images/WarningPanelSequenceDiagram.png" alt="WarningPanelSequenceDiagram" width="800">
+<img src="images/WarningPanelSequenceDiagram.png" alt="WarningPanelSequenceDiagram" width="1000">
 </div>
+<div class="title">Figure 11. Sequence diagram illustrating initialisation of the warning panel on start up</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="input-handling"><a class="link" href="#input-handling">Input handling</a></h5>
+<div class="paragraph">
+<p>The basic flow of the <code>warning</code> command in two scenarios are as such:</p>
+</div>
+<div class="sect5">
+<h6 id="to-change-a-threshold-used-by-the-warning-panel"><a class="link" href="#to-change-a-threshold-used-by-the-warning-panel">To change a threshold used by the warning panel</a></h6>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>warning e/10</code> to change the threshold for expiring medicine batches.</p>
 </div>
 <div class="paragraph">
-<p>Explanation of the sequence diagram above:</p>
+<p>Step 2. The command is parsed and a <code>WarningCommand</code> object is created with the type and value of the new threshold to be set.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. When the user launches the application for the first time, <code>MainWindow</code> is called during the setting up of the GUI. Within the <code>MainWindow</code>. A <code>WarningPanel</code>, with the two <code>ObservableList</code> to be displayed as parameters, is then created.</p>
+<p>Step 3. The <code>WarningCommand#execute</code> method is invoked.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. <code>WarningPanel#setUpVBox</code> is called to create two <code>WarningListView</code> so that the <code>ObservableList</code> can be displayed. Each list will be passed into one <code>WarningListView</code> as a parameter, along with a <code>String</code> descriptor of that list. For simplicity, the construction of only one <code>WarningListView</code> is shown.</p>
+<p>Step 4. Threshold for expiring medicine batches is changed.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. Within the <code>WarningListView&#8217;s constructor, `ListView#setItems</code> and <code>ListView#setCellFactory</code> are called to set up this <code>ListView&lt;Medicine&gt;</code>.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Any command that modifies the inventory will result in a change in the <code>ObservableList</code> being set using <code>ListView#setItems</code>. This ensures that the <code>ListView</code> is kept up to date with the most recent version of the inventory.
-</td>
-</tr>
-</table>
+<p>Step 5. The expiring/expired batch list in the warning panel is updated accordingly.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. The cell factory creates cells by creating a <code>WarningListViewCell</code>. This creates a <code>WarningCard</code> for every item in the <code>ListView</code> supplied. These cells are displayed in the GUI.</p>
+<p>Step 6. The new set of thresholds is shown in the result display box.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="to-display-thresholds-currently-in-use"><a class="link" href="#to-display-thresholds-currently-in-use">To display thresholds currently in use</a></h6>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>warning show</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The command is parsed and a <code>WarningCommand</code> object is created to show current threshold levels.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>WarningCommand#execute</code> method is invoked.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The current thresholds used are shown in the result display box.</p>
+</div>
+<div class="paragraph">
+<p>The activity diagram below summarises what happens when the <code>warning</code> command is executed:</p>
+</div>
+<div id="fig-WarningPanelActivityDiagram" class="imageblock">
+<div class="content">
+<img src="images/WarningCommandActivityDiagram.png" alt="WarningCommandActivityDiagram" width="800">
+</div>
+<div class="title">Figure 12. Activity diagram illustrating what happens when a user executes the <code>warning</code> command</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1423,32 +1449,65 @@ Any command that modifies the inventory will result in a change in the <code>Obs
 <div class="sect4">
 <h5 id="aspect-construction-of-the-lists-displayed-by-the-warning-panel"><a class="link" href="#aspect-construction-of-the-lists-displayed-by-the-warning-panel">Aspect: Construction of the lists displayed by the warning panel</a></h5>
 <div class="paragraph">
-<p>Two <code>ObservableLists</code> are required, one to display names of medicine expiring soon and the other to display medicine low in stock.</p>
+<p>Two <code>ObservableLists&lt;Medicine&gt;</code> objects are required, one to display medicine batches expiring soon and the other to display medicines low in stock.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Create two <code>ObservableList</code> in the <code>Model</code> by filtering the main medicine list from the versioned inventory.</p>
+<p><strong>Alternative 1 (current choice):</strong> Create the <code>ObservableList&lt;Medicine&gt;</code> objects in the <code>ModelManager</code> by filtering the main medicine list, and have <code>MainWindow</code> obtain them via <code>Logic</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to change predicate for filtration when needed, making it possible to have user defined thresholds for filtration.</p>
+<p>Pros: Easy to change predicates for filtration, making it possible to set user defined thresholds, thereby improving user experience.</p>
 </li>
 <li>
-<p>Cons: Need to create a new filtered <code>ObservableList</code> every time the predicate used for filtering changes. This would be the case when the user sets his/her own threshold.</p>
+<p>Cons: Requires passing the two lists around, from <code>ModelManager</code> to <code>Logic</code> then <code>MainWindow</code>.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Pass the medicine list into the <code>Ui</code> for filtration.</p>
+<p><strong>Alternative 2:</strong> Create the <code>ObservableList&lt;Medicine&gt;</code> objects in <code>Ui</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Simple to implement and filter with the default predicates (i.e. thresholds for expiration and low stock) to obtain the two lists.</p>
+<p>Pros: Simple to implement. Filter the main medicine list with the default predicates (i.e. thresholds for expiration and low stock) within <code>WarningPanel</code>.</p>
 </li>
 <li>
 <p>Cons: No separation of concerns. Not possible to set user defined thresholds for either list.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-predicates-used-for-the-warning-panel"><a class="link" href="#aspect-implementation-of-predicates-used-for-the-warning-panel">Aspect: Implementation of predicates used for the warning panel</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Singleton warning panel predicate accessor.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to access and update all warning panel-related predicates.</p>
+</li>
+<li>
+<p>Cons: Must pass the instance of the predicate accessor around to ensure there is only one instance of it at any time.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Save all predicates in the <code>ModelManager</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Predicate manipulation from <code>Logic</code> when new thresholds are set violates Dependency Inversion Principle.</p>
 </li>
 </ul>
 </div>
@@ -1749,7 +1808,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 11. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 13. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2544,9 +2603,6 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="deleting-a-medicine"><a class="link" href="#deleting-a-medicine">E.2. Deleting a medicine</a></h3>
@@ -2568,16 +2624,13 @@ Expected: First entry is deleted from the list. Details of the deleted entry sho
 Expected: No medicine is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 <div class="sect2">
@@ -2638,29 +2691,57 @@ Expected: The current medicine inventory data shown in the GUI is successfully e
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">E.4. Saving data</a></h3>
+<h3 id="changing-warning-panel-thresholds"><a class="link" href="#changing-warning-panel-thresholds">E.4. Changing warning panel thresholds</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Dealing with missing/corrupted data files</p>
+<p>Changing the threshold for expiring medicine batches</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p>Prerequisites: Current expiry threshold is 10 days (default). Multiple medicines with batches in the list.</p>
+</li>
+<li>
+<p>Test case: <code>warning e/0</code><br>
+Expected: All medicines batches that have expired or are expiring today are shown in the warning panel&#8217;s "Expiring Soon/Expired" list. New thresholds are shown in status message.</p>
+</li>
+<li>
+<p>Test case: <code>warning e/-1</code><br>
+Expected: No changes to warning panel. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect warning commands to try: <code>warning</code>, <code>warning e/x</code> (where x is not a positive integer), <code>warning {non-whitespace preamble} e/y</code> (where y is a positive integer)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Changing the threshold for medicines with low stock</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Current low stock threshold is 20 (default). Multiple medicines with non-zero total quantities in the list.</p>
+</li>
+<li>
+<p>Test case: <code>warning q/0</code><br>
+Expected: Warning panel&#8217;s "Low in Stock" list empties and placeholder "Nothing to show" is displayed. New thresholds are shown in status message.</p>
+</li>
+<li>
+<p>Test case: <code>warning q/-1</code><br>
+Expected: No changes to warning panel. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect warning commands to try: <code>warning</code>, <code>warning q/x</code> (where x is not a positive integer), <code>warning {non-whitespace preamble} q/y</code> (where y is a positive integer)<br>
+Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 02:34:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 07:34:43 UTC</div></div></div></body></html>

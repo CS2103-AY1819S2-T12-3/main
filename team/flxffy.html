@@ -7,63 +7,96 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>MediTabs is a desktop inventory management application used by pharmacists to keep track of medicines in a clinic. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>This project portfolio will give you an overview of the documentation, code and ideas I contributed to my team&#8217;s project, MediTabs, as the team&#8217;s front-end designer. This project was completed as part of an introductory software engineering module in the National University of Singapore (NUS).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-overview"><a class="link" href="#project-overview">Project Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>MediTabs is a desktop application built with the goal to streamline inventory management in a clinic for pharmacists. As part of the project&#8217;s requirements, MediTabs targets users with a preference for command line interactions.</p>
+</div>
+<div class="paragraph">
+<p>To achieve this goal, we implemented several key features: a warning panel to view urgent issues, an information panel to display medicine information, and data exportation for data analysis.</p>
+</div>
+<div class="paragraph">
+<p>For this project, I was in-charge of implementing the warning panel and its related commands.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section highlights noteworthy contributions I made to the project&#8217;s documentation and source code.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: Added a warning panel and its related commands</p>
+<p><strong>Major enhancement</strong>: Added a warning panel and related <code>warning</code> commands</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PPP_Ui_WarningPanel.png" alt="PPP Ui WarningPanel" width="600">
+</div>
+<div class="title">Figure 1. MediTabs main interface with the warning panel boxed in red</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: Gives users an overview of what medicines are expiring, expired and low in stock. Thresholds used for the determination of what medicines are considered expiring and what are low in stock can be set by the user via the command line.</p>
+<p>What it does: The warning panel gives users an overview of what medicine batches are expiring/expired and what medicines are low in stock. Thresholds used to determine what is expiring and what is low in stock can be set by the user with simple commands.</p>
 </li>
 <li>
-<p>Justification: Simplifies the process of sieving through an inventory to take stock of expiring or expired medicines that need to be disposed of, and medicines that require replenishing. The flexible threholds add customisability to the feature.</p>
+<p>Justification: Simplifies the process of sieving through an inventory to find expiring/expired medicine batches that need to be disposed of, and medicines that require replenishing. User-defined thresholds add to the user experience.</p>
 </li>
 <li>
-<p>Highlights: Offers users a way to get the information they need quickly, while also providing customisability by allowing users to set their own thresholds. To achieve this, an additional column had to be rendered in the application&#8217;s user interface to accomodate the warning panel. Furthermore, to add on to the user experience, the thresholds set by the user in previous session are saved and reused for later sessions.</p>
+<p>Highlights: This enhancement required an understanding of all major components to render and populate a column in the application&#8217;s main interface with the correct lists of items, and to implement complementing commands to change its contents.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: -</p>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#search=flxffy&amp;sort=displayName&amp;since=2019-02-10&amp;until=2019-04-14&amp;timeframe=day&amp;reverse=false&amp;repoSort=true">Project Code Dashboard</a>]</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Minor enhancement</strong>: Changed the implementation of the <code>Expiry</code> class. Previous implementation used a deprecated library (<a href="https://docs.oracle.com/javase/9/docs/api/java/util/Date.html"><code>java.util.Date</code></a>) so it was changed to an updated one (<a href="https://docs.oracle.com/javase/9/docs/api/java/util/Date.html"><code>java.time.LocalDate</code></a>).</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
+<p>Source code</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI colour scheme (Pull request <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/134">#134</a>)</p>
+<p>Changed the application&#8217;s colour scheme for a sleeker look: <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/134">#134</a></p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/139">#139</a>, <a href="https://github.com">#38</a>)</p>
+<p>Wrote additional tests for existing features to increase test coverage from 88% to 92%: <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/139">#139</a>, <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/188">#188</a></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Documentation:</p>
+<p>Documentation</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Restructured existing contents of the User Guide: <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/151">#151</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pull requests reviewed with suggestions to implementation style: <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/77">#77</a>, <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/131">#131</a></p>
 </li>
 </ul>
 </div>
@@ -78,54 +111,24 @@
 <div class="sect1">
 <h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
-</tr>
-</tbody>
-</table>
-<div class="sect2">
-<h3 id="warning-panel"><a class="link" href="#warning-panel">Warning Panel</a></h3>
-<div class="imageblock" style="float: right">
-<div class="content">
-<img src="../images/UserGuide_WarningPanel.png" alt="UserGuide WarningPanel" width="180">
-</div>
-<div class="title">Figure 1. Warning panel</div>
-</div>
 <div class="paragraph">
-<p>A standard clinical inventory holds around a hundred types of medicine. This makes sieving out medicines which are expiring, expired or running low in stock extremely cumbersome and time consuming. Thus, to streamline this aspect of inventory management, the warning panel was included as one of the features in our first product release.</p>
-</div>
-<div class="paragraph">
-<p>The warning panel provides an overview of pressing issues that have to be taken care of. With a quick glance, you will be able to identify expiring or expired batches of medicine, and medicines running low in stock.</p>
-</div>
-<div class="paragraph">
-<p>On top of that, the panel features flexible thresholds to determine what is expiring and what is low in stock. These thresholds can be changed according your own needs and preferences with a simple command.</p>
-</div>
-<div class="paragraph">
-<p>You can learn about related commands related in <a href="#WarningPanel">Managing the warning panel : <code>warning</code></a>.</p>
-</div>
+<p>The following sections are my contributions to the User Guide. They showcase my ability to write documentation targeting end-users.</p>
 </div>
 <div class="sect2">
 <h3 id="WarningPanel"><a class="link" href="#WarningPanel">Managing the warning panel : <code>warning</code></a></h3>
 <div class="paragraph">
 <p>Manage the threshold for expiry date and low stock warnings.<br>
 Format: <code>warning [e/EXPIRY_THRESHOLD] [q/LOW_STOCK_THRESHOLD] [SHOW]</code><br>
-If the thresholds are not set, the default threshold for expiry is 10 days, and 20 for low stock.<br>
-Thresholds set are saved as a user preference, and will be used when the application is launched again.</p>
+Provide <strong>only one</strong> of the optional fields available.<br>
+If the thresholds are not set, the default threshold for expiry will be 10 days, and 20 for low stock.<br>
+Thresholds set by the user are saved and will be used when the application is launched again.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Provide <strong>only one</strong> of the optional fields available.</p>
-</li>
-<li>
-<p><code>EXPIRY_THRESHOLD</code> should be in days before expiry date.</p>
+<p><code>EXPIRY_THRESHOLD</code> should be number of days before expiry date.</p>
 </li>
 <li>
 <p><code>LOW_STOCK_THRESHOLD</code> should be in number of stock remaining.</p>
@@ -156,111 +159,115 @@ Current thresholds used for the warning panel will be shown.</p>
 </li>
 </ul>
 </div>
-<div class="sect3">
-<h4 id="encrypting-data-files"><a class="link" href="#encrypting-data-files">Encrypting data files</a></h4>
-<div class="paragraph">
-<p>Due to the nature of medical inventories, the integrity of data stored is of utmost importance. The next release will feature data encryption to keep your inventory safe and keep unauthorised users away. With this feature, you will be required to log in with a password to view and edit your inventory. This feature can be disabled if it is not required for your needs.</p>
-</div>
-</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
-</tr>
-</tbody>
-</table>
-<div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">UI component</a></h3>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UiClassDiagram.png" alt="UiClassDiagram" width="800">
-</div>
-<div class="title">Figure 2. Structure of the UI Component</div>
-</div>
+<div class="paragraph">
+<p>The following sections are my contributions to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</p>
 </div>
 <div class="sect2">
-<h3 id="warning-panel-2"><a class="link" href="#warning-panel-2">Warning Panel</a></h3>
+<h3 id="warning-panel"><a class="link" href="#warning-panel">Warning Panel</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The warning panel is driven by the <code>MainWindow</code> which creates <code>WarningPanel</code> that extends <code>UiPart</code>. The <code>WarningPanel</code> then creates two <code>WarningListView</code> where the list of expiring medicine and list of medicine low in stock will reside. The lists updates themselves when there are any changes made to the inventory. Each item of a list is represented by a <code>WarningCard</code>.</p>
+<p>The <code>WarningPanel</code> is created as part of the <code>MainWindow</code>, to be displayed in the GUI. Within the panel are two lists, expiring/expired and low in stock, represented by <code>WarningListView</code> objects. The purpose of this feature is to allow the user to view expiring/expired medicine batches and low quantity medicines easily.</p>
 </div>
 <div class="paragraph">
-<p>The following are implemented:</p>
+<p>The following are some of the operations implemented:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>WarningPanel#setUpVBox(ObservableList&lt;Medicine&gt;, ObservableList&lt;Medicine&gt;)</code>&#8201;&#8212;&#8201;Sets up the <code>VBox</code> (vertical box) where the lists will be displayed in, and creates two <code>WarningListView</code> objects. Each <code>ObservableList</code> is passed into a <code>WarningListView</code>, along with a <code>String</code> descriptor of the list, as such: <code>WarningListView(ObservableList&lt;Medicine&gt;, String "expiry")</code></p>
+<p><code>Logic#getWarningPanelPredicateAccessor()</code>&#8201;&#8212;&#8201;Returns a <code>WarningPanelPredicateAccessor</code>. This gives the caller access to all predicates used to filter lists for the warning panel in the current session.</p>
 </li>
 <li>
-<p><code>WarningListView</code> extends <code>UiPart</code>&#8201;&#8212;&#8201;Upon construction, <code>ListView#setItems(ObservableList&lt;T&gt; value)</code> and <code>ListView#setCellFactory(Callback&lt;ListView&lt;T&gt;, ListCell&lt;T&gt;&gt; value)</code> are called.</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>ListView#setItems(ObserverableList&lt;Medicine&gt; medicineList)</code>&#8201;&#8212;&#8201;Sets the <code>ObservableList</code> whose items will be displayed in the <code>ListView</code>. Due to <code>ObservableList</code> semantics, the <code>ListView</code> automatically updates when there are changes made to the inventory.</p>
-</li>
-<li>
-<p><code>ListView#setCellFactory(Callback&lt;ListView&lt;Medicine&gt;, ListCell&lt;Medicine&gt;&gt; listView &#8594; new WarningListViewCell())</code>&#8201;&#8212;&#8201;Sets the cell factory for the <code>ListView</code> within the class <code>WarningListView</code>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>WarningListViewCell</code> extends <code>ListCell&lt;T&gt;</code>&#8201;&#8212;&#8201;It overrides <code>ListCell#updateItem(T item, boolean empty)</code> allowing customization by creating a <code>WarningCard</code> for each cell.</p>
+<p><code>WarningPanel#setUpVBox(ObservableList&lt;Medicine&gt;, ObservableList&lt;Medicine&gt;)</code>&#8201;&#8212;&#8201;Sets up the <code>VBox</code> (vertical box) representing the warning panel by creating <code>WarningListView</code> objects from the <code>ObservableList</code> objects. Each <code>WarningListView</code> is a list to be displayed in the GUI.</p>
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><code>WarningCard</code> extends <code>UiPart</code>&#8201;&#8212;&#8201;Sets the fields (eg. name of medicine, quantity, expiry date) to be displayed in the warning list view cell.</p>
-</li>
-</ul>
+<div class="sect4">
+<h5 id="initialising-the-warning-panel"><a class="link" href="#initialising-the-warning-panel">Initialising the warning panel</a></h5>
+<div class="paragraph">
+<p>Given below is how the warning panel GUI is initialised on start up.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how <code>WarningPanel</code> is executed when MediTab is initialized:</p>
+<p>Step 1. User launches MediTabs, invoking <code>MainWindow#fillInnerPart</code>. The <code>MainWindow</code> class calls <code>Logic#getExpiringMedicinesList</code>, <code>Logic#getLowStockMedicinesList</code> and <code>Logic#getWarningPanelPredicateAccessor</code> to obtain the two <code>ObservableList&lt;Medicine&gt;</code> to be displayed in the warning panel and the predicate accessor used in this session.</p>
 </div>
-<div class="imageblock">
+<div class="paragraph">
+<p>Step 2. The <code>WarningPanel</code> is initialised with the objects obtained in Step 1, and constructs a <code>VBox</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>WarningPanel</code> self-invokes <code>setUpVBox</code> to populate the <code>VBox</code> with <code>WarningListView</code> objects for display. There will be two <code>WarningListView</code> objects, each initialised with its corresponding <code>ObservableList&lt;Medicine&gt;</code>, a list descriptor and the predicate accessor.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>WarningListView</code> configures a <code>ListView&lt;Medicine&gt;</code> object to display elements in the <code>ObservableList&lt;Medicine&gt;</code>. Every <code>ListView&lt;Medicine&gt;</code> cell is populated by a <code>WarningListViewCell</code> object.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>WarningListViewCell</code> listens to updates to the <code>ObservableList&lt;Medicine&gt;</code> that would update the medicines/batches to be displayed in the respective list in the warning panel.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below summarises the above mentioned mechanism.</p>
+</div>
+<div id="fig-WarningPanelSequenceDiagram" class="imageblock">
 <div class="content">
-<img src="../images/WarningPanelSequenceDiagram.png" alt="WarningPanelSequenceDiagram" width="800">
+<img src="../images/WarningPanelSequenceDiagram.png" alt="WarningPanelSequenceDiagram" width="1000">
 </div>
+<div class="title">Figure 2. Sequence diagram illustrating initialisation of the warning panel on start up</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="input-handling"><a class="link" href="#input-handling">Input handling</a></h5>
+<div class="paragraph">
+<p>The basic flow of the <code>warning</code> command in two scenarios are as such:</p>
+</div>
+<div class="sect5">
+<h6 id="to-change-a-threshold-used-by-the-warning-panel"><a class="link" href="#to-change-a-threshold-used-by-the-warning-panel">To change a threshold used by the warning panel</a></h6>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>warning e/10</code> to change the threshold for expiring medicine batches.</p>
 </div>
 <div class="paragraph">
-<p>Explanation of the sequence diagram above:</p>
+<p>Step 2. The command is parsed and a <code>WarningCommand</code> object is created with the type and value of the new threshold to be set.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. When the user launches the application for the first time, <code>MainWindow</code> is called during the setting up of the GUI. Within the <code>MainWindow</code>. A <code>WarningPanel</code>, with the two <code>ObservableList</code> to be displayed as parameters, is then created.</p>
+<p>Step 3. The <code>WarningCommand#execute</code> method is invoked.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. <code>WarningPanel#setUpVBox</code> is called to create two <code>WarningListView</code> so that the <code>ObservableList</code> can be displayed. Each list will be passed into one <code>WarningListView</code> as a parameter, along with a <code>String</code> descriptor of that list. For simplicity, the construction of only one <code>WarningListView</code> is shown.</p>
+<p>Step 4. Threshold for expiring medicine batches is changed.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. Within the <code>WarningListView&#8217;s constructor, `ListView#setItems</code> and <code>ListView#setCellFactory</code> are called to set up this <code>ListView&lt;Medicine&gt;</code>.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Any command that modifies the inventory will result in a change in the <code>ObservableList</code> being set using <code>ListView#setItems</code>. This ensures that the <code>ListView</code> is kept up to date with the most recent version of the inventory.
-</td>
-</tr>
-</table>
+<p>Step 5. The expiring/expired batch list in the warning panel is updated accordingly.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. The cell factory creates cells by creating a <code>WarningListViewCell</code>. This creates a <code>WarningCard</code> for every item in the <code>ListView</code> supplied. These cells are displayed in the GUI.</p>
+<p>Step 6. The new set of thresholds is shown in the result display box.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="to-display-thresholds-currently-in-use"><a class="link" href="#to-display-thresholds-currently-in-use">To display thresholds currently in use</a></h6>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>warning show</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The command is parsed and a <code>WarningCommand</code> object is created to show current threshold levels.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>WarningCommand#execute</code> method is invoked.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The current thresholds used are shown in the result display box.</p>
+</div>
+<div class="paragraph">
+<p>The activity diagram below summarises what happens when the <code>warning</code> command is executed:</p>
+</div>
+<div id="fig-WarningPanelActivityDiagram" class="imageblock">
+<div class="content">
+<img src="../images/WarningCommandActivityDiagram.png" alt="WarningCommandActivityDiagram" width="800">
+</div>
+<div class="title">Figure 3. Activity diagram illustrating what happens when a user executes the <code>warning</code> command</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -268,32 +275,65 @@ Any command that modifies the inventory will result in a change in the <code>Obs
 <div class="sect4">
 <h5 id="aspect-construction-of-the-lists-displayed-by-the-warning-panel"><a class="link" href="#aspect-construction-of-the-lists-displayed-by-the-warning-panel">Aspect: Construction of the lists displayed by the warning panel</a></h5>
 <div class="paragraph">
-<p>Two <code>ObservableLists</code> are required, one to display names of medicine expiring soon and the other to display medicine low in stock.</p>
+<p>Two <code>ObservableLists&lt;Medicine&gt;</code> objects are required, one to display medicine batches expiring soon and the other to display medicines low in stock.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Create two <code>ObservableList</code> in the <code>Model</code> by filtering the main medicine list from the versioned inventory.</p>
+<p><strong>Alternative 1 (current choice):</strong> Create the <code>ObservableList&lt;Medicine&gt;</code> objects in the <code>ModelManager</code> by filtering the main medicine list, and have <code>MainWindow</code> obtain them via <code>Logic</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to change predicate for filtration when needed, making it possible to have user defined thresholds for filtration.</p>
+<p>Pros: Easy to change predicates for filtration, making it possible to set user defined thresholds, thereby improving user experience.</p>
 </li>
 <li>
-<p>Cons: Need to create a new filtered <code>ObservableList</code> every time the predicate used for filtering changes. This would be the case when the user sets his/her own threshold.</p>
+<p>Cons: Requires passing the two lists around, from <code>ModelManager</code> to <code>Logic</code> then <code>MainWindow</code>.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Pass the medicine list into the <code>Ui</code> for filtration.</p>
+<p><strong>Alternative 2:</strong> Create the <code>ObservableList&lt;Medicine&gt;</code> objects in <code>Ui</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Simple to implement and filter with the default predicates (i.e. thresholds for expiration and low stock) to obtain the two lists.</p>
+<p>Pros: Simple to implement. Filter the main medicine list with the default predicates (i.e. thresholds for expiration and low stock) within <code>WarningPanel</code>.</p>
 </li>
 <li>
 <p>Cons: No separation of concerns. Not possible to set user defined thresholds for either list.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-predicates-used-for-the-warning-panel"><a class="link" href="#aspect-implementation-of-predicates-used-for-the-warning-panel">Aspect: Implementation of predicates used for the warning panel</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Singleton warning panel predicate accessor.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to access and update all warning panel-related predicates.</p>
+</li>
+<li>
+<p>Cons: Must pass the instance of the predicate accessor around to ensure there is only one instance of it at any time.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Save all predicates in the <code>ModelManager</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Predicate manipulation from <code>Logic</code> when new thresholds are set violates Dependency Inversion Principle.</p>
 </li>
 </ul>
 </div>
@@ -319,7 +359,7 @@ Any command that modifies the inventory will result in a change in the <code>Obs
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement. Use pre-existing encryption libraries to encrypt the entire inventory.</p>
+<p>Pros: Easy to implement. Use existing encryption libraries to encrypt the entire inventory.</p>
 </li>
 <li>
 <p>Cons: May have performance issues when encrypting/decrypting large amounts of data.</p>
@@ -379,386 +419,4 @@ Any command that modifies the inventory will result in a change in the <code>Obs
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="user-stories"><a class="link" href="#user-stories">User Stories</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 20%;">
-<col style="width: 30%;">
-<col style="width: 40%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Priority</th>
-<th class="tableblock halign-left valign-top">As a &#8230;&#8203;</th>
-<th class="tableblock halign-left valign-top">I want to &#8230;&#8203;</th>
-<th class="tableblock halign-left valign-top">So that I can&#8230;&#8203;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view the inventory easily</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">check stock levels</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view the expiry dates of medicine easily</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove expired medicine</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view batch details easily</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get batch information quickly</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add new and existing medicine to the inventory</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keep my inventory updated</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete medicine</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove medicine that have expired or are no longer need</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">edit inventory level</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keep my inventory updated</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">receive notifications when my inventory is low or there is expiring stock</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">will not forget to update the inventory</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a medicine by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of the medicine without having to go through the entire list</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">export inventory data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">send the data to relevant personnel</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">print labels for the medicine</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">label the medicine for the patients' reference</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">have an auto-completing search bar</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">do not have to type out the medicine&#8217;s full name</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view purchase and sales history</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">forecast sales and performance</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view manufacturers' contact details</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find out who to contact for more stock quickly</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">be redirected to a mailer to email manufacturers</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">restock quickly</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">be recommended dosage</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">recommend dosage based on patient&#8217;s profile</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">have a task list</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">set reminders for myself</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">save information on medicine&#8217;s usage</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remind myself of its usage</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="use-cases"><a class="link" href="#use-cases">Use Cases</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>MediTabs</code> and the <strong>Actor</strong> is the <code>pharmacist</code>, unless specified otherwise)</p>
-</div>
-<h3 id="use-case-1-view-complete-inventory" class="discrete">Use Case 1: View Complete Inventory</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Upon start up, System displays the complete inventory of medicine.</p>
-</li>
-<li>
-<p>Pharmacist navigates the list with arrow keys.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. Pharmacist used <code>find</code> function, filtered inventory is shown.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. Pharmacist requests for complete inventory to be listed using <code>list</code> command.</p>
-</li>
-<li>
-<p>1a2. System displays complete inventory.</p>
-<div class="paragraph">
-<p>Use case resume at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-2-update-batch-details-of-a-medicine-in-inventory" class="discrete">Use Case 2: Update Batch Details of a Medicine in Inventory</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Pharmacist notes the index of the medicine to be updated in the list.</p>
-</li>
-<li>
-<p>Pharmacist request to update details of a batch of medicine using the index and the <code>update</code> command.</p>
-</li>
-<li>
-<p>System displays updated details.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. Medicine is new and has not been added to the inventory.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. Pharmacist uses the <code>add</code> function to add a new entry to list.</p>
-</li>
-<li>
-<p>1a2. Pharmacist notes the index of the new medicine listing from the search result.</p>
-<div class="paragraph">
-<p>Use case resume at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1b. Pharmacist cannot remember batch number of batch to be updated.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1b1. Pharmacist uses <code>select</code> command to select the medicine to be updated.</p>
-</li>
-<li>
-<p>1b2. System displays the batch table with information of all batches of the selected medicine.</p>
-</li>
-<li>
-<p>1b3. Pharmacist refers to the batch table while inputting batch details.</p>
-<div class="paragraph">
-<p>Use case resume at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. Pharmacist did not enter expiry date and batch does not already exist.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1. An error message is shown.</p>
-</li>
-<li>
-<p>2a2. System requests expiry date be entered for new batches.</p>
-</li>
-<li>
-<p>2a3. Pharmacist repeats request with the required input.</p>
-<div class="paragraph">
-<p>Use case resume at step 3.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-3-delete-medicine-from-inventory" class="discrete">Use Case 3: Delete Medicine from Inventory</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Pharmacist notes the index of the medicine to be deleted in the list.</p>
-</li>
-<li>
-<p>Pharmacist request to delete a medicine listing using the index and the <code>delete</code> command.</p>
-</li>
-<li>
-<p>System displays updated list.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. Pharmacist cannot find the medicine listing manually from the list.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. Pharmacist uses the <code>find</code> function to look for medicine listing.</p>
-</li>
-<li>
-<p>1a2. System list the search results.</p>
-</li>
-<li>
-<p>1a3. Pharmacist notes the index of the medicine listing from the search result.</p>
-<div class="paragraph">
-<p>Use case resume at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Non Functional Requirements</a></h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User Constraints</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>The product caters users with a preference for typing commands over the command line. Only limited GUI interactions are available as the focus is on the command line interface.</p>
-</li>
-<li>
-<p>The product is meant only for single user usage. i.e, any features (e.g. profile switching) should only be limited to a single user. Using such features to support multiple users is not recommended.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Data</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>User should have read and write permissions for data stored on the local machine. i.e, expert users can edit the data file without the application.</p>
-</li>
-<li>
-<p>Third party database management systems (e.g. MySQL, Postgres) are not permitted.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Working Environment</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>The product should work on all mainstream OS.</p>
-</li>
-<li>
-<p>Connection to external APIs is not recommended, although the usage of reliable external APIs is permissible. In such cases, a fallback should be implemented should the connection fail.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Portability</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>The product should work without the need for additional software. <code>.jar</code> package will be used for the product release.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Testability</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Avoid implementing features that are difficult to test manually and automatically. i.e, avoid dependence on remote APIs as their behaviours are beyond our control.</p>
-</li>
-<li>
-<p>Due to the project&#8217;s constraints, audio related features were not taken into consideration. Avoid any features using audio indicators.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 02:34:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 07:34:43 UTC</div></div></div></body></html>

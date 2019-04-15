@@ -253,20 +253,17 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 <div class="sect2">
 <h3 id="warning-panel"><a class="link" href="#warning-panel">4.2. Warning Panel</a></h3>
-<div class="imageblock" style="float: right">
+<div class="imageblock">
 <div class="content">
 <img src="images/UserGuide_WarningPanel.png" alt="UserGuide WarningPanel" width="180">
 </div>
 <div class="title">Figure 2. Warning panel</div>
 </div>
 <div class="paragraph">
-<p>A standard clinical inventory holds around a hundred types of medicine. This makes sieving out medicines which are expiring, expired or running low in stock extremely cumbersome and time consuming. Thus, to streamline this aspect of inventory management, the warning panel was included as one of the features in our first product release.</p>
-</div>
-<div class="paragraph">
 <p>The warning panel provides an overview of pressing issues that have to be taken care of. With a quick glance, you will be able to identify expiring or expired batches of medicine, and medicines running low in stock.</p>
 </div>
 <div class="paragraph">
-<p>On top of that, the panel features flexible thresholds to determine what is expiring and what is low in stock. These thresholds can be changed according your own needs and preferences with a simple command.</p>
+<p>On top of that, the warning panel features flexible thresholds that can be changed according your needs and preferences with a simple command, adding to your user experience.</p>
 </div>
 <div class="paragraph">
 <p>You can learn about related commands related in <a href="#WarningPanel">Section 5.10, &#8220;Managing the warning panel : <code>warning</code>&#8221;</a>.</p>
@@ -835,18 +832,16 @@ Updates quantity of batch <code>8937v1x7</code> in batch records of the 1st medi
 <div class="paragraph">
 <p>Manage the threshold for expiry date and low stock warnings.<br>
 Format: <code>warning [e/EXPIRY_THRESHOLD] [q/LOW_STOCK_THRESHOLD] [SHOW]</code><br>
-If the thresholds are not set, the default threshold for expiry is 10 days, and 20 for low stock.<br>
-Thresholds set are saved as a user preference, and will be used when the application is launched again.</p>
+Provide <strong>only one</strong> of the optional fields available.<br>
+If the thresholds are not set, the default threshold for expiry will be 10 days, and 20 for low stock.<br>
+Thresholds set by the user are saved and will be used when the application is launched again.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Provide <strong>only one</strong> of the optional fields available.</p>
-</li>
-<li>
-<p><code>EXPIRY_THRESHOLD</code> should be in days before expiry date.</p>
+<p><code>EXPIRY_THRESHOLD</code> should be number of days before expiry date.</p>
 </li>
 <li>
 <p><code>LOW_STOCK_THRESHOLD</code> should be in number of stock remaining.</p>
@@ -1439,4 +1434,4 @@ The characters of the file name cannot contain any spacing or symbols, including
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 02:34:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 07:34:43 UTC</div></div></div></body></html>
