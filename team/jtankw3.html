@@ -1,87 +1,222 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Tan Kian Wei Jason - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">MediTabs</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/cs2103-ay1819s2-t12-3/main/"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Tan Kian Wei Jason - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-meditabs"><a class="link" href="#project-meditabs">PROJECT: MediTabs</a></h2>
-<div class="sectionbody">
-<hr>
-</div>
-</div>
-<div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">MediTabs</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/cs2103-ay1819s2-t12-3/main/"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Tan Kian Wei Jason - Project Portfolio</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>MediTabs is a desktop application for managing medicine stock taking.
-It aims to equip clinics with the ability to easily keep track of their medicine inventory and take note of important information such as which medicines are low in stock, expiring soon or have expired.
-MediTabs is a brownfield project that initially started as an address book application.
-It was developed in a team of 4 as part of a software engineering module which spanned a total of about 13 weeks.
-Our team identified the strengths of the initial product, which is the ability to store and organize information easily, and chose to morph the product in order to capitalize on these strengths and use them to solve a more realistic problem.</p>
+<p>Welcome to my Project Portfolio. Here you can find out more about my contributions in various projects to help you better evaluate my technical and communication skills.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<h2 id="project-meditabs"><a class="link" href="#project-meditabs">PROJECT: MediTabs</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="introduction"><a class="link" href="#introduction">Introduction</a></h3>
+<div class="paragraph">
+<p>MediTabs is a desktop application for managing medicine stock taking. It was created to provide pharmacist with a straightforward and efficient way to keep track of and maintain their medicine inventory.
+MediTabs is a brownfield project that initially started as an address book application.
+It was developed in a team of 4 as part of a software engineering module which spanned a total of about 13 weeks.</p>
+</div>
+<div class="paragraph">
+<p>In this project, I was in charge of implementing the information panel feature.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the information panel and the commands to manipulate information on the panel</strong></p>
+<p><strong>Major enhancement</strong>: added the information panel and the <code>sort</code> and <code>update</code> commands used to manipulate information on the panel.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows users to add, edit and remove information of different batches of medicine. This information is displayed in a table format for easy reference in the information panel. Information of the batches is also collated by the panel and a summary of important information such as total quantity and next expiry date is shown. The table can also be sorted by batch number, quantity or expiry date.</p>
+<p>What it does: allows users to add, edit and remove information of different batches of medicine. This information is displayed in a table format for easy reference in the information panel. The panel also collates the information and provides a summary of important details such as total quantity and next expiry date. The table can also be sorted by batch number, quantity or expiry date.</p>
 </li>
 <li>
-<p>Justification: The information panel provides a visual interface for users to refer to when updating their inventory. Organzing medicine by type and batch instead of just by type also allows for quicker identification of problematic batches.</p>
+<p>Justification: Organizing medicine by batch allows for quicker identification of problematic batches. With each medicine having multiple batches, a way to organize the information neatly to avoid confusion for the user is needed. The information panel provides a visual interface that is simple and well structured for users to refer to when updating their inventory.</p>
 </li>
 <li>
-<p>Highlights: The information panel is the main visual interface that the user will be referring to, hence it was essential to provide enough details for it to be useful to the user, but not so much that it looks cluttered. Implementation was challenging as it not only involved changing existing commands (add and edit) but also required a good understanding of the whole architecture of the program. This is because the feature involved adding functionality to all components of the architecture, namely UI, Logic, Model and Storage.</p>
-</li>
-<li>
-<p>Credits: The existing code for UI and commands in address book was used as a reference to implement this feature.</p>
+<p>Highlights: A large amount of planning was done to decide what information would be useful to the user. Implementation was challenging as it not only involved changing existing commands (<code>add</code> and <code>edit</code>) but also adding functionality to every component of the architecture, namely Logic, Storage, Model and UI.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>:</p>
+<p><strong>Minor enhancement</strong>: Enhanced the existing <code>find</code> command to be able to search other fields. (Pull requests: <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/180">#180</a>)</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>:</p>
+<p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1819s2.github.io/cs2103-dashboard/#=undefined&amp;search=jtankw3">code</a></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Helped to manage issue tracker for the first few weeks before individual project boards were set up: (Issues: <a href="https://github.com/CS2103-AY1819S2-T12-3/main/issues/9">#9</a> <a href="https://github.com/CS2103-AY1819S2-T12-3/main/issues/2">#2</a> Project board: <a href="https://github.com/CS2103-AY1819S2-T12-3/main/projects/3">#3</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Did initial refactoring from address book to MediTabs (Pull request <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/34">#34</a>)</p>
+</li>
+<li>
+<p>UI enhancement - Moved tags to bottom of <code>MedicineCard</code> shown in the list to improve readability (Pull request <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/193">#193</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Team contributions:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed team&#8217;s pull requests (Notable reviews: <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/25">#25</a> <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/115">#115</a> <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/191">#191</a>)</p>
+</li>
+<li>
+<p>Helped edit ContactUs.adoc to reflect our team&#8217;s information (Pull request <a href="https://github.com/CS2103-AY1819S2-T12-3/main/pull/31">#31</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h3>
+<div class="paragraph">
+<p>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="information-panel"><a class="link" href="#information-panel">Information Panel</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UserGuide_InformationPanel.png" alt="UserGuide InformationPanel" width="700">
+</div>
+<div class="title">Figure 1. Information panel</div>
+</div>
+<div class="paragraph">
+<p>Having a way to keep track of individual batches of medicine makes medicine management more efficient as problematic batches can easily be located and removed. However, with so many different batches of the same medicine, you need an effective way to organize them or it could get confusing.</p>
+</div>
+<div class="paragraph">
+<p>The information panel provides all the details and information you need about each batch of medicine in a neat and organized manner.</p>
+</div>
+<div class="paragraph">
+<p>You can easily refer to the batch table provided in the information panel while updating and managing your inventory. Simply select a medicine using the <code>select</code> command to view all its relevant details. You may refer to <a href="#SelectCommand">Viewing medicine information page : <code>select</code></a> for more details.</p>
+</div>
+<div class="paragraph">
+<p>You can also sort the table by any of its columns with the <code>sort</code> command to suit your needs and preference. You may refer to <a href="#SortCommand">Sorting the batch table : <code>sort</code></a> for more details.</p>
+</div>
+<div class="sect3">
+<h4 id="inventory-forecasting"><a class="link" href="#inventory-forecasting">Inventory Forecasting</a></h4>
+<div class="paragraph">
+<p>MediTabs will store information about your monthly stock level and predict the optimal amount of stock needed for the future. It will be possible to forecast inventory needs up to 3 months in advance with no extra effort from you as all analysis and calculations will take place with data already provided by routine use of MediTabs.
+It will also be possible to import past inventory data to increase accuracy of forecasting immediately without having to wait for the application to collect data.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Importing or allowing MediTabs to collect data for 6 months or more will produce a more accurate forecast.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-medicines-code-find-code"><a class="link" href="#locating-medicines-code-find-code">Locating medicines : <code>find</code></a></h3>
+<div class="paragraph">
+<p>Finds medicine whose details contain any of the given keywords and displays them in the list.<br>
+Format: <code>find PREFIX KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<div class="title">Possible prefixes:</div>
+<ul>
+<li>
+<p><code>n/</code> : name of medicine is searched.</p>
+</li>
+<li>
+<p><code>c/</code>: company name of medicine is searched.</p>
+</li>
+<li>
+<p><code>t/</code> : tags of medicine are searched.</p>
+</li>
+<li>
+<p><code>b/</code> : batch number of batches of medicine are searched.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
+<p>&#160;</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Only the category indicated by the entered prefix will be searched. You can only enter one prefix at a time. Prefix must be entered before keywords.</p>
+</li>
+<li>
+<p>The search is case insensitive. e.g <code>sodium</code> will match <code>Sodium</code>.</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Sodium Levothyroxine</code> will match <code>Levothyroxine Sodium</code>.</p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Sod</code> will not match <code>Sodium</code>.</p>
+</li>
+<li>
+<p>Medicines matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Sodium Ibuprofen</code> will return <code>Levothyroxine Sodium</code> and <code>Ibuprofen</code>.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
-</tr>
-</tbody>
-</table>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find n/ Sodium</code><br>
+<code>Levothyroxine Sodium</code> and <code>Naproxen Sodium</code> are displayed in the list.</p>
+</li>
+<li>
+<p><code>find c/ 3M Johnson Pharmaceutical</code><br>
+All medicines from companies with names containing <code>3M</code>, <code>Johnson</code> or <code>Pharmaceutical</code> such as <code>3M Pharmaceuticals</code> are displayed in the list.</p>
+</li>
+<li>
+<p><code>find t/ fever</code><br>
+All medicines with tag <code>fever</code> are displayed in the list.</p>
+</li>
+<li>
+<p><code>find b/ NDC</code><br>
+All medicines with batches with batch number containing <code>NDC</code> such as <code>NDC 0777-3105-02</code> are displayed in the list.</p>
+</li>
+</ul>
+</div>
+</div>
 <div class="sect2">
 <h3 id="SelectCommand"><a class="link" href="#SelectCommand">Viewing medicine information page : <code>select</code></a></h3>
 <div class="paragraph">
 <p>Selects a medicine and loads the information page of the medicine.<br>
 Format: <code>select INDEX</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UserGuide_InformationPanel.png" alt="UserGuide InformationPanel" width="715">
-</div>
-<div class="title">Figure 1. Information page will be loaded when a medicine is selected</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -97,14 +232,17 @@ Format: <code>select INDEX</code></p>
 <p>These details include: batch number, quantity and expiry date.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed medicine list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+<p>The total quantity and next expiry date of the medicine is also displayed at the bottom of the table.</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UserGuide_SelectCommand.png" alt="UserGuide SelectCommand" width="800">
+</div>
+<div class="title">Figure 2. An example of the information page loaded when Aspirin is selected</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -114,12 +252,12 @@ Format: <code>select INDEX</code></p>
 <li>
 <p><code>list</code><br>
 <code>select 2</code><br>
-Selects the 2nd medicine in the inventory.</p>
+Selects the 2nd medicine in the inventory and loads its information page.</p>
 </li>
 <li>
 <p><code>find n/ Gabapentin</code><br>
 <code>select 1</code><br>
-Selects the 1st medicine in the results of the <code>find</code> command.</p>
+Selects the 1st medicine in the results of the <code>find</code> command and loads its information page.</p>
 </li>
 </ul>
 </div>
@@ -130,17 +268,19 @@ Selects the 1st medicine in the results of the <code>find</code> command.</p>
 <p>Sorts the batch table in the medicine information page based on the entered property and direction<br>
 Format: <code>sort p/PROPERTY d/DIRECTION</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <div class="title">Possible properties:</div>
 <ul>
 <li>
-<p><code>batchnumber</code> : sorts the table by batch number (alphabetical order).</p>
+<p><code>batchnumber</code> : sorts the table by batch number (lexicographically).</p>
 </li>
 <li>
 <p><code>expiry</code>: sorts the table by expiry date.</p>
 </li>
 <li>
-<p><code>quantity</code> : sorts table list by quantity.</p>
+<p><code>quantity</code> : sorts the table by quantity.</p>
 </li>
 </ul>
 </div>
@@ -151,9 +291,11 @@ Format: <code>sort p/PROPERTY d/DIRECTION</code></p>
 <p><code>ascending</code>: sorts the table in ascending order.</p>
 </li>
 <li>
-<p><code>descending</code> : sorts table list in descending order.</p>
+<p><code>descending</code> : sorts the table in descending order.</p>
 </li>
 </ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -174,7 +316,7 @@ The table is sorted starting from the batch with the lowest quantity.</p>
 <div class="sect2">
 <h3 id="updating-batch-records-code-update-code"><a class="link" href="#updating-batch-records-code-update-code">Updating batch records : <code>update</code></a></h3>
 <div class="paragraph">
-<p>Updates details of a batch of medicine.<br>
+<p>Updates batch details of a medicine.<br>
 Format: <code>update INDEX b/BATCH_NUMBER [q/QUANTITY] [e/EXPIRY_DATE]</code></p>
 </div>
 <div class="sidebarblock">
@@ -182,31 +324,25 @@ Format: <code>update INDEX b/BATCH_NUMBER [q/QUANTITY] [e/EXPIRY_DATE]</code></p
 <div class="ulist">
 <ul>
 <li>
-<p>Updates details of a batch in the batch records of medicine at specified <code>INDEX</code>.</p>
+<p>Updates details of a batch in the batch records of the medicine at specified <code>INDEX</code>.</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
 </li>
 <li>
-<p>If batch number already exists, the quantity or expiry date of the batch is updated.</p>
+<p>If the entered batch number does not already exist in the record, a new batch record is created. Both quantity and expiry date must be entered for new batches.</p>
 </li>
 <li>
-<p>If batch number does not exist, a new batch record is created. Both quantity and expiry date must be entered for new batches.</p>
+<p>If the batch number already exists, the quantity or expiry date of the batch is replaced with the new information entered.</p>
 </li>
 <li>
-<p>If quantity of batch is updated to <code>0</code>, it will be removed.</p>
+<p>If quantity of a batch is updated to <code>0</code>, it will be removed.</p>
 </li>
 <li>
-<p>If <code>q/QUANTITY</code> or <code>e/EXPIRY_DATE</code> is not inputted, batch must already exist in the records and existing information is maintained.</p>
+<p>The total quantity and next expiry date of the medicine will also be updated.</p>
 </li>
 <li>
-<p>The total quantity and closest expiry date of the medicine will also be updated.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed medicine list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+<p>Note that in order to prevent confusion, you cannot set expiry date to a passed date. You also cannot add a new batch with 0 quantity.</p>
 </li>
 </ul>
 </div>
@@ -219,71 +355,75 @@ Format: <code>update INDEX b/BATCH_NUMBER [q/QUANTITY] [e/EXPIRY_DATE]</code></p
 <ul>
 <li>
 <p><code>list</code><br>
-<code>update 2 b/s9c4x9532 q/1000 e/11/2/2020</code><br>
-Updates quantity and expiry date of batch <code>s9c4x9532</code> in batch records of the 2nd medicine in the list to <code>1000</code> and <code>11/2/2020</code>.</p>
+<code>update 2 b/NDC 0777-3105-02 q/30 e/11/2/2020</code><br>
+Updates quantity and expiry date of batch <code>NDC 0777-3105-02</code> in the batch records of the 2nd medicine in the list to <code>30</code> and <code>11/2/2020</code>. A new record is created if batch <code>NDC 0777-3105-02</code> did not already exist.</p>
 </li>
 <li>
 <p><code>find n/ Gabapentin</code><br>
-<code>update 1 b/8937v1x7 q/500</code><br>
-Updates quantity of batch <code>8937v1x7</code> in batch records of the 1st medicine in the results of the <code>find</code> command to <code>500</code>.</p>
+<code>update 1 b/GKP1684 q/50</code><br>
+Updates quantity of batch <code>GKP1684</code> in the batch records of the 1st medicine in the results of the <code>find</code> command to <code>50</code>. An error message is shown if batch <code>GKP1684</code> did not already exist.</p>
+</li>
+<li>
+<p><code>list</code><br>
+<code>update 1 b/HK85412 q/0</code><br>
+Removes batch <code>HK85412</code> from the batch records of the 1st medicine in the list. An error message is shown if batch <code>HK85412</code> did not already exist.</p>
 </li>
 </ul>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
-</tr>
-</tbody>
-</table>
 <div class="sect2">
-<h3 id="information-panel"><a class="link" href="#information-panel">Information Panel</a></h3>
+<h3 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h3>
+<div class="paragraph">
+<p>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an object diagram to better illustrate how details of a medicine is stored in the <code>Model</code> component.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModelMedicineObjectDiagram.png" alt="ModelMedicineObjectDiagram" width="900">
+</div>
+<div class="title">Figure 3. An example of how the medicine "Paracetamol" could be represented by the <code>Medicine</code> class.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="information-panel-2"><a class="link" href="#information-panel-2">Information Panel</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
 <p>The information panel is mainly driven by <code>InformationPanel</code> which extends <code>UiPart</code> with an added mechanism to interact with the currently selected medicine and information panel settings.
-It implements the following operations:</p>
+It implements the following main operations:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>InformationPanel#showSelectedInformation(Medicine medicine)</code>&#8201;&#8212;&#8201;Creates and displays a <code>BatchTable</code> that contains information of the selected medicine and its batches. Values in the <code>BatchTable</code> are sorted according to <code>SortProperty</code> and <code>SortDirection</code> specified in the <code>InformationPanelSettings</code>.</p>
+<p><code>InformationPanel#showSelectedInformation(Medicine medicine)</code>&#8201;&#8212;&#8201;Creates and displays a <code>BatchTable</code> that contains information of the selected medicine and its batches. Values in the <code>BatchTable</code> are sorted according to <code>SortProperty</code> and <code>SortDirection</code> specified in <code>InformationPanelSettings</code> stored in <code>InformationPanel</code>.</p>
 </li>
 <li>
-<p><code>InformationPanel#emptyInformationPanel()</code>&#8201;&#8212;&#8201;Deletes the <code>BatchTable</code> being displayed (if any) to show an empty pane.</p>
+<p><code>InformationPanel#emptyInformationPanel()</code>&#8201;&#8212;&#8201;Deletes the <code>BatchTable</code> being displayed to show an empty pane.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are hidden and are only triggered when the value of the selected medicine or information panel settings changes.
-The <code>InformationPanel</code> is initialized with the selected medicine and information panel settings as <code>ObservableValue&lt;Medicine&gt;</code> and ObservableValue&lt;InformationPanelSettings` objects with`ChangeListener` objects are added to them.
-<code>ChangeListener#changed(ObservableValue&lt;? extends T&gt; observable, T oldValue, T newValue)</code> is called whenever the values in either of the <code>ObservableValue</code> objects changes.</p>
+<p>These operations are hidden and are only triggered when the value of the selected medicine or information panel settings changes. The <code>InformationPanel</code> is initialized with the selected medicine and information panel settings passed in as <code>ObservableValue&lt;Medicine&gt;</code> and <code>ObservableValue&lt;InformationPanelSettings</code> objects and <code>ChangeListener</code> objects are added to them. <code>ChangeListener#changed(ObservableValue&lt;? extends T&gt; observable, T oldValue, T newValue)</code> is called whenever the values in either of the <code>ObservableValue</code> objects changes.</p>
 </div>
 <div class="paragraph">
-<p>Given below is a diagram showing the execution of <code>InformationPanel</code> when a change to the selected medicine occurs:</p>
+<p>Given below is a diagram showing the execution of <code>InformationPanel</code> when a change to the selected medicine occurs. <code>informationPanel</code> variable seen in the diagram is a <code>StackPane</code> object used to display the created <code>BatchTable</code> by adding it as a child node.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/InformationPanelSequenceDiagram.png" alt="InformationPanelSequenceDiagram" width="800">
+<img src="../images/InformationPanelSequenceDiagram.png" alt="InformationPanelSequenceDiagram" width="1000">
 </div>
+<div class="title">Figure 4. Sequence Diagram for InformationPanel when a change in selected medicine occurs</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the information panel behaves at each step when the selected medicine changes.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. An empty <code>InformationPanel</code> is displayed.</p>
+<p>Step 1. The user launches the application. The selected medicine is always null when the application is launched. An empty <code>InformationPanel</code> is displayed.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>select 1</code> command to select the 1st medicine in the inventory. Since the new value is not null, <code>InformationPanel#showSelectedInformation(Medicine medicine)</code> is called.</p>
+<p>Step 2. The user executes <code>select 1</code> command to select the 1st medicine in the inventory. Since the new value is not null, <code>InformationPanel#showSelectedInformation(Medicine medicine)</code> is called. A new <code>BatchTable</code> with information of the selected medicine is created and displayed.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -298,16 +438,37 @@ An <code>update</code> command will also cause <code>ChangeListener#changed(Obse
 </table>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>find n/Paracetamol &#8230;&#8203;</code>. The <code>find</code> command deselects the selected medicine and the new value is null. Only <code>InformationPanel#emptyInformationPanel()</code> is called.</p>
+<p>Step 3. The user executes <code>find n/Paracetamol</code>. The <code>find</code> command deselects the selected medicine and the new value is null. Only <code>InformationPanel#emptyInformationPanel()</code> is executed.</p>
 </div>
 <div class="paragraph">
-<p>Given below is another example usage scenario and how the information panel behaves with the <code>sort</code> command.</p>
+<p>Changes to the information panel settings results in a similar sequence of events, except the new value of <code>InformationPanelSettings</code> is saved in <code>InformationPanel</code> before <code>InformationPanel#display()</code> is called.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>InformationPanel</code> is initialized with <code>InformationPanelSettings</code> stored in <code>UserPrefs</code>.</p>
+<p>Given below is another example usage scenario of how the information panel interacts with <code>InformationPanelSettings</code> and the <code>sort</code> command.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>sort p/quantity d/ascending</code> command to sort all batch tables by quantity in ascending order. The <code>sort</code> command calls <code>Model#setInformationPanelSettings(InformationPanelSettings informationPanelSettings))</code> which changes the value of the <code>InformationPanelSettings</code> in <code>Model</code>. <code>InformationPanel#Display(Medicine medicine)</code> is called because of the changed value.</p>
+<p>Step 1. The user launches the application. <code>InformationPanelSettings</code> stored in <code>Model</code> is passed as an <code>ObservableValue&lt;InformationPanelSettings&gt;</code> to initialize the <code>InformationPanel</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>sort p/quantity d/ascending</code> command to sort all batch tables by quantity in ascending order. The <code>sort</code> command calls <code>Model#setInformationPanelSettings(InformationPanelSettings informationPanelSettings))</code> which changes the value of the <code>InformationPanelSettings</code> in <code>Model</code>. The new <code>InformationPanelSettings</code> is saved in <code>InformationPanel</code>. If the selected medicine is not null, <code>InformationPanel#showSelectedInformation(Medicine medicine)</code> is called. Given below is an activity diagram to show how the saved <code>InformationPanelSettings</code> is used to sort the <code>BatchTable</code> during its initialization. A <code>TableView</code> object populated with the details of the selected medicine is created before the sorting takes place.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/InformationPanelActivityDiagram.png" alt="InformationPanelActivityDiagram" width="900">
+</div>
+<div class="title">Figure 5. Activity Diagram demonstrating how BatchTable is sorted during initialization</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For more information on the <code>TableView</code> class, you may refer to its API <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/TableView.html">here</a>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -337,7 +498,7 @@ An <code>update</code> command will also cause <code>ChangeListener#changed(Obse
 <p>Pros: Save time needed for creating the <code>BatchTable</code> for faster response time.</p>
 </li>
 <li>
-<p>Cons: More memory needed to store <code>BatchTable</code>. Complicated implementation.</p>
+<p>Cons: More memory needed to store <code>BatchTable</code>. <code>BatchTable</code> may still have to be recreated if the details of the <code>Medicine</code> are changed after the <code>BatchTable</code> has been created.</p>
 </li>
 </ul>
 </div>
@@ -347,188 +508,41 @@ An <code>update</code> command will also cause <code>ChangeListener#changed(Obse
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="use-cases"><a class="link" href="#use-cases">Use Cases</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>MediTabs</code> and the <strong>Actor</strong> is the <code>pharmacist</code>, unless specified otherwise)</p>
-</div>
-<h3 id="use-case-1-view-complete-inventory" class="discrete">Use Case 1: View Complete Inventory</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
+<div class="sect2">
+<h3 id="updating-batch-details-of-a-medicine"><a class="link" href="#updating-batch-details-of-a-medicine">Updating batch details of a medicine</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Upon start up, System displays the complete inventory of medicine.</p>
+<p>Updating a medicine with a new batch while all medicines are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all medicines using the <code>list</code> command. Multiple medicines in the list. All batch numbers used for testing should not exist in the batch records of the selected medicine. Use <code>select 1</code> to load the information page.</p>
 </li>
 <li>
-<p>Pharmacist navigates the list with arrow keys.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
+<p>Test case: <code>update 1 b/A q/1 e/1/1/2020</code> (valid input)<br>
+Expected: New batch is added to the batch table shown in the information panel. Details of the added batch shown in the status message. Total quantity should increase by <code>1</code>. Next expiry of medicine should change if <code>01/01/2020</code> is earlier.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 q/1 e/1/1/2020</code> (missing batch number)<br>
+Expected: Error details shown in the status message. No changes to medicine. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 b/B e/1/1/2020</code> (missing quantity)<br>
+Expected: Error details shown in the status message. No changes to medicine. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 b/B q/1</code>  (missing expiry)<br>
+Expected: Error details shown in the status message. No changes to medicine. Status bar remains the same.</p>
+</li>
+</ol>
 </div>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. Pharmacist used <code>find</code> function, filtered inventory is shown.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. Pharmacist requests for complete inventory to be listed using <code>list</code> command.</p>
-</li>
-<li>
-<p>1a2. System displays complete inventory.</p>
-<div class="paragraph">
-<p>Use case resume at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-2-update-batch-details-of-a-medicine-in-inventory" class="discrete">Use Case 2: Update Batch Details of a Medicine in Inventory</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Pharmacist notes the index of the medicine to be updated in the list.</p>
-</li>
-<li>
-<p>Pharmacist request to update details of a batch of medicine using the index and the <code>update</code> command.</p>
-</li>
-<li>
-<p>System displays updated details.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. Medicine is new and has not been added to the inventory.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. Pharmacist uses the <code>add</code> function to add a new entry to list.</p>
-</li>
-<li>
-<p>1a2. Pharmacist notes the index of the new medicine listing from the search result.</p>
-<div class="paragraph">
-<p>Use case resume at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1b. Pharmacist cannot remember batch number of batch to be updated.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1b1. Pharmacist uses <code>select</code> command to select the medicine to be updated.</p>
-</li>
-<li>
-<p>1b2. System displays the batch table with information of all batches of the selected medicine.</p>
-</li>
-<li>
-<p>1b3. Pharmacist refers to the batch table while inputting batch details.</p>
-<div class="paragraph">
-<p>Use case resume at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. Pharmacist did not enter expiry date and batch does not already exist.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1. An error message is shown.</p>
-</li>
-<li>
-<p>2a2. System requests expiry date be entered for new batches.</p>
-</li>
-<li>
-<p>2a3. Pharmacist repeats request with the required input.</p>
-<div class="paragraph">
-<p>Use case resume at step 3.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-3-delete-medicine-from-inventory" class="discrete">Use Case 3: Delete Medicine from Inventory</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Pharmacist notes the index of the medicine to be deleted in the list.</p>
-</li>
-<li>
-<p>Pharmacist request to delete a medicine listing using the index and the <code>delete</code> command.</p>
-</li>
-<li>
-<p>System displays updated list.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. Pharmacist cannot find the medicine listing manually from the list.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. Pharmacist uses the <code>find</code> function to look for medicine listing.</p>
-</li>
-<li>
-<p>1a2. System list the search results.</p>
-</li>
-<li>
-<p>1a3. Pharmacist notes the index of the medicine listing from the search result.</p>
-<div class="paragraph">
-<p>Use case resume at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<p>Click <a href="https://cs2103-ay1819s2-t12-3.github.io/main/DeveloperGuide.html#updating-batch-details-of-a-medicine">here</a> to see the remainder of the test cases.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 12:04:55 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 12:43:43 UTC</div></div></div></body></html>

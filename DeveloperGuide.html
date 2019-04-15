@@ -81,9 +81,7 @@
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">E.1. Launch and Shutdown</a></li>
 <li><a href="#deleting-a-medicine">E.2. Deleting a medicine</a></li>
-<li><a href="#exporting-as-csv-file-format-2">E.3. Exporting as CSV file format</a></li>
-<li><a href="#changing-warning-panel-thresholds">E.4. Changing warning panel thresholds</a></li>
-<li><a href="#labeling-medicine-information-onto-a-pdf-file">E.5. Labeling medicine information onto a PDF file</a></li>
+<li><a href="#updating-batch-details-of-a-medicine">E.3. Updating batch details of a medicine</a></li>
 </ul>
 </li>
 </ul>
@@ -93,12 +91,12 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Welcome to the <em>MediTabs Developer Guide</em>. You can find step by step instructions on how to set up MediTabs project on your computer and modify the project to suit your needs. You can also find out more about the development process of MediTabs such as its design and implementation. Interested? You can jump to <a href="#setting-up">Section 2, &#8220;Setting up&#8221;</a> to get started. Enjoy!</p>
+<p>Welcome to the <em>MediTabs Developer Guide</em>. This guide contains step by step instructions on how to set up the MediTabs project on your computer and modify the project to suit your needs. You can also find out more about the technical aspects of MediTabs such as its design rationales and implementation details. Interested? You can jump to <a href="#setting-up">Section 2, &#8220;Setting up&#8221;</a> to get started. Enjoy!</p>
 </div>
 <div class="sect2">
 <h3 id="what-is-meditabs"><a class="link" href="#what-is-meditabs">1.1. What is MediTabs</a></h3>
 <div class="paragraph">
-<p>MediTabs is a desktop application, developed using Java, for managing medicine stock taking. You can use MediTabs in your clinics to easily keep track of your medicine inventory and take note of important information such as which medicines are low in stock, expiring soon or have expired.</p>
+<p>MediTabs is a desktop application, developed using Java, for managing medicine stock taking. It was created to provide pharmacist with a straightforward and efficient way to keep track of and maintain their medicine inventory. With MediTabs, pharmacist can easily organize medicine details and take note of important information such as which medicines are low in stock, expiring soon or have expired. MediTabs also contains functionality to help pharmacists with tasks which require medicine data such as medicine labelling and inventory analysis.</p>
 </div>
 <div class="paragraph">
 <p>MediTabs supports Windows, Linux and macOS operating systems.</p>
@@ -516,7 +514,7 @@ The following class plays an important role at the architecture level:</p>
 <h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram" width="800">
+<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram" width="900">
 </div>
 <div class="title">Figure 6. Structure of the Model Component</div>
 </div>
@@ -543,11 +541,11 @@ The following class plays an important role at the architecture level:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Given below an object diagram to better illustrate how a medicine is stored in the <code>Model</code> component.</p>
+<p>Given below is an object diagram to better illustrate how details of a medicine is stored in the <code>Model</code> component.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ModelMedicineObjectDiagram.png" alt="ModelMedicineObjectDiagram" width="800">
+<img src="images/ModelMedicineObjectDiagram.png" alt="ModelMedicineObjectDiagram" width="900">
 </div>
 <div class="title">Figure 7. An example of how the medicine "Paracetamol" could be represented by the <code>Medicine</code> class.</div>
 </div>
@@ -559,13 +557,11 @@ The following class plays an important role at the architecture level:</p>
 </td>
 <td class="content">
 As a more OOP model, we can store a <code>Tag</code> list in <code>Inventory</code>, which <code>Medicine</code> can reference. This would allow <code>Inventory</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Medicine</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+<br>
+<span class="image"><img src="images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800"></span>
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>+
-<span class="image"><img src="images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800"></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -613,39 +609,38 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Inventory</co
 <h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The information panel is mainly driven by <code>InformationPanel</code> which extends <code>UiPart</code> with an added mechanism to interact with the currently selected medicine and information panel settings.
-It implements the following operations:</p>
+It implements the following main operations:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>InformationPanel#showSelectedInformation(Medicine medicine)</code>&#8201;&#8212;&#8201;Creates and displays a <code>BatchTable</code> that contains information of the selected medicine and its batches. Values in the <code>BatchTable</code> are sorted according to <code>SortProperty</code> and <code>SortDirection</code> specified in the <code>InformationPanelSettings</code>.</p>
+<p><code>InformationPanel#showSelectedInformation(Medicine medicine)</code>&#8201;&#8212;&#8201;Creates and displays a <code>BatchTable</code> that contains information of the selected medicine and its batches. Values in the <code>BatchTable</code> are sorted according to <code>SortProperty</code> and <code>SortDirection</code> specified in <code>InformationPanelSettings</code> stored in <code>InformationPanel</code>.</p>
 </li>
 <li>
-<p><code>InformationPanel#emptyInformationPanel()</code>&#8201;&#8212;&#8201;Deletes the <code>BatchTable</code> being displayed (if any) to show an empty pane.</p>
+<p><code>InformationPanel#emptyInformationPanel()</code>&#8201;&#8212;&#8201;Deletes the <code>BatchTable</code> being displayed to show an empty pane.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are hidden and are only triggered when the value of the selected medicine or information panel settings changes.
-The <code>InformationPanel</code> is initialized with the selected medicine and information panel settings as <code>ObservableValue&lt;Medicine&gt;</code> and ObservableValue&lt;InformationPanelSettings` objects with`ChangeListener` objects are added to them.
-<code>ChangeListener#changed(ObservableValue&lt;? extends T&gt; observable, T oldValue, T newValue)</code> is called whenever the values in either of the <code>ObservableValue</code> objects changes.</p>
+<p>These operations are hidden and are only triggered when the value of the selected medicine or information panel settings changes. The <code>InformationPanel</code> is initialized with the selected medicine and information panel settings passed in as <code>ObservableValue&lt;Medicine&gt;</code> and <code>ObservableValue&lt;InformationPanelSettings</code> objects and <code>ChangeListener</code> objects are added to them. <code>ChangeListener#changed(ObservableValue&lt;? extends T&gt; observable, T oldValue, T newValue)</code> is called whenever the values in either of the <code>ObservableValue</code> objects changes.</p>
 </div>
 <div class="paragraph">
-<p>Given below is a diagram showing the execution of <code>InformationPanel</code> when a change to the selected medicine occurs:</p>
+<p>Given below is a diagram showing the execution of <code>InformationPanel</code> when a change to the selected medicine occurs. <code>informationPanel</code> variable seen in the diagram is a <code>StackPane</code> object used to display the created <code>BatchTable</code> by adding it as a child node.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/InformationPanelSequenceDiagram.png" alt="InformationPanelSequenceDiagram" width="800">
+<img src="images/InformationPanelSequenceDiagram.png" alt="InformationPanelSequenceDiagram" width="1000">
 </div>
+<div class="title">Figure 9. Sequence Diagram for InformationPanel when a change in selected medicine occurs</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the information panel behaves at each step when the selected medicine changes.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. An empty <code>InformationPanel</code> is displayed.</p>
+<p>Step 1. The user launches the application. The selected medicine is always null when the application is launched. An empty <code>InformationPanel</code> is displayed.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>select 1</code> command to select the 1st medicine in the inventory. Since the new value is not null, <code>InformationPanel#showSelectedInformation(Medicine medicine)</code> is called.</p>
+<p>Step 2. The user executes <code>select 1</code> command to select the 1st medicine in the inventory. Since the new value is not null, <code>InformationPanel#showSelectedInformation(Medicine medicine)</code> is called. A new <code>BatchTable</code> with information of the selected medicine is created and displayed.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -660,16 +655,37 @@ An <code>update</code> command will also cause <code>ChangeListener#changed(Obse
 </table>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>find n/Paracetamol &#8230;&#8203;</code>. The <code>find</code> command deselects the selected medicine and the new value is null. Only <code>InformationPanel#emptyInformationPanel()</code> is called.</p>
+<p>Step 3. The user executes <code>find n/Paracetamol</code>. The <code>find</code> command deselects the selected medicine and the new value is null. Only <code>InformationPanel#emptyInformationPanel()</code> is executed.</p>
 </div>
 <div class="paragraph">
-<p>Given below is another example usage scenario and how the information panel behaves with the <code>sort</code> command.</p>
+<p>Changes to the information panel settings results in a similar sequence of events, except the new value of <code>InformationPanelSettings</code> is saved in <code>InformationPanel</code> before <code>InformationPanel#display()</code> is called.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>InformationPanel</code> is initialized with <code>InformationPanelSettings</code> stored in <code>UserPrefs</code>.</p>
+<p>Given below is another example usage scenario of how the information panel interacts with <code>InformationPanelSettings</code> and the <code>sort</code> command.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>sort p/quantity d/ascending</code> command to sort all batch tables by quantity in ascending order. The <code>sort</code> command calls <code>Model#setInformationPanelSettings(InformationPanelSettings informationPanelSettings))</code> which changes the value of the <code>InformationPanelSettings</code> in <code>Model</code>. <code>InformationPanel#Display(Medicine medicine)</code> is called because of the changed value.</p>
+<p>Step 1. The user launches the application. <code>InformationPanelSettings</code> stored in <code>Model</code> is passed as an <code>ObservableValue&lt;InformationPanelSettings&gt;</code> to initialize the <code>InformationPanel</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>sort p/quantity d/ascending</code> command to sort all batch tables by quantity in ascending order. The <code>sort</code> command calls <code>Model#setInformationPanelSettings(InformationPanelSettings informationPanelSettings))</code> which changes the value of the <code>InformationPanelSettings</code> in <code>Model</code>. The new <code>InformationPanelSettings</code> is saved in <code>InformationPanel</code>. If the selected medicine is not null, <code>InformationPanel#showSelectedInformation(Medicine medicine)</code> is called. Given below is an activity diagram to show how the saved <code>InformationPanelSettings</code> is used to sort the <code>BatchTable</code> during its initialization. A <code>TableView</code> object populated with the details of the selected medicine is created before the sorting takes place.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/InformationPanelActivityDiagram.png" alt="InformationPanelActivityDiagram" width="900">
+</div>
+<div class="title">Figure 10. Activity Diagram demonstrating how BatchTable is sorted during initialization</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For more information on the <code>TableView</code> class, you may refer to its API <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/TableView.html">here</a>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -699,7 +715,7 @@ An <code>update</code> command will also cause <code>ChangeListener#changed(Obse
 <p>Pros: Save time needed for creating the <code>BatchTable</code> for faster response time.</p>
 </li>
 <li>
-<p>Cons: More memory needed to store <code>BatchTable</code>. Complicated implementation.</p>
+<p>Cons: More memory needed to store <code>BatchTable</code>. <code>BatchTable</code> may still have to be recreated if the details of the <code>Medicine</code> are changed after the <code>BatchTable</code> has been created.</p>
 </li>
 </ul>
 </div>
@@ -770,7 +786,7 @@ Out of the three key operations stated above, <strong>only</strong> <code>CsvWra
 <div class="content">
 <img src="images/ExportCommandSequenceDiagramOverview.png" alt="ExportCommandSequenceDiagramOverview" width="800">
 </div>
-<div class="title">Figure 9. Export Command Sequence Diagram Overview</div>
+<div class="title">Figure 11. Export Command Sequence Diagram Overview</div>
 </div>
 <div class="paragraph">
 <p>Given below is a brief description of how the exporting as CSV file format mechanism behaves as shown in the sequence diagram above:</p>
@@ -818,7 +834,7 @@ If a CSV file with the input file name already exists in the <code>exported</cod
 <div class="content">
 <img src="images/ExportCommandActivityDiagram.png" alt="ExportCommandActivityDiagram" width="800">
 </div>
-<div class="title">Figure 10. Export Command Activity Diagram</div>
+<div class="title">Figure 12. Export Command Activity Diagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -1390,7 +1406,7 @@ If the user would execute another <code>label 1</code>, the original <code>to_pr
 <div class="content">
 <img src="images/WarningPanelSequenceDiagram.png" alt="WarningPanelSequenceDiagram" width="1000">
 </div>
-<div class="title">Figure 11. Sequence diagram illustrating initialisation of the warning panel on start up</div>
+<div class="title">Figure 13. Sequence diagram illustrating initialisation of the warning panel on start up</div>
 </div>
 </div>
 <div class="sect4">
@@ -1440,7 +1456,7 @@ If the user would execute another <code>label 1</code>, the original <code>to_pr
 <div class="content">
 <img src="images/WarningCommandActivityDiagram.png" alt="WarningCommandActivityDiagram" width="800">
 </div>
-<div class="title">Figure 12. Activity diagram illustrating what happens when a user executes the <code>warning</code> command</div>
+<div class="title">Figure 14. Activity diagram illustrating what happens when a user executes the <code>warning</code> command</div>
 </div>
 </div>
 </div>
@@ -1809,7 +1825,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 13. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 15. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2192,14 +2208,14 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add new and existing medicine to the inventory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add new medicine to the inventory</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">keep my inventory updated</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">delete medicine</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove medicine that have expired or are no longer need</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove medicine that have become obsolete</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -2244,25 +2260,25 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">forecast sales and performance</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">view manufacturers' contact details</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">find out who to contact for more stock quickly</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">be redirected to a mailer to email manufacturers</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">restock quickly</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">be recommended dosage</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">recommend dosage based on patient&#8217;s profile</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pharmacist</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">have a task list</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">set reminders for myself</p></td>
@@ -2399,7 +2415,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <p>2a1. An error message is shown.</p>
 </li>
 <li>
-<p>2a2. System requests expiry date be entered for new batches.</p>
+<p>2a2. System requests both quantity and expiry date be entered for new batches.</p>
 </li>
 <li>
 <p>2a3. Pharmacist repeats request with the required input.</p>
@@ -2445,7 +2461,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <p>1a1. Pharmacist uses the <code>find</code> function to look for medicine listing.</p>
 </li>
 <li>
-<p>1a2. System list the search results.</p>
+<p>1a2. System lists the search results.</p>
 </li>
 <li>
 <p>1a3. Pharmacist notes the index of the medicine listing from the search result.</p>
@@ -2635,7 +2651,124 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exporting-as-csv-file-format-2"><a class="link" href="#exporting-as-csv-file-format-2">E.3. Exporting as CSV file format</a></h3>
+<h3 id="updating-batch-details-of-a-medicine"><a class="link" href="#updating-batch-details-of-a-medicine">E.3. Updating batch details of a medicine</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Updating a medicine with a new batch while all medicines are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all medicines using the <code>list</code> command. Multiple medicines in the list. All batch numbers used for testing should not exist in the batch records of the selected medicine. Use <code>select 1</code> to load the information page.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 b/A q/1 e/1/1/2020</code> (valid input)<br>
+Expected: New batch is added to the batch table shown in the information panel. Details of the added batch shown in the status message. Total quantity should increase by <code>1</code>. Next expiry of medicine should change if <code>01/01/2020</code> is earlier.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 q/1 e/1/1/2020</code> (missing batch number)<br>
+Expected: Error details shown in the status message. No changes to medicine. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 b/B e/1/1/2020</code> (missing quantity)<br>
+Expected: Error details shown in the status message. No changes to medicine. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 b/B q/1</code>  (missing expiry)<br>
+Expected: Error details shown in the status message. No changes to medicine. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 b/- q/A e/1/1/2020</code> (invalid batch number)<br>
+Expected: Error details shown in the status message. No changes to medicine. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 b/B q/10000000000000 e/1/1/2020</code> (invalid quantity - max quantity exceeded)<br>
+Expected: Error details shown in the status message. No changes to medicine. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 b/B q/1 e/1/1/10000</code> (invalid expiry)<br>
+Expected: Error details shown in the status message. No changes to medicine. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 b/B q/0 e/1/1/2020</code> (zero quantity)<br>
+Expected: Error details shown in the status message. No changes to medicine. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 b/B q/1 e/1/1/1995</code> (passed date for expiry)<br>
+Expected: Error details shown in the status message. No changes to medicine. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 b/B q/1 e/29/2/2019</code> (invalid leap year)<br>
+Expected: Error details shown in the status message. No changes to medicine. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 b/B q/1 e/29/2/2020</code> (valid leap year)  <br>
+Expected: New batch is added to the batch table shown in the information panel. Details of the added batch shown in the status message. Total quantity should increase by <code>1</code>. Next expiry of medicine should change if <code>29/02/2020</code> is earlier.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 e/29/2/2020 q/1 b/C</code> (different order of arguments)  <br>
+Expected: New batch is added to the batch table shown in the information panel. Details of the added batch shown in the status message. Total quantity should increase by <code>1</code>. Next expiry of medicine should change if <code>29/02/2020</code> is earlier.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Updating a medicine with a existing batch while all medicines are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all medicines using the <code>list</code> command. Multiple medicines in the list. Batch number used for testing should already exist in the batch records of the selected medicine (B is added in the tests above). Use <code>select 1</code> to load the information page.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 b/B q/10</code> (missing expiry allowed)<br>
+Expected: batch is updated in batch table shown in the information panel with quantity changed to <code>10</code>. Details of the updated batch shown in the status message. Total quantity should increase by <code>9</code>. Next expiry should not change.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 b/B e/1/1/2020</code> (missing quantity allowed)<br>
+Expected: batch is updated in batch table shown in the information panel with expiry changed to <code>01/01/2020</code>. Details of the updated batch shown in the status message. Total quantity should not change. Next expiry of medicine should change if <code>01/01/2020</code> is earlier.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Updating a medicine by removing an existing batch while all medicines are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all medicines using the <code>list</code> command. Multiple medicines in the list. Batch number used for testing should already exist in the batch records of the selected medicine (B is added in the tests above). Use <code>select 1</code> to load the information page.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 b/B q/0</code> (valid input)<br>
+Expected: batch is removed from batch table shown in the information panel. Details of the removed batch shown in the status message. Total quantity should be reduced by <code>10</code>. Next expiry should be updated if batch removed had the closest expiry date.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Updating a medicine by adding a new batch while medicine list is filtered</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: use <code>find</code> command to filter the list. Recommended <code>find t/ fever</code>. Batch number used for testing should not exist in the batch records of the selected medicine. Use <code>select 1</code> to load the information page.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 b/D q/1 e/1/1/2020</code> (valid input)<br>
+Expected: batch is added to batch table shown in the information panel. Details of the added batch shown in the status message. Total quantity should increase by <code>1</code>. Next expiry should be updated if batch removed had the closest expiry date. Filtered list should remain filtered.</p>
+</li>
+<li>
+<p>Test case: <code>update 1 b/E q/1 e/1/1/2020 b/F b/G q/2 e/2/1/2020</code>  (more than one valid input)<br>
+Expected: batch <code>G</code> is added to batch table shown in the information panel as last valid input is taken. Details of the added batch shown in the status message. Total quantity should increase by <code>2</code>. Next expiry of medicine should change if <code>02/01/2020</code> is earlier. Filtered list should remain filtered.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Exporting as CSV file format</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2692,9 +2825,9 @@ Expected: The current medicine inventory data shown in the GUI is successfully e
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>=== Changing warning panel thresholds</p>
 </div>
-<div class="sect2">
-<h3 id="changing-warning-panel-thresholds"><a class="link" href="#changing-warning-panel-thresholds">E.4. Changing warning panel thresholds</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2743,9 +2876,9 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>=== Labeling medicine information onto a PDF file</p>
 </div>
-<div class="sect2">
-<h3 id="labeling-medicine-information-onto-a-pdf-file"><a class="link" href="#labeling-medicine-information-onto-a-pdf-file">E.5. Labeling medicine information onto a PDF file</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2788,4 +2921,6 @@ Expected: Expected: Unsuccessful message shown in the UI. No file will be output
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 12:04:55 UTC</div></div></div></body></html>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-04-15 12:43:43 UTC</div></div></div></body></html>
